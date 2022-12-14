@@ -1,0 +1,58 @@
+/* mobile */
+@media (max-width: 576px) {
+    .header_logo img {
+        max-width: 100px;
+    }
+
+    .btn-register,
+    .btn-logIn {
+        font-size: 1.4rem;
+        padding: 2px 6px;
+        margin-left: 8px;
+    }
+}
+
+/* mobile de ngang hoac tablet nho */
+@media (min-width: 576px) and (max-width:768px) {}
+
+/* tablet */
+@media (min-width: 768px) and (max-width: 992px) {}
+
+/* < tablet */
+@media (max-width: 992px) {
+
+
+    .header_nav {
+        position: absolute;
+        display: block;
+        left: 0;
+        width: 50vw;
+        background-color: #fff;
+        top: 0;
+        height: 100vh;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        transform: translateX(-110%);
+        transition: all linear .4s;
+    }
+
+    .nav_item {
+        padding: 28px;
+        border-bottom: 1px solid #333;
+    }
+
+    .nav_item:first-child {
+        display: block;
+    }
+
+    .header__menu-icon {
+        display: block;
+    }
+}
+
+
+/* pc nho */
+@media (min-width: 992px) and (max-width: 1200px) {
+    .nav_link {
+        font-size: 1.6rem;
+    }
+}
