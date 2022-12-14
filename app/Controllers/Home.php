@@ -15,4 +15,9 @@ class Home extends BaseController
     {
         return $this->view('client.index');
     }
+
+    public function about()
+    {
+        return $this->view('client.pages.about');
+    }
 }

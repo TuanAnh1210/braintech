@@ -1,5 +1,5 @@
 <?php
-$css_file = 'http://localhost/braintech/public/css/index.css';
+$css_file = 'http://localhost/braintech/public/css/styles.css';
 $css_responsive = 'http://localhost/braintech/public/css/reponsive.css';
 $grid_css = 'http://localhost/braintech/public/css/bootstrap-grid.css';
 $gridmap_css = 'http://localhost/braintech/public/css/bootstrap-grid.css.map';

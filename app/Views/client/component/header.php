@@ -33,13 +33,13 @@
                             </span>
                         </li>
                         <li class="header__item active">
-                            <a class="header__link" href="#">Trang chủ</a>
+                            <a class="header__link" href="http://localhost/braintech/">Trang chủ</a>
                         </li>
                         <li class="header__item">
                             <a class="header__link" href="#">Khóa học</a>
                         </li>
                         <li class="header__item">
-                            <a class="header__link" href="#">Giới thiệu</a>
+                            <a class="header__link" href="http://localhost/braintech/home/about">Giới thiệu</a>
                         </li>
                         <li class="header__item">
                             <a class="header__link" href="#">Liên hệ</a>

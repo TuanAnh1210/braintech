@@ -1,58 +1,125 @@
 /* mobile */
 @media (max-width: 576px) {
-    .header_logo img {
-        max-width: 100px;
+    .header__logo {
+        flex-direction: column;
     }
 
-    .btn-register,
-    .btn-logIn {
-        font-size: 1.4rem;
-        padding: 2px 6px;
-        margin-left: 8px;
+    .header__logo img {
+        height: 80%;
+    }
+
+    .header__logo p {
+        font-size: 12px;
+        margin-left: 0;
+    }
+
+    .btn-regis,
+    .btn-login {
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    .banner__text {
+        margin-top: 52px;
+    }
+
+    .sub__banner {
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+
+    .courses-newest_list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .about_intro-text h1 {
+        margin-top: 32px;
+
+    }
+
+    .about_goal-img img {
+        margin-top: 20px;
+    }
+
+    .about_whatToSale {
+        margin-bottom: 820px;
+        background-color: transparent;
+    }
+
+    .about_whatToSale_header {
+        padding: 0;
+        box-shadow: none;
     }
 }
+
 
 /* mobile de ngang hoac tablet nho */
 @media (min-width: 576px) and (max-width:768px) {}
 
+
 /* tablet */
-@media (min-width: 768px) and (max-width: 992px) {}
+@media (min-width: 768px) and (max-width: 992px) {
+    .sub__banner {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .courses-newest_list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .roadmap__card-info p {
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .about_intro-text p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .about_intro-text h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .about_whatToSale_header {
+        max-width: 600px;
+        height: 680px;
+    }
+}
+
 
 /* < tablet */
 @media (max-width: 992px) {
-
-
-    .header_nav {
+    .header__nav {
         position: absolute;
-        display: block;
-        left: 0;
-        width: 50vw;
-        background-color: #fff;
-        top: 0;
-        height: 100vh;
-        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
         transform: translateX(-110%);
-        transition: all linear .4s;
+        display: block;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 40%;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        transition: all linear .2s;
     }
 
-    .nav_item {
-        padding: 28px;
-        border-bottom: 1px solid #333;
+    .header__item {
+        padding: 14px 20px;
+        border-bottom: 1px solid #ccc;
     }
 
-    .nav_item:first-child {
+    .close_nav {
         display: block;
     }
 
-    .header__menu-icon {
+    .header_bar {
         display: block;
     }
 }
-
 
 /* pc nho */
-@media (min-width: 992px) and (max-width: 1200px) {
-    .nav_link {
-        font-size: 1.6rem;
-    }
-}
+@media (min-width: 992px) and (max-width: 1200px) {}

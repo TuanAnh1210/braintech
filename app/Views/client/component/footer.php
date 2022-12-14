@@ -55,7 +55,7 @@
 </footer>
 </div>
 
-<script src="./index.js"></script>
+<script src="http://localhost/braintech/public/js/main.js"></script>
 </body>
 
 </html>
