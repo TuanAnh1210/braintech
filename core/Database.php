@@ -5,7 +5,7 @@ class Database
     public function connect()
     {
         $server_name = "host=127.0.0.1";
-        $dbname = "we18103";
+        $dbname = "braintech";
         $username = "root";
         $password = "";
         try {

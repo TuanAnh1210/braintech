@@ -2,7 +2,7 @@
 
 
 
-<div class="banner">
+<div class="banner__course">
     <div class="container">
         <div class="row banner__wrapper">
             <div class="col-12 col-md-6 col-lg-6">
@@ -14,16 +14,22 @@
                         thể trở thành những lập trình viên luôn được nhiều công ty săn
                         đón.
                     </p>
-                    <button>Học ngay</button>
+                    <button><a href="http://localhost/braintech/khoa-hoc">Học ngay</a></button>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="banner__img">
-                    <img src="http://localhost/braintech/public/imgs/web_developing.gif" alt="" />
+                    <img src="http://localhost/braintech/public/imgs/robottech.gif" alt="" />
                 </div>
             </div>
         </div>
 
+
+    </div>
+</div>
+
+<div class="banner__bottom">
+    <div class="container">
         <div class="sub__banner">
             <div class="sub_banner-item">
                 <div class="sub__banner-icon">
@@ -59,7 +65,16 @@
 
         <div class="courses-newest">
             <h2>Khóa học hot nhất</h2>
-            <div class="courses-newest_list">
+            <div class="courses-newest_list owl-carousel owl-theme">
+                <div class="courses-newest_item">
+                    <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                    <h4>Hoc ReactJs</h4>
+                    <div class="courses-newest_info">
+                        <i class="fa-solid fa-users"></i>
+                        <span>123</span>
+                        <p>Miễn phí</p>
+                    </div>
+                </div>
                 <div class="courses-newest_item">
                     <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
                     <h4>Hoc ReactJs</h4>

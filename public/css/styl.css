@@ -5,8 +5,78 @@
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
+
+body {
+    overflow-y: overlay;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .15);
+}
+
+
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+
+
+.owl-dots {
+    display: none !important;
+}
+
+.owl-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.owl-prev,
+.owl-next {
+    background-color: rgba(204, 204, 204, .3) !important;
+    width: 42px;
+    height: 42px;
+    border-radius: 50% !important;
+    display: flex;
+    align-items: center;
+}
+
+.owl-prev:hover,
+.owl-next:hover {
+    background-color: rgba(204, 204, 204) !important;
+
+}
+
+.owl-next span,
+.owl-prev span {
+    font-size: 34px;
+    display: inline-block;
+    height: 100%;
+    line-height: 36px;
+
+}
+
 a {
     text-decoration: none;
+    color: var(--text-color);
 }
 
 :root {
@@ -34,7 +104,7 @@ header {
     left: 0;
     right: 0;
     background-color: var(--white-color);
-    z-index: 10;
+    z-index: 20;
 }
 
 
@@ -48,17 +118,21 @@ header {
 
 .header__logo {
     height: 100%;
+}
+
+.header__logo a {
+    height: 100%;
     display: flex;
     align-items: center;
 }
 
-.header__logo p {
+.header__logo a p {
     font-size: 14px;
     font-weight: 700;
     margin-left: 12px;
 }
 
-.header__logo img {
+.header__logo a img {
     height: 100%;
     border-radius: 10px;
 }
@@ -200,6 +274,14 @@ header {
 .banner {
     padding-top: var(--height-header);
     margin-top: 32px;
+    background: url('https://maupowerpoint.com/wp-content/uploads/2019/07/hinh-nen-Powerpoint-21-600x450.jpg') top center / cover no-repeat;
+}
+
+.banner__course {
+    padding-top: var(--height-header);
+    margin-top: 32px;
+    background: url('https://haycafe.vn/wp-content/uploads/2022/03/background-banner-mau-trang.jpg') top center / cover no-repeat;
+    height: 100vh;
 }
 
 .banner__wrapper {
@@ -233,6 +315,13 @@ header {
     font-weight: 700;
     transition: all linear .2s;
 
+}
+
+.banner__text button a {
+    width: 100%;
+    height: 100%;
+    color: var(--white-color);
+    display: block;
 }
 
 .banner__text button:hover {
@@ -311,6 +400,7 @@ header {
     border-radius: 8px;
     padding: 18px 14px 20px 14px;
     transition: all linear .3s;
+    margin-bottom: 20px;
 
 }
 
@@ -567,6 +657,7 @@ footer {
 
 /* about */
 .about_intro {
+    margin-top: 32px;
     padding-top: var(--height-header);
     /* background: linear-gradient(171deg, #2b87da, #00ace0); */
     padding-bottom: 48px;
@@ -738,4 +829,124 @@ footer {
 
 .li {
     color: #784BA0;
+}
+
+
+/* courses__wrapper */
+
+.courses__wrapper {
+    margin: 96px 0 32px 0;
+}
+
+.course__pro {
+    position: relative;
+}
+
+.course__pro-icon {
+    position: absolute;
+
+
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 8px;
+    left: 12px;
+    padding: 5px;
+    pointer-events: none;
+    position: absolute;
+    top: 12px;
+    width: 26px;
+}
+
+.course__pro-icon i {
+    color: #fbab17;
+}
+
+.pro__label {
+    background-color: #1473e6;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 6px;
+    position: relative;
+    right: -4px;
+    text-transform: uppercase;
+    top: -6px;
+}
+
+.old__price {
+    font-size: 14px;
+    margin-right: 8px;
+    text-decoration: line-through;
+    color: #666 !important;
+}
+
+.price__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* contact__wrapper */
+.contact__wrapper {
+    padding-top: var(--height-header);
+    margin-top: 32px;
+}
+
+.contact__wrapper {}
+
+.contact__heading {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.contact__sub {
+    line-height: 22px;
+}
+
+
+/* form__contact */
+.form__contact {
+    margin-top: 32px;
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.form__group label {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    padding-bottom: 6px;
+}
+
+.form__group input {
+    padding: 6px 20px;
+    font-size: 16px;
+    border: 2px solid #e8e8e8;
+    border-radius: 6px;
+}
+
+.error {
+    font-size: 14px;
+    color: red;
+    height: 16px;
+}
+
+.btn__send {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 6px 22px;
+    border-radius: 16px;
+    border: none;
+}
+
+.btn__send:hover {
+    opacity: .8;
+    cursor: pointer;
 }

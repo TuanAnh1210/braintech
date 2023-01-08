@@ -20,4 +20,9 @@ class Home extends BaseController
     {
         return $this->view('client.pages.about');
     }
+
+    public function contact()
+    {
+        return $this->view('client.pages.contact');
+    }
 }

@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="stylesheet" href="http://localhost/braintech/public/lib/owl/owl.theme.default.min.css">
+    <link rel="stylesheet" href="http://localhost/braintech/public/lib/owl/owl.carousel.min.css">
     <link rel="stylesheet" href="<?= gridmap_css() ?>" />
     <link rel="stylesheet" href="<?= grid_css() ?>" />
     <link rel="stylesheet" href="<?= css_file() ?>" />
@@ -23,8 +25,10 @@
             <div class="container">
                 <div class="header__wrapper">
                     <div class="header__logo">
-                        <img src="http://localhost/braintech/public/imgs/logo.png" alt="" />
-                        <p>Brain Tech Edu</p>
+                        <a href="http://localhost/braintech">
+                            <img src="http://localhost/braintech/public/imgs/logo.png" alt="" />
+                            <p>Brain Tech Edu</p>
+                        </a>
                     </div>
                     <ul class="header__nav">
                         <li class="close_nav">
@@ -32,22 +36,21 @@
                                 <i class="fa-solid fa-rectangle-xmark"></i>
                             </span>
                         </li>
-                        <li class="header__item active">
+                        <li data-item="" class="header__item">
                             <a class="header__link" href="http://localhost/braintech/">Trang chủ</a>
                         </li>
-                        <li class="header__item">
-                            <a class="header__link" href="#">Khóa học</a>
+                        <li data-item="khoa-hoc" class="header__item">
+                            <a class="header__link" href="http://localhost/braintech/khoa-hoc">Khóa học</a>
                         </li>
-                        <li class="header__item">
-                            <a class="header__link" href="http://localhost/braintech/home/about">Giới thiệu</a>
+                        <li data-item="gioi-thieu" class="header__item">
+                            <a class="header__link" href="http://localhost/braintech/gioi-thieu">Giới thiệu</a>
                         </li>
-                        <li class="header__item">
-                            <a class="header__link" href="#">Liên hệ</a>
+                        <li data-item="lien-he" class="header__item">
+                            <a class="header__link" href="http://localhost/braintech/lien-he">Liên hệ</a>
                         </li>
                     </ul>
                     <div class="header__actions">
-                        <button class="btn-login">Đăng nhập</button>
-                        <button class="btn-regis">Đăng ký</button>
+                        <a href="http://localhost/braintech/account"><button class="btn-login">Đăng nhập</button></a>
                     </div>
 
                     <div class="header_bar">
