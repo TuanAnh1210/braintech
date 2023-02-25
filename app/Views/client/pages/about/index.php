@@ -5,7 +5,7 @@
         <div style="align-items: center;" class="row">
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="about_intro-img">
-                    <img src="http://localhost/braintech/public/imgs/about.gif" alt="">
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/about.gif" alt="">
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-6">
@@ -49,8 +49,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="about_goal-img">
-                    <img style="width: 100%;"
-                        src="http://localhost/braintech/public/imgs/7f60db33e9e416356783c428bec2ac5f.gif" alt="">
+                    <img style="width: 100%;" src="<?= $GLOBALS['domainPage'] ?>/public/imgs/7f60db33e9e416356783c428bec2ac5f.gif" alt="">
                 </div>
 
             </div>
@@ -64,7 +63,7 @@
         <div class="row">
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="about_hr-card">
-                    <img src="http://localhost/braintech/public/imgs/tuananh.jpg" alt="">
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/tuananh.jpg" alt="">
                     <h4>Nguyễn Tuấn Anh</h4>
                     <p>FULLSTACK (WEB)</p>
                     <div class="about_hr-contact">
@@ -82,7 +81,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="about_hr-card">
-                    <img src="http://localhost/braintech/public/imgs/tuananh.jpg" alt="">
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/tuananh.jpg" alt="">
                     <h4>Nguyễn Tuấn Anh</h4>
                     <p>FULLSTACK (WEB)</p>
                     <div class="about_hr-contact">
@@ -100,7 +99,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="about_hr-card">
-                    <img src="http://localhost/braintech/public/imgs/tuananh.jpg" alt="">
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/tuananh.jpg" alt="">
                     <h4>Nguyễn Tuấn Anh</h4>
                     <p>FULLSTACK (WEB)</p>
                     <div class="about_hr-contact">
@@ -118,7 +117,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="about_hr-card">
-                    <img src="http://localhost/braintech/public/imgs/tuananh.jpg" alt="">
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/tuananh.jpg" alt="">
                     <h4>Nguyễn Tuấn Anh</h4>
                     <p>FULLSTACK (WEB)</p>
                     <div class="about_hr-contact">

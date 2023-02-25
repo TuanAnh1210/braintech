@@ -15,7 +15,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="banner__img">
-                    <img src="http://localhost/braintech/public/imgs/web_developing.gif" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/web_developing.gif" alt="" />
                 </div>
             </div>
         </div>
@@ -28,13 +28,12 @@
 
 <div class="courses__wrapper">
     <div class="container">
-        <h1 style="font-weight: 700; font-size: 28px; margin-bottom: 20px;">Khóa học Pro <span
-                class="pro__label">Mới</span></h1>
+        <h1 style="font-weight: 700; font-size: 28px; margin-bottom: 20px;">Khóa học Pro <span class="pro__label">Mới</span></h1>
         <div class="row">
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="courses-newest_item">
                     <div class="course__pro">
-                        <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                        <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                         <span class="course__pro-icon">
                             <i class="fa-solid fa-crown"></i>
                         </span>
@@ -53,7 +52,7 @@
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="courses-newest_item">
                     <div class="course__pro">
-                        <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                        <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                         <span class="course__pro-icon">
                             <i class="fa-solid fa-crown"></i>
                         </span>
@@ -69,7 +68,7 @@
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="courses-newest_item">
                     <div class="course__pro">
-                        <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                        <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                         <span class="course__pro-icon">
                             <i class="fa-solid fa-crown"></i>
                         </span>
@@ -85,7 +84,7 @@
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="courses-newest_item">
                     <div class="course__pro">
-                        <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                        <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                         <span class="course__pro-icon">
                             <i class="fa-solid fa-crown"></i>
                         </span>
@@ -111,7 +110,7 @@
         <div id="test" class="row">
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="courses-newest_item">
-                    <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                     <h4>Hoc ReactJs</h4>
                     <div class="courses-newest_info">
                         <i class="fa-solid fa-users"></i>
@@ -122,7 +121,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="courses-newest_item">
-                    <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                     <h4>Hoc ReactJs</h4>
                     <div class="courses-newest_info">
                         <i class="fa-solid fa-users"></i>
@@ -133,7 +132,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="courses-newest_item">
-                    <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                     <h4>Hoc ReactJs</h4>
                     <div class="courses-newest_info">
                         <i class="fa-solid fa-users"></i>
@@ -144,7 +143,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="courses-newest_item">
-                    <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                     <h4>Hoc ReactJs</h4>
                     <div class="courses-newest_info">
                         <i class="fa-solid fa-users"></i>
@@ -166,7 +165,7 @@
         <div class="row">
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="courses-newest_item">
-                    <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                     <h4>Hoc ReactJs</h4>
                     <div class="courses-newest_info">
                         <i class="fa-solid fa-users"></i>
@@ -177,7 +176,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="courses-newest_item">
-                    <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                     <h4>Hoc ReactJs</h4>
                     <div class="courses-newest_info">
                         <i class="fa-solid fa-users"></i>
@@ -188,7 +187,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="courses-newest_item">
-                    <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                     <h4>Hoc ReactJs</h4>
                     <div class="courses-newest_info">
                         <i class="fa-solid fa-users"></i>
@@ -199,7 +198,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="courses-newest_item">
-                    <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                     <h4>Hoc ReactJs</h4>
                     <div class="courses-newest_info">
                         <i class="fa-solid fa-users"></i>
@@ -232,7 +231,7 @@
             </div>
             <div class="col-12 col-md-5 col-lg-5">
                 <div class="group__img">
-                    <img src="http://localhost/braintech/public/imgs/group.png" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/group.png" alt="" />
                 </div>
             </div>
         </div>

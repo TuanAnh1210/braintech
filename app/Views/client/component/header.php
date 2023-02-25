@@ -11,8 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
-    <link rel="stylesheet" href="http://localhost/braintech/public/lib/owl/owl.theme.default.min.css">
-    <link rel="stylesheet" href="http://localhost/braintech/public/lib/owl/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/lib/owl/owl.theme.default.min.css">
+    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/lib/owl/owl.carousel.min.css">
     <link rel="stylesheet" href="<?= gridmap_css() ?>" />
     <link rel="stylesheet" href="<?= grid_css() ?>" />
     <link rel="stylesheet" href="<?= css_file() ?>" />
@@ -25,8 +25,8 @@
             <div class="container">
                 <div class="header__wrapper">
                     <div class="header__logo">
-                        <a href="http://localhost/braintech">
-                            <img src="http://localhost/braintech/public/imgs/logo.png" alt="" />
+                        <a href="<?= $GLOBALS['domainPage'] ?>">
+                            <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/logo.png" alt="" />
                             <p>Brain Tech Edu</p>
                         </a>
                     </div>
@@ -37,20 +37,20 @@
                             </span>
                         </li>
                         <li data-item="" class="header__item">
-                            <a class="header__link" href="http://localhost/braintech/">Trang chủ</a>
+                            <a class="header__link" href="<?= $GLOBALS['domainPage'] ?>/">Trang chủ</a>
                         </li>
                         <li data-item="khoa-hoc" class="header__item">
-                            <a class="header__link" href="http://localhost/braintech/khoa-hoc">Khóa học</a>
+                            <a class="header__link" href="<?= $GLOBALS['domainPage'] ?>/khoa-hoc">Khóa học</a>
                         </li>
                         <li data-item="gioi-thieu" class="header__item">
-                            <a class="header__link" href="http://localhost/braintech/gioi-thieu">Giới thiệu</a>
+                            <a class="header__link" href="<?= $GLOBALS['domainPage'] ?>/gioi-thieu">Giới thiệu</a>
                         </li>
                         <li data-item="lien-he" class="header__item">
-                            <a class="header__link" href="http://localhost/braintech/lien-he">Liên hệ</a>
+                            <a class="header__link" href="<?= $GLOBALS['domainPage'] ?>/lien-he">Liên hệ</a>
                         </li>
                     </ul>
                     <div class="header__actions">
-                        <a href="http://localhost/braintech/account"><button class="btn-login">Đăng nhập</button></a>
+                        <a href="<?= $GLOBALS['domainPage'] ?>/account"><button class="btn-login">Đăng nhập</button></a>
                     </div>
 
                     <div class="header_bar">

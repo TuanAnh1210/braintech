@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="http://localhost/braintech/public/css/account.css">
+    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/account.css">
 
 </head>
 
@@ -28,7 +28,7 @@
                 </div>
                 <button class="btn__login">Đăng nhập</button>
                 <a class="forgot__pass" href="#">Quên mật khẩu</a>
-                <a class="forgot__pass" href="http://localhost/braintech">Trang chủ</a>
+                <a class="forgot__pass" href="<?= $GLOBALS['domainPage'] ?>">Trang chủ</a>
             </form>
             <form class="form__regis" action="">
                 <h2 class="form__title regis">Đăng ký</h2>
@@ -53,7 +53,7 @@
                     <p class="error"></p>
                 </div>
                 <button class="btn__regis">Đăng ký</button>
-                <a class="forgot__pass" href="http://localhost/braintech">Trang chủ</a>
+                <a class="forgot__pass" href="<?= $GLOBALS['domainPage'] ?>">Trang chủ</a>
             </form>
             <div class="overlay_container">
                 <div class="overlay-login">
@@ -75,30 +75,30 @@
 
 
     <script>
-    const regisJs = document.querySelector('.regisJs')
-    const loginJs = document.querySelector('.loginJs')
-    const isInfoRegis = document.querySelector('.isInfoRegis')
-    const isInfoLogin = document.querySelector('.isInfoLogin')
-    const overlay_container = document.querySelector('.overlay_container')
-    const form__login = document.querySelector('.form__login')
-    const form__regis = document.querySelector('.form__regis')
+        const regisJs = document.querySelector('.regisJs')
+        const loginJs = document.querySelector('.loginJs')
+        const isInfoRegis = document.querySelector('.isInfoRegis')
+        const isInfoLogin = document.querySelector('.isInfoLogin')
+        const overlay_container = document.querySelector('.overlay_container')
+        const form__login = document.querySelector('.form__login')
+        const form__regis = document.querySelector('.form__regis')
 
-    regisJs.onclick = () => {
-        isInfoRegis.classList.add('close')
-        isInfoLogin.classList.remove('close')
-        overlay_container.classList.add('isRegis')
-        form__login.classList.add('ani')
-        form__regis.classList.remove('ani')
-    }
+        regisJs.onclick = () => {
+            isInfoRegis.classList.add('close')
+            isInfoLogin.classList.remove('close')
+            overlay_container.classList.add('isRegis')
+            form__login.classList.add('ani')
+            form__regis.classList.remove('ani')
+        }
 
-    loginJs.onclick = () => {
-        isInfoRegis.classList.remove('close')
-        isInfoLogin.classList.add('close')
-        overlay_container.classList.remove('isRegis')
-        form__regis.classList.add('ani')
-        form__login.classList.remove('ani')
+        loginJs.onclick = () => {
+            isInfoRegis.classList.remove('close')
+            isInfoLogin.classList.add('close')
+            overlay_container.classList.remove('isRegis')
+            form__regis.classList.add('ani')
+            form__login.classList.remove('ani')
 
-    }
+        }
     </script>
 </body>
 

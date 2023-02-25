@@ -29,7 +29,7 @@ html {
 
 .account__wrapper {
     height: 100vh;
-    background: url('http://localhost/braintech/public/imgs/bg_blue.png') center center / cover no-repeat;
+    background: url('<?= $GLOBALS['domainPage'] ?>/public/imgs/bg_blue.png') center center / cover no-repeat;
     display: flex;
     margin: auto;
 }

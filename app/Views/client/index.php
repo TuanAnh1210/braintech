@@ -14,12 +14,12 @@
                         thể trở thành những lập trình viên luôn được nhiều công ty săn
                         đón.
                     </p>
-                    <button><a href="http://localhost/braintech/khoa-hoc">Học ngay</a></button>
+                    <button><a href="<?= $GLOBALS['domainPage'] ?>/khoa-hoc">Học ngay</a></button>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="banner__img">
-                    <img src="http://localhost/braintech/public/imgs/robottech.gif" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/robottech.gif" alt="" />
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
             <h2>Khóa học hot nhất</h2>
             <div class="courses-newest_list owl-carousel owl-theme">
                 <div class="courses-newest_item">
-                    <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                     <h4>Hoc ReactJs</h4>
                     <div class="courses-newest_info">
                         <i class="fa-solid fa-users"></i>
@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <div class="courses-newest_item">
-                    <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                     <h4>Hoc ReactJs</h4>
                     <div class="courses-newest_info">
                         <i class="fa-solid fa-users"></i>
@@ -85,7 +85,7 @@
                     </div>
                 </div>
                 <div class="courses-newest_item">
-                    <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                     <h4>Hoc ReactJs</h4>
                     <div class="courses-newest_info">
                         <i class="fa-solid fa-users"></i>
@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <div class="courses-newest_item">
-                    <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                     <h4>Hoc ReactJs</h4>
                     <div class="courses-newest_info">
                         <i class="fa-solid fa-users"></i>
@@ -103,7 +103,7 @@
                     </div>
                 </div>
                 <div class="courses-newest_item">
-                    <img src="http://localhost/braintech/public/imgs/reactJs.png" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
                     <h4>Hoc ReactJs</h4>
                     <div class="courses-newest_info">
                         <i class="fa-solid fa-users"></i>
@@ -137,26 +137,26 @@
                         </p>
                         <div class="learning__item">
                             <div class="learning__item-icon">
-                                <img src="http://localhost/braintech/public/imgs/item1.png" alt="" />
+                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/item1.png" alt="" />
                             </div>
                             <div class="learning__item-icon">
-                                <img src="http://localhost/braintech/public/imgs/html.png" alt="" />
+                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/html.png" alt="" />
                             </div>
                             <div class="learning__item-icon">
-                                <img src="http://localhost/braintech/public/imgs/css.png" alt="" />
+                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/css.png" alt="" />
                             </div>
                             <div class="learning__item-icon">
-                                <img src="http://localhost/braintech/public/imgs/js.png" alt="" />
+                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/js.png" alt="" />
                             </div>
                             <div class="learning__item-icon">
-                                <img src="http://localhost/braintech/public/imgs/react.png" alt="" />
+                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/react.png" alt="" />
                             </div>
                         </div>
                         <button class="btn_learn">Học ngay</button>
                     </div>
                     <div class="roadmap__card-img">
                         <div class="roadmap__img-border">
-                            <img src="http://localhost/braintech/public/imgs/roadmap1.png" alt="" />
+                            <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/roadmap1.png" alt="" />
                         </div>
                     </div>
                 </div>
@@ -172,26 +172,26 @@
                         </p>
                         <div class="learning__item">
                             <div class="learning__item-icon">
-                                <img src="http://localhost/braintech/public/imgs/item1.png" alt="" />
+                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/item1.png" alt="" />
                             </div>
                             <div class="learning__item-icon">
-                                <img src="http://localhost/braintech/public/imgs/html.png" alt="" />
+                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/html.png" alt="" />
                             </div>
                             <div class="learning__item-icon">
-                                <img src="http://localhost/braintech/public/imgs/css.png" alt="" />
+                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/css.png" alt="" />
                             </div>
                             <div class="learning__item-icon">
-                                <img src="http://localhost/braintech/public/imgs/js.png" alt="" />
+                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/js.png" alt="" />
                             </div>
                             <div class="learning__item-icon">
-                                <img src="http://localhost/braintech/public/imgs/node.png" alt="" />
+                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/node.png" alt="" />
                             </div>
                         </div>
                         <button class="btn_learn">Học ngay</button>
                     </div>
                     <div class="roadmap__card-img">
                         <div class="roadmap__img-border">
-                            <img src="http://localhost/braintech/public/imgs/be.png" alt="" />
+                            <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/be.png" alt="" />
                         </div>
                     </div>
                 </div>
@@ -223,7 +223,7 @@
             </div>
             <div class="col-12 col-md-5 col-lg-5">
                 <div class="group__img">
-                    <img src="http://localhost/braintech/public/imgs/group.png" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/group.png" alt="" />
                 </div>
             </div>
         </div>

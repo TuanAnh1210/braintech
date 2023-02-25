@@ -2,6 +2,8 @@
 
 session_start();
 
+$domainPage = "http://localhost/braintech";
+
 require_once './core/Database.php';
 require_once './app/Models/BaseModel.php';
 require_once './app/Controllers/BaseController.php';

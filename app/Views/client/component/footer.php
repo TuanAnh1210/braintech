@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4">
                 <div style="height: 50px" class="footer__logo">
-                    <img src="http://localhost/braintech/public/imgs/logo.png" alt="" />
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/logo.png" alt="" />
                     <p class="footer__title">Học Lập Trình Để Đi Làm</p>
                 </div>
                 <div class="footer__logo">
@@ -55,33 +55,33 @@
 </footer>
 </div>
 
-<script src="http://localhost/braintech/public/js/index.js"></script>
+<script src="<?= $GLOBALS['domainPage'] ?>/public/js/index.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="http://localhost/braintech/public/lib/owl/owl.carousel.min.js"></script>
+<script src="<?= $GLOBALS['domainPage'] ?>/public/lib/owl/owl.carousel.min.js"></script>
 
 <script>
-$(document).ready(function() {
-    $(".owl-carousel").owlCarousel();
-});
-$(".owl-carousel").owlCarousel({
-    loop: true,
-    margin: 16,
-    // autoplay: true,
-    // autoplayTimeout: 3000,
-    nav: true,
-    responsive: {
-        0: {
-            items: 1,
+    $(document).ready(function() {
+        $(".owl-carousel").owlCarousel();
+    });
+    $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 16,
+        // autoplay: true,
+        // autoplayTimeout: 3000,
+        nav: true,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            600: {
+                items: 3,
+            },
+            1000: {
+                items: 4,
+            },
         },
-        600: {
-            items: 3,
-        },
-        1000: {
-            items: 4,
-        },
-    },
-});
+    });
 </script>
 </body>
 
