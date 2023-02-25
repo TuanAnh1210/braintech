@@ -18,11 +18,11 @@ class Home extends BaseController
 
     public function about()
     {
-        return $this->view('client.pages.about');
+        return $this->view('client.pages.about.index');
     }
 
     public function contact()
     {
-        return $this->view('client.pages.contact');
+        return $this->view('client.pages.contact.index');
     }
 }

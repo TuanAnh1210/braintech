@@ -1,14 +1,15 @@
-<?php 
-    class Learning extends BaseController {
+<?php
+class Learning extends BaseController
+{
 
-        private $lessonModel;
+    private $lessonModel;
 
-        public function __construct()
-        {
-            
-        }
-
-        public function index() {
-            return $this -> view('client.pages.learning');
-        }
+    public function __construct()
+    {
     }
+
+    public function index()
+    {
+        return $this->view('client.pages.learning.index');
+    }
+}
