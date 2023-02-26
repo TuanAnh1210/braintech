@@ -535,7 +535,7 @@ header {
     width: 100vw;
     height: 380px;
     /* background-color: #2B86C5; */
-    background: url('<?= $GLOBALS['domainPage'] ?>/public/imgs/bg.webp') center center / cover no-repeat;
+    background: url('http://localhost/braintech/public/imgs/bg.webp') center center / cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -599,7 +599,7 @@ header {
 
 /* footer */
 footer {
-    background: url('<?= $GLOBALS['domainPage'] ?>/public/imgs/landing_page_bg.2ef74fc87402ba954638.png') center center / cover no-repeat;
+    background: url('http://localhost/braintech/public/imgs/landing_page_bg.2ef74fc87402ba954638.png') center center / cover no-repeat;
     padding: 48px 0;
     color: #fff;
     margin-top: 96px;
