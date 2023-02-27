@@ -1,5 +1,5 @@
 <?php
-$css_file = "$domainPage/public/css/styl.css";
+$css_file = "$domainPage/public/css/style.css";
 $css_responsive = "$domainPage/public/css/reponsive.css";
 $grid_css = "$domainPage/public/css/bootstrap-grid.css";
 $gridmap_css = "$domainPage/public/css/bootstrap-grid.css.map";

@@ -950,3 +950,247 @@ footer {
     opacity: .8;
     cursor: pointer;
 }
+
+
+/* info account */
+.info__wrapper {
+    padding-top: calc(var(--height-header) + 32px);
+    padding-bottom: 24px;
+    background-color: #f0f0f0;
+}
+
+.info__user {}
+
+.profile__user {
+    position: relative;
+    background-color: var(--white-color);
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    border-radius: 8px;
+}
+
+.profile__user--body {
+    padding: 12px 16px;
+}
+
+.update__ava--btn {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background-color: rgba(247, 107, 28, .8);
+    color: var(--white-color);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    border: none;
+    font-size: 20px;
+}
+
+.update__ava--btn:hover {
+    background-color: rgba(247, 107, 28, 1);
+    cursor: pointer;
+}
+
+.profile__user h3 {
+    position: relative;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 4px 0 12px 0;
+}
+
+.profile__user h3::after {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    width: 50%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.profile__user p {
+    font-size: 14px;
+    color: #888;
+
+}
+
+.profile__user img {
+    width: 100%;
+    max-height: 276px;
+    display: block;
+    border-top-left-radius: 8px;
+}
+
+
+.profile__user--detail {
+    margin-top: 32px;
+    background-color: var(--white-color);
+    padding: 16px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    border-radius: 8px;
+}
+
+.profile__user--heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile__user--heading i,
+.profile__user--heading h3 {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+
+.profile__user--txt {
+    margin-top: 12px;
+}
+
+.profile__user--txt p {
+    margin: 4px 0 4px 10px;
+}
+
+.update__profile {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 16px;
+    padding: 4px 12px;
+    display: flex;
+    margin: 12px auto 0 auto;
+}
+
+.update__profile:hover {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    cursor: pointer;
+}
+
+/* box__courses */
+.box__courses {
+    background-color: var(--white-color);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.mt {
+    margin-top: 20px;
+}
+
+
+.box__courses--title {}
+
+.box__courses--title h3 i,
+.box__courses--title h3 {
+    font-weight: 600;
+    color: var(--primary-color);
+
+}
+
+
+.box__courses--inner {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+.box__courses--inner.cart {
+    justify-content: space-between;
+}
+
+.box__courses--inner img {
+    width: 60px;
+    display: block;
+    border-radius: 4px;
+    margin-right: 12px;
+}
+
+.box__courses--info.cart {
+    flex: 1;
+}
+
+
+
+/* CSS */
+.button-35 {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, .1) 0 6px 20px;
+    box-sizing: border-box;
+    color: #121212;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 1;
+    margin: 0 32px;
+    outline: none;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s, -webkit-box-shadow .2s;
+    white-space: nowrap;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+}
+
+.button-35:hover {
+    box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+}
+
+.selectAll--cart {
+    display: flex;
+    align-items: center;
+}
+
+.selectAll--cart input {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.selectAll--cart label {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.totalPrd,
+.totalCoin {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.cart__btn--check {
+    display: block;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    margin-right: 12px;
+}
+
+.box__courses--info h4 {
+    font-weight: 700;
+}
+
+.box__courses--info p {
+    font-size: 14px;
+}
+
+.box__courses--info a {
+    color: #0c71c3;
+    float: right;
+}
