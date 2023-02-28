@@ -8,15 +8,33 @@
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/lib/owl/owl.theme.default.min.css">
     <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/lib/owl/owl.carousel.min.css">
     <link rel="stylesheet" href="<?= gridmap_css() ?>" />
     <link rel="stylesheet" href="<?= grid_css() ?>" />
     <link rel="stylesheet" href="<?= css_file() ?>" />
+    <link id="cssFile" rel="stylesheet" href="">
+
     <link rel="stylesheet" href="<?= css_responsive() ?>" />
+
+    <script>
+        const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
+        const pathPages = window.location.pathname;
+        const arrPaths = pathPages.split("/");
+        console.log(arrPaths)
+        if (arrPaths.length <= 3 && arrPaths[arrPaths.length - 1] != "") {
+            document.getElementById("cssFile").href =
+                `${domainPage}/public/css/client/pages/${arrPaths[arrPaths.length -1]}/${arrPaths[arrPaths.length -1]}.css`
+        } else if (arrPaths.length <= 3 && arrPaths[arrPaths.length - 1] == "") {
+            document.getElementById("cssFile").href =
+                `${domainPage}/public/css/client/pages/home/home.css`
+        } else {
+            document.getElementById("cssFile").href =
+                `${domainPage}/public/css/client/pages/${arrPaths[arrPaths.length -2]}/${arrPaths[arrPaths.length -1]}.css`
+        }
+    </script>
 </head>
 
 <body>
@@ -40,13 +58,13 @@
                             <a class="header__link" href="<?= $GLOBALS['domainPage'] ?>/">Trang chủ</a>
                         </li>
                         <li data-item="khoa-hoc" class="header__item">
-                            <a class="header__link" href="<?= $GLOBALS['domainPage'] ?>/khoa-hoc">Khóa học</a>
+                            <a class="header__link" href="<?= $GLOBALS['domainPage'] ?>/courses">Khóa học</a>
                         </li>
                         <li data-item="gioi-thieu" class="header__item">
-                            <a class="header__link" href="<?= $GLOBALS['domainPage'] ?>/gioi-thieu">Giới thiệu</a>
+                            <a class="header__link" href="<?= $GLOBALS['domainPage'] ?>/home/about">Giới thiệu</a>
                         </li>
                         <li data-item="lien-he" class="header__item">
-                            <a class="header__link" href="<?= $GLOBALS['domainPage'] ?>/lien-he">Liên hệ</a>
+                            <a class="header__link" href="<?= $GLOBALS['domainPage'] ?>/home/contact">Liên hệ</a>
                         </li>
                     </ul>
                     <div class="header__actions">
