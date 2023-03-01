@@ -1,0 +1,46 @@
+/* mobile */
+
+@media (max-width: 576px) {
+    .learning__bar {
+        width: 70% !important;
+    }
+
+    .video--link {
+        height: 330px;
+    }
+}
+
+
+/* mobile de ngang hoac tablet nho */
+@media (min-width: 576px) and (max-width:768px) {}
+
+
+/* tablet */
+@media (min-width: 768px) and (max-width: 992px) {}
+
+
+/* < tablet */
+@media (max-width: 992px) {
+
+    .main {
+        min-height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    .learning__bar {
+        position: absolute;
+        /* right: -24%; */
+        right: 2px;
+        width: 40%;
+        transform: translateX(120%);
+    }
+
+    .learning__video {
+        grid-column: span 12;
+        margin-top: 32px;
+    }
+}
+
+
+/* pc nho */
+@media (min-width: 992px) and (max-width: 1200px) {}
