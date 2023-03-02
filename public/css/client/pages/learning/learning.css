@@ -282,10 +282,15 @@ header {
 .commment__option button {
     border: none;
     font-size: 18px;
-    color: var(--primary-color);
     font-weight: 700;
+    color: var(--text-color);
     padding: 8px 0;
     margin: 0 32px;
+}
+
+.commment__option button:hover {
+    color: var(--primary-color);
+    cursor: pointer;
 }
 
 .commentBox {
@@ -516,3 +521,56 @@ header {
     font-size: 24px;
     padding: 4px;
 }
+
+/* end action bar */
+
+
+/* note form */
+
+.note__option-btn,
+.commment__option-btn {
+    color: var(--text-color);
+}
+
+.note__option-btn.active,
+.commment__option-btn.active {
+    color: var(--primary-color);
+}
+
+
+.commentZone,
+.noteZone {
+    display: none;
+}
+
+.commentZone.open,
+.noteZone.open {
+    display: block;
+}
+
+.noteForm {}
+
+.note--title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 32px;
+}
+
+.note--time {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-weight: 700;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.note--ipt {
+    width: 100%;
+    padding: 6px 20px;
+    font-size: 16px;
+}
+
+
+
+/* end note form */
