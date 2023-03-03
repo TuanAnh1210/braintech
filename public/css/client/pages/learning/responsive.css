@@ -2,12 +2,25 @@
 
 @media (max-width: 576px) {
     .learning__bar {
-        width: 70% !important;
+        width: 100% !important;
     }
 
     .video--link {
         height: 330px;
     }
+
+    /* .note-storage */
+    .pre-lesson,
+    .next-lesson,
+    .note-storage {
+        padding: 2px 8px;
+        font-size: 12px;
+    }
+
+    .btn__bar {
+        font-size: 18px;
+    }
+
 }
 
 

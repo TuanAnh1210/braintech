@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/learningssss.css">
-    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/responsivess.css">
+    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/learnings.css">
+    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/responsive.css">
 </head>
 
 <body>
@@ -64,54 +64,70 @@
 
                         <div class="comment__wrapper">
                             <div class="commment__option">
-                                <button>Bình luận</button>
-                                <button>Ghi chú</button>
+                                <button class="commment__option-btn active">Bình luận</button>
+                                <button class="note__option-btn">Ghi chú</button>
                             </div>
 
-                            <div class="commentBox">
-                                <img class="commentBox--img"
-                                    src="https://i.ytimg.com/vi/WAgZshFGxqo/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFTyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDo8KmtGEIdPByaR0s1eZc5HycUxA"
-                                    alt="">
+                            <div class="commentZone open">
+                                <div class="commentBox">
+                                    <img class="commentBox--img"
+                                        src="https://i.ytimg.com/vi/WAgZshFGxqo/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFTyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDo8KmtGEIdPByaR0s1eZc5HycUxA"
+                                        alt="">
 
 
-                                <form class="form__comment" method="POST"
-                                    action="<?= $GLOBALS["domainPage"] ?>/comment/addCmt">
-                                    <!-- <input hidden type="text" value="<?= $_GET['id']  ?>" name="idPrd"> -->
-                                    <textarea required class="commentBox--ipt" name="cmt_user" id=""
-                                        placeholder="Gửi bình luận của bạn"></textarea>
-                                    <button class="send__comment">Gửi bình luận</button>
+                                    <form class="form__comment" method="POST"
+                                        action="<?= $GLOBALS["domainPage"] ?>/comment/addCmt">
+                                        <!-- <input hidden type="text" value="<?= $_GET['id']  ?>" name="idPrd"> -->
+                                        <textarea required class="commentBox--ipt" name="cmt_user" id=""
+                                            placeholder="Gửi bình luận của bạn"></textarea>
+                                        <button class="send__comment">Gửi bình luận</button>
+                                    </form>
+                                </div>
+
+                                <div class="commentBox noMt">
+                                    <img class="commentBox--img"
+                                        src="https://i.ytimg.com/vi/WAgZshFGxqo/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFTyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDo8KmtGEIdPByaR0s1eZc5HycUxA"
+                                        alt="">
+
+                                    <div class="commentBox--right">
+                                        <h5>tuan anh <span class="comment__time">12-10-2003</span>
+                                        </h5>
+                                        <p class="commentBox--text">hay qua di</p>
+
+
+
+
+                                    </div>
+                                </div>
+                                <div class="commentBox noMt">
+                                    <img class="commentBox--img"
+                                        src="https://i.ytimg.com/vi/WAgZshFGxqo/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFTyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDo8KmtGEIdPByaR0s1eZc5HycUxA"
+                                        alt="">
+
+                                    <div class="commentBox--right">
+                                        <h5>tuan anh <span class="comment__time">12-10-2003</span>
+                                        </h5>
+                                        <p class="commentBox--text">hay qua di</p>
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="noteZone">
+                                <form class="noteForm" action="">
+                                    <h2 class="note--title">Thêm ghi chú tại <span class="note--time">00:00</span></h2>
+
+                                    <div class="form__group">
+                                        <label for="">Nội dung ghi chú:</label>
+                                        <textarea required placeholder="Nội dung ghi chú..." class="note--ipt" name=""
+                                            id="" cols="30" rows="10"></textarea>
+                                    </div>
+
+                                    <button class="send__comment">Thêm ghi chú</button>
                                 </form>
-                            </div>
-
-                            <div class="commentBox noMt">
-                                <img class="commentBox--img"
-                                    src="https://i.ytimg.com/vi/WAgZshFGxqo/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFTyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDo8KmtGEIdPByaR0s1eZc5HycUxA"
-                                    alt="">
-
-                                <div class="commentBox--right">
-                                    <h5>tuan anh <span class="comment__time">12-10-2003</span>
-                                    </h5>
-                                    <p class="commentBox--text">hay qua di</p>
-
-
-
-
-                                </div>
-                            </div>
-                            <div class="commentBox noMt">
-                                <img class="commentBox--img"
-                                    src="https://i.ytimg.com/vi/WAgZshFGxqo/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFTyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDo8KmtGEIdPByaR0s1eZc5HycUxA"
-                                    alt="">
-
-                                <div class="commentBox--right">
-                                    <h5>tuan anh <span class="comment__time">12-10-2003</span>
-                                    </h5>
-                                    <p class="commentBox--text">hay qua di</p>
-
-
-
-
-                                </div>
                             </div>
                         </div>
 
@@ -206,6 +222,11 @@
         </div>
 
         <div class="actionBar">
+            <button class="note-storage">
+                <i class="fa-solid fa-note-sticky"></i>
+                <span>Ghi chú</span>
+
+            </button>
             <div class="actionBtn">
                 <button class="pre-lesson">Bài trước</button>
                 <button class="next-lesson">Bài kế tiếp</button>
@@ -264,6 +285,31 @@
             }
 
         }
+    }
+
+
+    // feat: show hide cmt and note
+
+    const commment__option_btn = document.querySelector(".commment__option-btn")
+    const note__option_btn = document.querySelector(".note__option-btn")
+    const commentZone = document.querySelector(".commentZone")
+    const noteZone = document.querySelector(".noteZone")
+
+
+    note__option_btn.onclick = () => {
+        note__option_btn.classList.add("active")
+        commment__option_btn.classList.remove("active")
+
+        commentZone.classList.remove("open")
+        noteZone.classList.add("open")
+    }
+
+    commment__option_btn.onclick = () => {
+        note__option_btn.classList.remove("active")
+        commment__option_btn.classList.add("active")
+
+        commentZone.classList.add("open")
+        noteZone.classList.remove("open")
     }
     </script>
 </body>
