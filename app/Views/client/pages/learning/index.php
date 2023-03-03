@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/learning.css">
-    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/responsivess.css">
+    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/learnings.css">
+    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/responsive.css">
 </head>
 
 <body>
@@ -222,6 +222,11 @@
         </div>
 
         <div class="actionBar">
+            <button class="note-storage">
+                <i class="fa-solid fa-note-sticky"></i>
+                <span>Ghi chú</span>
+
+            </button>
             <div class="actionBtn">
                 <button class="pre-lesson">Bài trước</button>
                 <button class="next-lesson">Bài kế tiếp</button>

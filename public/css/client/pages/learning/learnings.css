@@ -476,6 +476,28 @@ header {
     padding: 0 32px;
 }
 
+.note-storage {
+    border: none;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    padding: 2px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.note-storage:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+.note-storage i {
+    font-size: 16px;
+    margin-right: 6px;
+}
+
 .actionBtn {
     flex: 1;
     text-align: center;
