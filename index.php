@@ -14,3 +14,5 @@ require_once './core/Route.php';
 require_once './app/App.php';
 
 $app = new App();
+?>
+
