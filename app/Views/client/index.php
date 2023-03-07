@@ -14,7 +14,7 @@
                         thể trở thành những lập trình viên luôn được nhiều công ty săn
                         đón.
                     </p>
-                    <button><a href="<?= $GLOBALS['domainPage'] ?>/khoa-hoc">Học ngay</a></button>
+                    <button><a href="<?= $GLOBALS['domainPage'] ?>/courses">Học ngay</a></button>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-6">
