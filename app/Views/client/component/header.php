@@ -67,6 +67,9 @@
                         <li data-item="contact" class="header__item">
                             <a class="header__link" href="<?= $GLOBALS['domainPage'] ?>/home/contact">Liên hệ</a>
                         </li>
+                        <li data-item="blog" class="header__item">
+                            <a class="header__link" href="<?= $GLOBALS['domainPage'] ?>/blog">Blog</a>
+                        </li>
                     </ul>
                     <div class="header__actions">
                         <a href="<?= $GLOBALS['domainPage'] ?>/account"><button class="btn-login">Đăng nhập</button></a>
