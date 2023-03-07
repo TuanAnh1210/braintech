@@ -1,0 +1,21 @@
+.detail-course {
+    padding-top: var(--height-header);
+}
+.row{
+    padding-top: 20px;
+}
+.tittle h2{
+    font-size: 30px;
+    font-weight: 900;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+.tittle p{
+    padding-top: 20px;
+    line-height: 25px;
+    font-size: 14px;
+}
+.box-content{
+   display: flex;
+   gap: 10px;
+   margin-top: 20px;
+}
