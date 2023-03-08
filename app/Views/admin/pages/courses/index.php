@@ -10,7 +10,8 @@
                             <p class="card-category"> Danh sách các khóa học Front-End</p>
                         </div>
                         <button class="courses-add">
-                            Thêm mới
+                            <a style="height: 100%; display: flex; align-items: center; width: 100%;"
+                                href="<?= $GLOBALS['domainPage'] ?>/admin_courses/addCourse">Thêm mới</a>
                         </button>
                     </div>
                     <div class="card-body">
@@ -51,7 +52,8 @@
                                             </a>
                                         </td>
                                         <td class="text-primary">
-                                            <a href="#" class=" course_update-btn">
+                                            <a href="<?= $GLOBALS['domainPage'] ?>/admin_courses/updateCourse"
+                                                class=" course_update-btn">
                                                 Sửa
 
                                             </a>

@@ -62,15 +62,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./admin_courses">
+                        <a class="nav-link" href="<?= $GLOBALS['domainPage'] ?>/admin_courses">
                             <i class="material-icons">content_paste</i>
                             <p>Khóa học</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./typography.html">
+                        <a class="nav-link" href="<?= $GLOBALS['domainPage'] ?>/admin_comments">
                             <i class="material-icons">library_books</i>
-                            <p>Typography</p>
+                            <p>Bình luận</p>
                         </a>
                     </li>
                     <li class="nav-item">

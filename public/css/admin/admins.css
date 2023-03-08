@@ -29,6 +29,7 @@
 .course_delete-btn:hover,
 .course_update-btn:hover {
     opacity: .8;
+    cursor: pointer;
 }
 
 .course_update-btn {
@@ -57,4 +58,30 @@
 .re-flex {
     display: flex;
 
+}
+
+/* update course */
+
+#labelImage {
+    text-align: center;
+    width: 160px;
+    border-radius: 8px;
+    padding: 6px 12px;
+    transition: all linear .3s;
+    background-color: #0066B2;
+
+}
+
+#labelImage:hover {
+    background-color: #38A169;
+    transition: all linear .3s;
+    cursor: pointer;
+}
+
+
+
+#labelImage p {
+    color: #fff;
+    font-size: 16px;
+    margin: 0 !important;
 }
