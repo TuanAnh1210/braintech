@@ -64,7 +64,7 @@
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="about_hr-card">
                     <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/tuananh.jpg" alt="">
-                    <h4>Nguyễn Tuấn Anh</h4>
+                    <h4>Nguyễn Tuấn Anh Leader</h4>
                     <p>FULLSTACK (WEB)</p>
                     <div class="about_hr-contact">
                         <a href="https://www.facebook.com/bean.tuan.777/">
@@ -81,8 +81,8 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="about_hr-card">
-                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/tuananh.jpg" alt="">
-                    <h4>Nguyễn Tuấn Anh</h4>
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/Đức Huynh.jpg" alt="">
+                    <h4>Lê Đức Huỳnh member</h4>
                     <p>FULLSTACK (WEB)</p>
                     <div class="about_hr-contact">
                         <a href="https://www.facebook.com/bean.tuan.777/">
@@ -99,8 +99,8 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="about_hr-card">
-                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/tuananh.jpg" alt="">
-                    <h4>Nguyễn Tuấn Anh</h4>
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/thuong.jpg" alt="" height="215">
+                    <h4>Trần Thị Thương member</h4>
                     <p>FULLSTACK (WEB)</p>
                     <div class="about_hr-contact">
                         <a href="https://www.facebook.com/bean.tuan.777/">
@@ -117,8 +117,26 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="about_hr-card">
-                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/tuananh.jpg" alt="">
-                    <h4>Nguyễn Tuấn Anh</h4>
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/quang minh.jpg" alt="">
+                    <h4>Lê Quang Minh member</h4>
+                    <p>FULLSTACK (WEB)</p>
+                    <div class="about_hr-contact">
+                        <a href="https://www.facebook.com/bean.tuan.777/">
+                            <i class="fa-brands fa-facebook fb"></i>
+                        </a>
+                        <a href="https://github.com/TuanAnh1210?tab=repositories">
+                            <i class="fa-brands fa-github gh"></i>
+                        </a>
+                        <a href="https://github.com/TuanAnh1210?tab=repositories">
+                            <i class="fa-brands fa-linkedin li"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="about_hr-card">
+                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/quang Dũng.jpg" alt="">
+                    <h4>Tạ Quang Dũng member</h4>
                     <p>FULLSTACK (WEB)</p>
                     <div class="about_hr-contact">
                         <a href="https://www.facebook.com/bean.tuan.777/">
