@@ -49,8 +49,8 @@
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="./dashboard.html">
+                    <li data-item="admin_dashboard" class="nav-item">
+                        <a class="nav-link" href="<?= $GLOBALS['domainPage'] ?>/admin_dashboard">
                             <i class="material-icons">dashboard</i>
                             <p>Dashboard</p>
                         </a>
@@ -61,13 +61,13 @@
                             <p>Tài khoản</p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li data-item="admin_courses" class="nav-item">
                         <a class="nav-link" href="<?= $GLOBALS['domainPage'] ?>/admin_courses">
                             <i class="material-icons">content_paste</i>
                             <p>Khóa học</p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li data-item="admin_comments" class="nav-item">
                         <a class="nav-link" href="<?= $GLOBALS['domainPage'] ?>/admin_comments">
                             <i class="material-icons">library_books</i>
                             <p>Bình luận</p>

@@ -7,7 +7,7 @@
                     <div style="display: flex; justify-content: space-between;" class="card-header card-header-primary">
                         <div class="courses-heading">
                             <h4 class="card-title ">Quản lí bình luận</h4>
-                            <p class="card-category"> Thống kê bình luận</p>
+                            <p class="card-category">Chi tiết bình luận</p>
                         </div>
 
                     </div>
@@ -18,15 +18,18 @@
                                     <th width="5%">
                                         ID
                                     </th>
-                                    <th width="55%">
-                                        Bài học
+                                    <th width="45%">
+                                        Nội dung
                                     </th>
-                                    <th width="20%">
-                                        Tổng bình luận
+                                    <th width="15%">
+                                        Người bình luận
                                     </th>
 
-                                    <th width="20%">
-                                        Chi tiết
+                                    <th width="25%">
+                                        Thời gian
+                                    </th>
+                                    <th width="10%">
+                                        Xóa
                                     </th>
                                 </thead>
                                 <tbody>
@@ -38,12 +41,16 @@
                                             Xây Dựng Website với ReactJS
                                         </td>
                                         <td>
+                                            <img style="width: 100%;"
+                                                src="https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/270175878_978095143129488_2029334598596771592_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=VkrnxjPq-OsAX8UpX8W&_nc_ht=scontent.fhan14-2.fna&oh=00_AfAKN5qSvEaaRktouAmF2yQFEhSneac8YW6KqM2mcso4Bw&oe=640CEC17"
+                                                alt="">
+                                        </td>
+                                        <td>
                                             2
                                         </td>
                                         <td>
-                                            <a href="<?= $GLOBALS['domainPage'] ?>/admin_comments/detailCmt"
-                                                class="course_view-btn">
-                                                Xem
+                                            <a href="#" class=" course_delete-btn">
+                                                Xóa
                                             </a>
                                         </td>
 

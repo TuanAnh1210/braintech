@@ -6,10 +6,14 @@
                 <div class="card">
                     <div style="display: flex; justify-content: space-between;" class="card-header card-header-primary">
                         <div class="courses-heading">
-                            <h4 class="card-title ">Quản lí bình luận</h4>
-                            <p class="card-category"> Thống kê bình luận</p>
+                            <h4 class="card-title ">Khóa học: <span>Xây Dựng Website với ReactJS</span></h4>
+                            <p class="card-category"> Danh sách các chương
+                            </p>
                         </div>
-
+                        <button class="courses-add">
+                            <a style="height: 100%; display: flex; align-items: center; width: 100%;"
+                                href="<?= $GLOBALS['domainPage'] ?>/admin_chapter/addChapter">Thêm chương mới</a>
+                        </button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -18,15 +22,17 @@
                                     <th width="5%">
                                         ID
                                     </th>
-                                    <th width="55%">
-                                        Bài học
+                                    <th width="30%">
+                                        Chương
                                     </th>
                                     <th width="20%">
-                                        Tổng bình luận
+                                        Tổng bài học
                                     </th>
-
-                                    <th width="20%">
+                                    <th width="25%">
                                         Chi tiết
+                                    </th>
+                                    <th width="20%">
+                                        Hành động
                                     </th>
                                 </thead>
                                 <tbody>
@@ -35,20 +41,29 @@
                                             1
                                         </td>
                                         <td>
-                                            Xây Dựng Website với ReactJS
+                                            Giới thiệu
                                         </td>
                                         <td>
-                                            2
+                                            12
                                         </td>
                                         <td>
-                                            <a href="<?= $GLOBALS['domainPage'] ?>/admin_comments/detailCmt"
+                                            <a href="<?= $GLOBALS['domainPage'] ?>/admin_chapter"
                                                 class="course_view-btn">
                                                 Xem
                                             </a>
                                         </td>
+                                        <td class="text-primary">
+                                            <a href="<?= $GLOBALS['domainPage'] ?>/admin_chapter/updateChapter"
+                                                class=" course_update-btn">
+                                                Sửa
 
+                                            </a>
+                                            <a href="#" class=" course_delete-btn">
+                                                Xóa
+
+                                            </a>
+                                        </td>
                                     </tr>
-
 
                                 </tbody>
                             </table>
