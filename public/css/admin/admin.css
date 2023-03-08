@@ -1,0 +1,60 @@
+.table {
+    text-align: center;
+}
+
+.course_img {
+    width: 100%;
+}
+
+.course_view-btn {
+    background: linear-gradient(60deg, #029eb1, #25b1c3);
+    background-color: unset;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(0 188 212 / 40%);
+}
+
+.course_view-btn,
+.course_delete-btn,
+.course_update-btn {
+    width: 60px;
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+    border-radius: 8px;
+
+
+}
+
+.courses-add:hover,
+.course_view-btn:hover,
+.course_delete-btn:hover,
+.course_update-btn:hover {
+    opacity: .8;
+}
+
+.course_update-btn {
+    background: linear-gradient(60deg, #f5700c, #ff9800);
+    background-color: unset;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(255 152 0 / 40%);
+}
+
+.course_delete-btn {
+    background: linear-gradient(60deg, #d22824, #da3a36);
+    background-color: unset;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(244 67 54 / 40%);
+}
+
+.courses-add {
+    background: linear-gradient(60deg, #288c6c, #4ea752);
+    background-color: unset;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(76 175 80 / 40%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+}
+
+
+
+.re-flex {
+    display: flex;
+
+}
