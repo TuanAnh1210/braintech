@@ -7,12 +7,12 @@
                     <div style="display: flex; justify-content: space-between;" class="card-header card-header-primary">
                         <div class="courses-heading">
                             <h4 class="card-title ">Khóa học: <span>Xây Dựng Website với ReactJS</span></h4>
-                            <p class="card-category"> Danh sách các chương
+                            <p class="card-category"> Danh sách bài học
                             </p>
                         </div>
                         <button class="courses-add">
                             <a style="height: 100%; display: flex; align-items: center; width: 100%;"
-                                href="<?= $GLOBALS['domainPage'] ?>/admin_chapter/addChapter">Thêm chương mới</a>
+                                href="<?= $GLOBALS['domainPage'] ?>/admin_lesson/addLesson">Thêm bài mới</a>
                         </button>
                     </div>
                     <div class="card-body">
@@ -23,13 +23,13 @@
                                         ID
                                     </th>
                                     <th width="30%">
-                                        Chương
+                                        Tên bài học
                                     </th>
                                     <th width="20%">
-                                        Tổng bài học
+                                        Nguồn
                                     </th>
                                     <th width="25%">
-                                        Chi tiết
+                                        Quizz
                                     </th>
                                     <th width="20%">
                                         Hành động
@@ -44,7 +44,7 @@
                                             Giới thiệu
                                         </td>
                                         <td>
-                                            12
+                                            F8 (Fullstack.edu.vn)
                                         </td>
                                         <td>
                                             <a href="<?= $GLOBALS['domainPage'] ?>/admin_lesson"
@@ -53,7 +53,7 @@
                                             </a>
                                         </td>
                                         <td class="text-primary">
-                                            <a href="<?= $GLOBALS['domainPage'] ?>/admin_chapter/updateChapter"
+                                            <a href="<?= $GLOBALS['domainPage'] ?>/admin_lesson/updateLesson"
                                                 class=" course_update-btn">
                                                 Sửa
 

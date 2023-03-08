@@ -68,12 +68,16 @@
     border-radius: 8px;
     padding: 6px 12px;
     transition: all linear .3s;
-    background-color: #0066B2;
+    background: linear-gradient(60deg, #288c6c, #4ea752);
+    background-color: unset;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(76 175 80 / 40%);
 
 }
 
 #labelImage:hover {
-    background-color: #38A169;
+    background: linear-gradient(60deg, #f5700c, #ff9800);
+    background-color: unset;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(255 152 0 / 40%);
     transition: all linear .3s;
     cursor: pointer;
 }
@@ -84,4 +88,66 @@
     color: #fff;
     font-size: 16px;
     margin: 0 !important;
+}
+
+/* check-user */
+.check-user {
+    width: 16px;
+    height: 16px;
+}
+
+.check-user:hover {
+    cursor: pointer;
+}
+
+
+.action_user {
+    min-width: 140px;
+    padding: 4px 12px;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+.btn-action {
+    font-size: 14px;
+    color: #fff;
+    background: linear-gradient(60deg, #288c6c, #4ea752);
+    background-color: unset;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(76 175 80 / 40%);
+    border-radius: 8px;
+    border: none;
+    padding: 6px 12px;
+}
+
+.btn-action:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all linear .2s;
+}
+
+/* role-ipt */
+
+.role-ipt {
+    width: 100%;
+    padding-left: 12px;
+    background-color: transparent;
+    color: #913f9e;
+    border: none;
+    border-bottom: 1px solid #2f374b;
+    height: 36px;
+}
+
+.addNewAcc {
+    font-size: 14px;
+    margin-left: 24px;
+    background: linear-gradient(60deg, #f5700c, #ff9800);
+    background-color: unset;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(255 152 0 / 40%);
+    border-radius: 8px;
+    border: none;
+    padding: 6px 12px;
+}
+
+.addNewAcc:hover {
+    opacity: .8;
 }
