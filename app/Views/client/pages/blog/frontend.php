@@ -1,19 +1,18 @@
 <?php ipView('client.component.header') ?>
 <div class="wrapper">
     <div class="container">
-        <h1 class="container_h2">Bài Viết Nổi Bật</h1>
-        <p class="container_p">Tổng hợp các bài viết chia sẻ về kinh nghiệm tự học lập trình online và các kỹ thuật lập
-            trình web.</p>
+        <h1 class="container_h2">Front-end / Mobile apps</h1>
+        <p class="container_p">Xây dựng giao diện trang web, mobile apps</p>
         <section>
             <div class="wrapper_content">
                 <div class="content1">
                     <div class="box">
                         <div class="content_box">
                             <div class="img1">
-                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/vit.jpg" alt="" width="50">
+                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/yasua.png" alt="" width="50">
                             </div>
 
-                            <h4>Vịt Vịt</h4>
+                            <h4>Ya súa</h4>
                             <div class="icon">
                                 <div>
                                     <i class="fa-regular fa-bookmark"></i>
@@ -26,21 +25,17 @@
                         <div class="content1_content">
                             <div>
                                 <a href="<?= $GLOBALS['domainPage'] ?>/blog/blogct">
-                                    <h2 class="h2">Ngành gì đang hot hiện nay? Top ngành nghề dự báo trở thành xu thế
+                                    <h2 class="h2">Using CKEditor 5 in ReactJS (include upload images and many cool functionalities)
                                     </h2>
                                 </a>
-                                <p class="p1">Nếu bạn đang phân vân trong việc chọn ngành, chuyển ngành thì có thể tham
-                                    khảo
-                                    bài viết
-                                    này để biết ngành gì đang hot hiện nay và...</p>
+                                <p class="p1">Hi there, in this article I will guide you guys on how to use CKEditor v5 in React project (you can also use this in the...</p>
                             </div>
                             <div class="content1_content_img">
-                                <a href=""> <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/chonnghe.jpg" alt=""
-                                        width="200"> </a>
+
                             </div>
                         </div>
                         <div>
-                            <p class="p2">7 ngày trước · 7 phút đọc</p>
+                            <p class="p2">29 ngày trước · 14 phút đọc</p>
                         </div>
                     </div>
                 </div>
@@ -49,10 +44,10 @@
                     <div class="box">
                         <div class="content_box">
                             <div class="img1">
-                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/vit.jpg" alt="" width="50">
+                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/yasua.png" alt="" width="50">
                             </div>
 
-                            <h4>Vịt Vịt</h4>
+                            <h4>Ya súa</h4>
                             <div class="icon">
                                 <div>
                                     <i class="fa-regular fa-bookmark"></i>
@@ -65,19 +60,17 @@
                         <div class="content1_content">
                             <div>
                                 <a href="<?= $GLOBALS['domainPage'] ?>/blog/blogct1">
-                                    <h2 class="h2">Lương lập trình website cao hay thấp? Cơ hội nghề nghiệp ra sao?
+                                    <h2 class="h2">Ôn lại kiến thức Javascript Phần 2
                                     </h2>
                                 </a>
-                                <p class="p1">Trong những năm gần đây, nghề IT đã trở thành một nghề siêu hot với mức
-                                    thu nhập được cho là “cực khủng”. Vậy với ngách lập...</p>
+                                <p class="p1">Hôm nay chúng ta sẽ tìm hiểu về các methob trong javascript như foreach(), map(), find(), some(), every(), reduce(), filter()....</p>
                             </div>
                             <div class="content1_content_img">
-                                <a href=""> <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/luongit.jpg" alt=""
-                                        width="200"> </a>
+                                <a href=""> <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/p1.png" alt="" width="200"> </a>
                             </div>
                         </div>
                         <div>
-                            <p class="p2">7 ngày trước · 7 phút đọc</p>
+                            <p class="p2">18 ngày trước · 9 phút đọc</p>
                         </div>
                     </div>
                 </div>
@@ -86,10 +79,10 @@
                     <div class="box">
                         <div class="content_box">
                             <div class="img1">
-                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/vit.jpg" alt="" width="50">
+                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/yasua.png" alt="" width="50">
                             </div>
 
-                            <h4>Vịt Vịt</h4>
+                            <h4>Ya Súa</h4>
                             <div class="icon">
                                 <div>
                                     <i class="fa-regular fa-bookmark"></i>
@@ -102,18 +95,16 @@
                         <div class="content1_content">
                             <div>
                                 <a href="<?= $GLOBALS['domainPage'] ?>/blog/blogct2">
-                                    <h2 class="h2">Góc chia sẻ: Nữ giới có nên lựa chọn theo nghề IT không? </h2>
+                                    <h2 class="h2">Ôn lại kiến thức Javascript phần 1</h2>
                                 </a>
-                                <p class="p1">Hồi còn là học sinh lớp 12, khi tham dự vào 1 hội thảo hướng nghiệp, mình
-                                    đã từng được nghe cô tư vấn nói với một bạn nữ có ý...</p>
+                                <p class="p1">Khi sử dụng strict comparison thì hai giá trị sẽ được so sánh mà không chuyển về cùng một kiểu dữ liệu. Vì vậy, khi dùng...</p>
                             </div>
                             <div class="content1_content_img">
-                                <a href=""> <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/girlit.jpg" alt=""
-                                        width="200"> </a>
+                                <a href=""> <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/p2.png" alt="" width="200"> </a>
                             </div>
                         </div>
                         <div>
-                            <p class="p2">7 ngày trước · 7 phút đọc</p>
+                            <p class="p2">23 ngày trước · 11 phút đọc</p>
                         </div>
                     </div>
                 </div>
@@ -122,10 +113,10 @@
                     <div class="box">
                         <div class="content_box">
                             <div class="img1">
-                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/vit.jpg" alt="" width="50">
+                                <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/yasua.png" alt="" width="50">
                             </div>
 
-                            <h4>Vịt Vịt</h4>
+                            <h4>Ya Súa</h4>
                             <div class="icon">
                                 <div>
                                     <i class="fa-regular fa-bookmark"></i>
@@ -138,18 +129,16 @@
                         <div class="content1_content">
                             <div>
                                 <a href="<?= $GLOBALS['domainPage'] ?>/blog/blogct3">
-                                    <h2 class="h2">7 kỹ năng mềm lập trình viên nên có để thành công</h2>
+                                    <h2 class="h2">So sánh JavaScript với những đối thủ khác</h2>
                                 </a>
-                                <p class="p1">Để trở thành một lập trình viên giỏi, chúng ta không chỉ cần phải trau dồi
-                                    kỹ năng chuyên môn mà còn cần trang bị thêm các kỹ năng...</p>
+                                <p class="p1">Trong tương lai nếu bạn không nắm được JavaScript là gì thì khó mà tiến xa được trong lĩnh vực công nghệ thông tin. Tin tốt...</p>
                             </div>
                             <div class="content1_content_img">
-                                <a href=""> <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/skill.jpg" alt=""
-                                        width="200"> </a>
+                                <a href=""> <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/jss.png" alt="" width="200"> </a>
                             </div>
                         </div>
                         <div>
-                            <p class="p2">7 ngày trước · 7 phút đọc</p>
+                            <p class="p2">9 ngày trước · 7 phút đọc</p>
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,8 @@
 <?php ipView('client.component.header') ?>
 <div class="wrapper">
     <div class="container">
-        <h1 class="container_h2">Bài Viết Nổi Bật</h1>
-        <p class="container_p">Tổng hợp các bài viết chia sẻ về kinh nghiệm tự học lập trình online và các kỹ thuật lập
-            trình web.</p>
+        <h1 class="container_h2">Others</h1>
+        <p class="container_p">Các chủ đề khác</p>
         <section>
             <div class="wrapper_content">
                 <div class="content1">
@@ -26,21 +25,17 @@
                         <div class="content1_content">
                             <div>
                                 <a href="<?= $GLOBALS['domainPage'] ?>/blog/blogct">
-                                    <h2 class="h2">Ngành gì đang hot hiện nay? Top ngành nghề dự báo trở thành xu thế
+                                    <h2 class="h2">Lương lập trình website cao hay thấp? Cơ hội nghề nghiệp ra sao?
                                     </h2>
                                 </a>
-                                <p class="p1">Nếu bạn đang phân vân trong việc chọn ngành, chuyển ngành thì có thể tham
-                                    khảo
-                                    bài viết
-                                    này để biết ngành gì đang hot hiện nay và...</p>
+                                <p class="p1">Trong những năm gần đây, nghề IT đã trở thành một nghề siêu hot với mức thu nhập được cho là “cực khủng”. Vậy với ngách lập...</p>
                             </div>
                             <div class="content1_content_img">
-                                <a href=""> <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/chonnghe.jpg" alt=""
-                                        width="200"> </a>
+                                <a href=""> <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/money.jpg" alt="" width="200"> </a>
                             </div>
                         </div>
                         <div>
-                            <p class="p2">7 ngày trước · 7 phút đọc</p>
+                            <p class="p2">2 tháng trước · 26 phút đọc</p>
                         </div>
                     </div>
                 </div>
@@ -65,19 +60,17 @@
                         <div class="content1_content">
                             <div>
                                 <a href="<?= $GLOBALS['domainPage'] ?>/blog/blogct1">
-                                    <h2 class="h2">Lương lập trình website cao hay thấp? Cơ hội nghề nghiệp ra sao?
+                                    <h2 class="h2">Điểm danh những ngành nghề thu nhập cao nhất hiện nay
                                     </h2>
                                 </a>
-                                <p class="p1">Trong những năm gần đây, nghề IT đã trở thành một nghề siêu hot với mức
-                                    thu nhập được cho là “cực khủng”. Vậy với ngách lập...</p>
+                                <p class="p1">Bạn có bao giờ thắc mắc rằng không biết hiện nay ngành nghề nào có thu nhập cao nhất không? Cùng xem nhé! (Thông tin mang tính...</p>
                             </div>
                             <div class="content1_content_img">
-                                <a href=""> <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/luongit.jpg" alt=""
-                                        width="200"> </a>
+                                <a href=""> <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/compt.png" alt="" width="200"> </a>
                             </div>
                         </div>
                         <div>
-                            <p class="p2">7 ngày trước · 7 phút đọc</p>
+                            <p class="p2">22 ngày trước · 17 phút đọc</p>
                         </div>
                     </div>
                 </div>
@@ -102,18 +95,16 @@
                         <div class="content1_content">
                             <div>
                                 <a href="<?= $GLOBALS['domainPage'] ?>/blog/blogct2">
-                                    <h2 class="h2">Góc chia sẻ: Nữ giới có nên lựa chọn theo nghề IT không? </h2>
+                                    <h2 class="h2">Fullstack là gì? Cần kỹ năng gì để trở thành fullstack developer?</h2>
                                 </a>
-                                <p class="p1">Hồi còn là học sinh lớp 12, khi tham dự vào 1 hội thảo hướng nghiệp, mình
-                                    đã từng được nghe cô tư vấn nói với một bạn nữ có ý...</p>
+                                <p class="p1">Chắc hẳn hầu hết các bạn trong giới lập trình đều đã ít nhất một lần nghe đến từ “fullstack”. Tuy nhiên vẫn còn nhiều người hiểu...</p>
                             </div>
                             <div class="content1_content_img">
-                                <a href=""> <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/girlit.jpg" alt=""
-                                        width="200"> </a>
+                                <a href=""> <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/fs.jpg" alt="" width="200"> </a>
                             </div>
                         </div>
                         <div>
-                            <p class="p2">7 ngày trước · 7 phút đọc</p>
+                            <p class="p2">3 tháng trước · 15 phút đọc</p>
                         </div>
                     </div>
                 </div>
@@ -138,18 +129,16 @@
                         <div class="content1_content">
                             <div>
                                 <a href="<?= $GLOBALS['domainPage'] ?>/blog/blogct3">
-                                    <h2 class="h2">7 kỹ năng mềm lập trình viên nên có để thành công</h2>
+                                    <h2 class="h2">Ngôn ngữ lập trình là gì? Các ngôn ngữ lập trình phổ biến nhất hiện nay </h2>
                                 </a>
-                                <p class="p1">Để trở thành một lập trình viên giỏi, chúng ta không chỉ cần phải trau dồi
-                                    kỹ năng chuyên môn mà còn cần trang bị thêm các kỹ năng...</p>
+                                <p class="p1">“Ngôn ngữ lập trình là gì, tại sao phải sử dụng ngôn ngữ lập trình để giao tiếp với máy tính?” là câu hỏi được nhiều người mới làm...</p>
                             </div>
                             <div class="content1_content_img">
-                                <a href=""> <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/skill.jpg" alt=""
-                                        width="200"> </a>
+                                <a href=""> <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/nnlt.jpg" alt="" width="200"> </a>
                             </div>
                         </div>
                         <div>
-                            <p class="p2">7 ngày trước · 7 phút đọc</p>
+                            <p class="p2">37 ngày trước · 17 phút đọc</p>
                         </div>
                     </div>
                 </div>
