@@ -1,7 +1,7 @@
 <?php
-class Blog extends BaseController
+class Write extends BaseController
 {
-    private $coursesModel;
+    // private $coursesModel;
 
     // public function __construct()
     // {
@@ -11,7 +11,6 @@ class Blog extends BaseController
 
     public function index()
     {
-        return $this->view('client.pages.blog.index');
+        return $this->view('client.pages.write.index');
     }
 }
-
