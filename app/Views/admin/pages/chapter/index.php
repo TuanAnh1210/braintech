@@ -11,7 +11,8 @@
                             </p>
                         </div>
                         <button class="courses-add">
-                            <a style="height: 100%; display: flex; align-items: center; width: 100%;" href="<?= $GLOBALS['domainPage'] ?>/admin_chapter/addChapter?courseId=<?= $id ?>">Thêm
+                            <a style="height: 100%; display: flex; align-items: center; width: 100%;"
+                                href="<?= $GLOBALS['domainPage'] ?>/admin_chapter/addChapter?courseId=<?= $id ?>">Thêm
                                 chương mới</a>
                         </button>
                     </div>
@@ -55,50 +56,50 @@
 </div>
 
 <script>
-    // handle get data from db and convert arr php to arr js
-    const unprocessed_data = <?= json_encode($data) ?>;
-    const idCourse = <?= json_encode($id) ?>;
-    const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
+// handle get data from db and convert arr php to arr js
+const unprocessed_data = <?= json_encode($data) ?>;
+const idCourse = <?= json_encode($id) ?>;
+const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
 
 
-    unprocessed_data.forEach(element => {
-        for (let i in element) {
-            if (!isNaN(Number(i))) {
-                delete element[i];
-            }
+unprocessed_data.forEach(element => {
+    for (let i in element) {
+        if (!isNaN(Number(i))) {
+            delete element[i];
         }
-    });
+    }
+});
 
-    // get course current
-    const data = unprocessed_data.filter((item) => item.courses_id == idCourse)
-
-
-
-
-    // handle quantity btn pagination fe courses
-    let numberData = 3
+// get course current
+const data = unprocessed_data.filter((item) => item.courses_id == idCourse)
 
 
-    const paginationFe = document.querySelector('.paginationFe')
 
-    for (let i = 0; i < Math.ceil(data.length / numberData); i++) {
-        paginationFe.innerHTML += `
+
+// handle quantity btn pagination fe courses
+let numberData = 3
+
+
+const paginationFe = document.querySelector('.paginationFe')
+
+for (let i = 0; i < Math.ceil(data.length / numberData); i++) {
+    paginationFe.innerHTML += `
         <button class="paginationFe-btn">${i + 1}</button>
     `
-    }
+}
 
 
 
-    // feat: pagination
+// feat: pagination
 
-    let temp = 0
+let temp = 0
 
-    const render = (temp) => {
-        let target = temp > 0 ? temp * numberData : numberData
+const render = (temp) => {
+    let target = temp > 0 ? temp * numberData : numberData
 
-        const newData = data.slice(target - numberData, target)
+    const newData = data.slice(target - numberData, target)
 
-        document.querySelector('tbody').innerHTML = newData.map((ele, index) => `
+    document.querySelector('tbody').innerHTML = newData.map((ele, index) => `
     <tr>
                                         <td>
                                             ${++index}
@@ -121,31 +122,39 @@
                                                 Sửa
 
                                             </a>
-                                            <a href="#" class=" course_delete-btn">
+                                            <button onclick="handleDelete(${ele.id}, <?= $id ?>)" style="border:none; color:#fff" class=" course_delete-btn">
                                                 Xóa
 
-                                            </a>
+                                            </button>
                                         </td>
                                     </tr>
     `).join('')
+}
+
+
+
+render(temp)
+
+// feat: click paginationFe-btn then pagination
+
+const btnsFe = document.querySelectorAll('.paginationFe-btn')
+btnsFe[0].classList.add("active")
+
+for (let i = 0; i < btnsFe.length; i++) {
+    btnsFe[i].onclick = () => {
+        document.querySelector(".paginationFe-btn.active").classList.remove("active")
+        btnsFe[i].classList.add("active")
+        render(btnsFe[i].innerText)
     }
+}
 
-
-
-    render(temp)
-
-    // feat: click paginationFe-btn then pagination
-
-    const btnsFe = document.querySelectorAll('.paginationFe-btn')
-    btnsFe[0].classList.add("active")
-
-    for (let i = 0; i < btnsFe.length; i++) {
-        btnsFe[i].onclick = () => {
-            document.querySelector(".paginationFe-btn.active").classList.remove("active")
-            btnsFe[i].classList.add("active")
-            render(btnsFe[i].innerText)
-        }
+// feat: delete chapter
+const handleDelete = (id_chapter, id_course) => {
+    if (confirm("Bạn chắc chắn muốn xóa chương này !")) {
+        window.location.href =
+            `${domainPage}/admin_chapter/deleteChapter?chapterId=${id_chapter}&courseId=${id_course}`
     }
+}
 </script>
 
 <?php ipView("admin.component.footer") ?>
