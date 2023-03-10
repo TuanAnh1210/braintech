@@ -1,0 +1,183 @@
+.table {
+    text-align: center;
+}
+
+.course_img {
+    width: 100%;
+}
+
+.course_view-btn {
+    background: linear-gradient(60deg, #029eb1, #25b1c3);
+    background-color: unset;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(0 188 212 / 40%);
+}
+
+.course_view-btn,
+.course_delete-btn,
+.course_update-btn {
+    width: 60px;
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+    border-radius: 8px;
+
+
+}
+
+.courses-add:hover,
+.course_view-btn:hover,
+.course_delete-btn:hover,
+.course_update-btn:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+.course_update-btn {
+    background: linear-gradient(60deg, #f5700c, #ff9800);
+    background-color: unset;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(255 152 0 / 40%);
+}
+
+.course_delete-btn {
+    background: linear-gradient(60deg, #d22824, #da3a36);
+    background-color: unset;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(244 67 54 / 40%);
+}
+
+.courses-add {
+    background: linear-gradient(60deg, #288c6c, #4ea752);
+    background-color: unset;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(76 175 80 / 40%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+}
+
+
+
+.re-flex {
+    display: flex;
+
+}
+
+/* update course */
+
+#labelImage {
+    text-align: center;
+    width: 160px;
+    border-radius: 8px;
+    padding: 6px 12px;
+    transition: all linear .3s;
+    background: linear-gradient(60deg, #288c6c, #4ea752);
+    background-color: unset;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(76 175 80 / 40%);
+
+}
+
+#labelImage:hover {
+    background: linear-gradient(60deg, #f5700c, #ff9800);
+    background-color: unset;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(255 152 0 / 40%);
+    transition: all linear .3s;
+    cursor: pointer;
+}
+
+
+
+#labelImage p {
+    color: #fff;
+    font-size: 16px;
+    margin: 0 !important;
+}
+
+/* check-user */
+.check-user {
+    width: 16px;
+    height: 16px;
+}
+
+.check-user:hover {
+    cursor: pointer;
+}
+
+
+.action_user {
+    min-width: 140px;
+    padding: 4px 12px;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+.btn-action {
+    font-size: 14px;
+    color: #fff;
+    background: linear-gradient(60deg, #288c6c, #4ea752);
+    background-color: unset;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(76 175 80 / 40%);
+    border-radius: 8px;
+    border: none;
+    padding: 6px 12px;
+}
+
+.btn-action:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all linear .2s;
+}
+
+/* role-ipt */
+
+.role-ipt {
+    width: 100%;
+    padding-left: 12px;
+    background-color: transparent;
+    color: #913f9e;
+    border: none;
+    border-bottom: 1px solid #2f374b;
+    height: 36px;
+}
+
+.addNewAcc {
+    font-size: 14px;
+    margin-left: 24px;
+    background: linear-gradient(60deg, #f5700c, #ff9800);
+    background-color: unset;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(255 152 0 / 40%);
+    border-radius: 8px;
+    border: none;
+    padding: 6px 12px;
+}
+
+.addNewAcc:hover {
+    opacity: .8;
+}
+
+/* paginationFe">
+paginationFe-btn */
+
+.paginationBe,
+.paginationFe {
+    text-align: center;
+}
+
+.paginationBe-btn,
+.paginationFe-btn {
+    border: none;
+    background: linear-gradient(60deg, #7b1fa2, #913f9e);
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(156 39 176 / 40%);
+    color: #fff;
+    margin: 0 2px;
+    border-radius: 4px;
+    opacity: .4;
+}
+
+.paginationBe-btn.active,
+.paginationFe-btn.active {
+    opacity: 1;
+}
+
+.paginationBe-btn:hover,
+.paginationFe-btn:hover {
+    opacity: 1;
+    cursor: pointer;
+}

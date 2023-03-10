@@ -55,8 +55,8 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./user.html">
+                    <li data-item="admin_users" class="nav-item">
+                        <a class="nav-link" href="<?= $GLOBALS['domainPage'] ?>/admin_users">
                             <i class="material-icons">person</i>
                             <p>Tài khoản</p>
                         </a>
