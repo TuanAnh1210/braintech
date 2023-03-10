@@ -4,3 +4,4 @@
             return $this -> view("client.pages.info.index");
         }
     }
+    
