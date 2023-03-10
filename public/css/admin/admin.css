@@ -151,3 +151,33 @@
 .addNewAcc:hover {
     opacity: .8;
 }
+
+/* paginationFe">
+paginationFe-btn */
+
+.paginationBe,
+.paginationFe {
+    text-align: center;
+}
+
+.paginationBe-btn,
+.paginationFe-btn {
+    border: none;
+    background: linear-gradient(60deg, #7b1fa2, #913f9e);
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(156 39 176 / 40%);
+    color: #fff;
+    margin: 0 2px;
+    border-radius: 4px;
+    opacity: .4;
+}
+
+.paginationBe-btn.active,
+.paginationFe-btn.active {
+    opacity: 1;
+}
+
+.paginationBe-btn:hover,
+.paginationFe-btn:hover {
+    opacity: 1;
+    cursor: pointer;
+}

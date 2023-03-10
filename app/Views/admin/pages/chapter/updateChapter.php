@@ -9,15 +9,17 @@ ipView("admin.component.header")
                 <div class="card">
                     <div class="card-header card-header-primary">
                         <h4 class="card-title">Chỉnh sửa chương học</h4>
-                        <p class="card-category">Tên khóa học</p>
+                        <p class="card-category"><?= $courseName ?></p>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="" method="POST">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Tên chương</label>
-                                        <input required type="text" class="form-control">
+                                        <input name="chapter_name" required type="text" class="form-control"
+                                            value="<?= $data["name"] ?>">
+                                        <input hidden type="text" name="chapter_id" value="<?= $idChapter ?>">
                                     </div>
                                 </div>
                             </div>

@@ -6,13 +6,13 @@
                 <div class="card">
                     <div style="display: flex; justify-content: space-between;" class="card-header card-header-primary">
                         <div class="courses-heading">
-                            <h4 class="card-title ">Khóa học: <span>Xây Dựng Website với ReactJS</span></h4>
+                            <h4 class="card-title ">Khóa học: <strong><?= $courseName ?></strong></h4>
                             <p class="card-category"> Danh sách các chương
                             </p>
                         </div>
                         <button class="courses-add">
-                            <a style="height: 100%; display: flex; align-items: center; width: 100%;"
-                                href="<?= $GLOBALS['domainPage'] ?>/admin_chapter/addChapter">Thêm chương mới</a>
+                            <a style="height: 100%; display: flex; align-items: center; width: 100%;" href="<?= $GLOBALS['domainPage'] ?>/admin_chapter/addChapter?courseId=<?= $id ?>">Thêm
+                                chương mới</a>
                         </button>
                     </div>
                     <div class="card-body">
@@ -36,24 +36,87 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr>
+
+
+                                </tbody>
+                            </table>
+
+                            <div class="paginationFe">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+    // handle get data from db and convert arr php to arr js
+    const unprocessed_data = <?= json_encode($data) ?>;
+    const idCourse = <?= json_encode($id) ?>;
+    const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
+
+
+    unprocessed_data.forEach(element => {
+        for (let i in element) {
+            if (!isNaN(Number(i))) {
+                delete element[i];
+            }
+        }
+    });
+
+    // get course current
+    const data = unprocessed_data.filter((item) => item.courses_id == idCourse)
+
+
+
+
+    // handle quantity btn pagination fe courses
+    let numberData = 3
+
+
+    const paginationFe = document.querySelector('.paginationFe')
+
+    for (let i = 0; i < Math.ceil(data.length / numberData); i++) {
+        paginationFe.innerHTML += `
+        <button class="paginationFe-btn">${i + 1}</button>
+    `
+    }
+
+
+
+    // feat: pagination
+
+    let temp = 0
+
+    const render = (temp) => {
+        let target = temp > 0 ? temp * numberData : numberData
+
+        const newData = data.slice(target - numberData, target)
+
+        document.querySelector('tbody').innerHTML = newData.map((ele, index) => `
+    <tr>
                                         <td>
-                                            1
+                                            ${++index}
                                         </td>
                                         <td>
-                                            Giới thiệu
+                                            ${ele.name}
                                         </td>
                                         <td>
-                                            12
+                                            ${ele.totalLesson}
                                         </td>
                                         <td>
-                                            <a href="<?= $GLOBALS['domainPage'] ?>/admin_lesson"
+                                            <a href="${domainPage}/admin_lesson?chapterId=${ele.id}&courseId=<?= $id ?>"
                                                 class="course_view-btn">
                                                 Xem
                                             </a>
                                         </td>
                                         <td class="text-primary">
-                                            <a href="<?= $GLOBALS['domainPage'] ?>/admin_chapter/updateChapter"
+                                            <a href="${domainPage}/admin_chapter/updateChapter?chapterId=${ele.id}&courseId=<?= $id ?>"
                                                 class=" course_update-btn">
                                                 Sửa
 
@@ -64,17 +127,25 @@
                                             </a>
                                         </td>
                                     </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    `).join('')
+    }
 
 
-        </div>
-    </div>
-</div>
+
+    render(temp)
+
+    // feat: click paginationFe-btn then pagination
+
+    const btnsFe = document.querySelectorAll('.paginationFe-btn')
+    btnsFe[0].classList.add("active")
+
+    for (let i = 0; i < btnsFe.length; i++) {
+        btnsFe[i].onclick = () => {
+            document.querySelector(".paginationFe-btn.active").classList.remove("active")
+            btnsFe[i].classList.add("active")
+            render(btnsFe[i].innerText)
+        }
+    }
+</script>
 
 <?php ipView("admin.component.footer") ?>
