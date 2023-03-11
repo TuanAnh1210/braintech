@@ -1,0 +1,120 @@
+.detail-course {
+    padding-top: var(--height-header);
+    margin-top: 32px;
+}
+
+.course_name {}
+
+.course_text {
+    color: rgba(0, 0, 0, .8);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 24px 0 32px 0;
+}
+
+
+.learning__bar {
+    /* right: 16px; */
+    width: 100%;
+    background-color: #fff;
+    overflow-y: scroll;
+    height: calc(100vh - 50px);
+    padding-bottom: 12px;
+    transition: all linear .3s;
+}
+
+
+
+.learning__bar--title {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 20px 0 2px 0;
+    margin-left: 12px;
+    position: relative;
+}
+
+.learning__bar--title::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    top: 100%;
+    left: 0;
+}
+
+.learning__chapter {
+    margin-top: 16px;
+    padding-left: 24px;
+}
+
+.learning__chapter--txt {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.trackItem {
+    margin-top: 20px;
+}
+
+.trackItem--title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 16px;
+    line-height: 20px;
+}
+
+.quizz {
+    margin-left: 16px;
+}
+
+.quizz--item {
+    background-color: rgba(204, 204, 204, .5);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    line-height: 26px;
+    margin-right: 4px;
+}
+
+.quizz--item.finish {
+    background-color: #08AEEA;
+    background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+    color: var(--white-color);
+
+}
+
+/* course_img */
+
+
+.course_img {
+    width: 100%;
+}
+
+.course_free {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 12px 0 24px 0;
+}
+
+.course_btn-learn {
+    background-color: var(--primary-color);
+    border: none;
+    color: #fff;
+    padding: 6px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 8px;
+    display: flex;
+    margin: auto;
+
+}
+
+.course_btn-learn:hover {
+    opacity: .8;
+    cursor: pointer;
+}
