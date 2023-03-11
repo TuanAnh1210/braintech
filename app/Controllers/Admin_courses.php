@@ -114,4 +114,16 @@ class Admin_courses extends BaseController
             "cateId" =>  $cateId
         ]);
     }
+
+    public function deleteCourse()
+    {
+        if (!empty($_GET["courseId"])) {
+            $id_course = $_GET['courseId'];
+
+            $this->coursesModel->deleteCourse($id_course);
+
+            $url = $GLOBALS['domainPage'] . "/admin_courses";
+            header("location: $url");
+        }
+    }
 }
