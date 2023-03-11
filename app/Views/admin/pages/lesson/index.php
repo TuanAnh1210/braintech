@@ -6,14 +6,14 @@
                 <div class="card">
                     <div style="display: flex; justify-content: space-between;" class="card-header card-header-primary">
                         <div class="courses-heading">
-                            <h4 class="card-title ">Khóa học: <strong><?= $courseName ?></strong></h4>
-                            <p class="card-category"> Danh sách các chương
+                            <h4 class="card-title ">Khóa học: <span><?= $courseName ?></span></h4>
+                            <p class="card-category"> Danh sách bài học
                             </p>
                         </div>
                         <button class="courses-add">
                             <a style="height: 100%; display: flex; align-items: center; width: 100%;"
-                                href="<?= $GLOBALS['domainPage'] ?>/admin_chapter/addChapter?courseId=<?= $id ?>">Thêm
-                                chương mới</a>
+                                href="<?= $GLOBALS['domainPage'] ?>/admin_lesson/addLesson?chapterId=<?= $id_chapter ?>&courseId=<?= $id_course ?>">Thêm
+                                bài mới</a>
                         </button>
                     </div>
                     <div class="card-body">
@@ -24,13 +24,13 @@
                                         ID
                                     </th>
                                     <th width="30%">
-                                        Chương
+                                        Tên bài học
                                     </th>
-                                    <th width="20%">
-                                        Tổng bài học
+                                    <th width="30%">
+                                        Nguồn
                                     </th>
-                                    <th width="25%">
-                                        Chi tiết
+                                    <th width="15%">
+                                        Quizz
                                     </th>
                                     <th width="20%">
                                         Hành động
@@ -42,9 +42,7 @@
                                 </tbody>
                             </table>
 
-                            <div class="paginationFe">
-
-                            </div>
+                            <div class="paginationFe"></div>
                         </div>
                     </div>
                 </div>
@@ -55,14 +53,14 @@
     </div>
 </div>
 
+
 <script>
 // handle get data from db and convert arr php to arr js
-const unprocessed_data = <?= json_encode($data) ?>;
-const idCourse = <?= json_encode($id) ?>;
+const data = <?= json_encode($data) ?>;
 const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
 
 
-unprocessed_data.forEach(element => {
+data.forEach(element => {
     for (let i in element) {
         if (!isNaN(Number(i))) {
             delete element[i];
@@ -70,8 +68,7 @@ unprocessed_data.forEach(element => {
     }
 });
 
-// get course current
-const data = unprocessed_data.filter((item) => item.courses_id == idCourse)
+
 
 
 
@@ -100,7 +97,7 @@ const render = (temp) => {
     const newData = data.slice(target - numberData, target)
 
     document.querySelector('tbody').innerHTML = newData.map((ele, index) => `
-    <tr>
+        <tr>
                                         <td>
                                             ${++index}
                                         </td>
@@ -108,21 +105,19 @@ const render = (temp) => {
                                             ${ele.name}
                                         </td>
                                         <td>
-                                            ${ele.totalLesson}
+                                        ${ele.path_video}
                                         </td>
                                         <td>
-                                            <a href="${domainPage}/admin_lesson?chapterId=${ele.id}&courseId=<?= $id ?>"
-                                                class="course_view-btn">
+                                            <a href="<?= $GLOBALS['domainPage'] ?>/admin_lesson" class="course_view-btn">
                                                 Xem
                                             </a>
                                         </td>
                                         <td class="text-primary">
-                                            <a href="${domainPage}/admin_chapter/updateChapter?chapterId=${ele.id}&courseId=<?= $id ?>"
-                                                class=" course_update-btn">
+                                            <a href="${domainPage}/admin_lesson/updateLesson?lessonId=${ele.id}&chapterId=<?= $id_chapter ?>&courseId=<?= $id_course ?>" class=" course_update-btn">
                                                 Sửa
 
                                             </a>
-                                            <button onclick="handleDelete(${ele.id}, <?= $id ?>)" style="border:none; color:#fff" class=" course_delete-btn">
+                                            <button onclick="handleDelete(${ele.id}, <?= $id_chapter ?>, <?= $id_course ?>)" style="border:none; color:#fff" class=" course_delete-btn">
                                                 Xóa
 
                                             </button>
@@ -148,13 +143,13 @@ for (let i = 0; i < btnsFe.length; i++) {
     }
 }
 
-// feat: delete chapter
-const handleDelete = (id_chapter, id_course) => {
-    if (confirm("Bạn chắc chắn muốn xóa chương này !")) {
+// feat: delete lesson
+const handleDelete = (id, id_chapter, id_course) => {
+
+    if (confirm("Bạn chắc chắn muốn xóa bài học này !")) {
         window.location.href =
-            `${domainPage}/admin_chapter/deleteChapter?chapterId=${id_chapter}&courseId=${id_course}`
+            `${domainPage}/admin_lesson/deleteLesson?lessonId=${id}&chapterId=${id_chapter}&courseId=${id_course}`
     }
 }
 </script>
-
 <?php ipView("admin.component.footer") ?>

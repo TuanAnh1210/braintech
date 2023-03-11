@@ -39,3 +39,4 @@ class Blog extends BaseController
     }
     
 }
+

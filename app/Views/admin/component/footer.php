@@ -261,6 +261,12 @@ items.forEach((item) => {
         "admin_courses") {
         item.classList.add("active");
 
+    } else if (arrPath[arrPath.length - 1] == "admin_lesson" && item.getAttribute("data-item") ==
+        "admin_courses" || arrPath[arrPath.length - 2] ==
+        "admin_lesson" && item.getAttribute("data-item") ==
+        "admin_courses") {
+        item.classList.add("active");
+
     }
 });
 </script>
