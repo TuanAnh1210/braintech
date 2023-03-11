@@ -15,8 +15,10 @@ class Account extends BaseController
     {
         return $this->view('client.pages.account.index');
     }
+
     public function verification()
     {
         return $this->view('client.pages.account.verification');
     }
+
 }
