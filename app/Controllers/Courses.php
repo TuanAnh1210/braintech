@@ -16,7 +16,7 @@ class Courses extends BaseController
     }
 
 
-    public function detailCourses()
+    public function detailCoursess()
     {
         return $this->view('client.pages.courses.detailCourses');
     }
