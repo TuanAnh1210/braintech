@@ -94,4 +94,17 @@ class Admin_chapter extends BaseController
             "courseName" => $courseName[0]['name']
         ]);
     }
+
+    public function deleteChapter()
+    {
+        if (!empty($_GET['chapterId'])) {
+            $id_chapter = $_GET['chapterId'];
+            $id_course = $_GET['courseId'];
+
+            $this->chapterModel->deleteChapter($id_chapter);
+
+            $url = $GLOBALS['domainPage'] . "/admin_chapter?CourseId=$id_course";
+            header("location: $url");
+        }
+    }
 }

@@ -22,4 +22,9 @@ class LessonModel extends BaseModel
     {
         return $this->update(self::TABLE, $data, $id);
     }
+
+    public function deleteLesson($id)
+    {
+        return $this->delete(self::TABLE, $id);
+    }
 }

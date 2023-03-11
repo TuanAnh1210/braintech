@@ -119,4 +119,18 @@ class Admin_lesson extends BaseController
             "id_course" => $id_course
         ]);
     }
+
+    public function deleteLesson()
+    {
+        if (!empty($_GET['lessonId'])) {
+            $id_lesson = $_GET['lessonId'];
+            $id_chapter = $_GET['chapterId'];
+            $id_course = $_GET['courseId'];
+
+            $this->lessonModel->deleteLesson($id_lesson);
+
+            $url = $GLOBALS['domainPage'] . "/admin_lesson?chapterId=$id_chapter&courseId= $id_course";
+            header("location: $url");
+        }
+    }
 }

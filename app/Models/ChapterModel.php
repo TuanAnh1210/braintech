@@ -27,4 +27,9 @@ class ChapterModel extends BaseModel
     {
         return $this->update(self::TABLE, $data, $id);
     }
+
+    public function deleteChapter($id)
+    {
+        return $this->delete(self::TABLE, $id);
+    }
 }

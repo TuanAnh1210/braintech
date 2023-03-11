@@ -11,7 +11,8 @@
                             </p>
                         </div>
                         <button class="courses-add">
-                            <a style="height: 100%; display: flex; align-items: center; width: 100%;" href="<?= $GLOBALS['domainPage'] ?>/admin_lesson/addLesson?chapterId=<?= $id_chapter ?>&courseId=<?= $id_course ?>">Thêm
+                            <a style="height: 100%; display: flex; align-items: center; width: 100%;"
+                                href="<?= $GLOBALS['domainPage'] ?>/admin_lesson/addLesson?chapterId=<?= $id_chapter ?>&courseId=<?= $id_course ?>">Thêm
                                 bài mới</a>
                         </button>
                     </div>
@@ -54,48 +55,48 @@
 
 
 <script>
-    // handle get data from db and convert arr php to arr js
-    const data = <?= json_encode($data) ?>;
-    const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
+// handle get data from db and convert arr php to arr js
+const data = <?= json_encode($data) ?>;
+const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
 
 
-    data.forEach(element => {
-        for (let i in element) {
-            if (!isNaN(Number(i))) {
-                delete element[i];
-            }
+data.forEach(element => {
+    for (let i in element) {
+        if (!isNaN(Number(i))) {
+            delete element[i];
         }
-    });
+    }
+});
 
 
 
 
 
 
-    // handle quantity btn pagination fe courses
-    let numberData = 3
+// handle quantity btn pagination fe courses
+let numberData = 3
 
 
-    const paginationFe = document.querySelector('.paginationFe')
+const paginationFe = document.querySelector('.paginationFe')
 
-    for (let i = 0; i < Math.ceil(data.length / numberData); i++) {
-        paginationFe.innerHTML += `
+for (let i = 0; i < Math.ceil(data.length / numberData); i++) {
+    paginationFe.innerHTML += `
         <button class="paginationFe-btn">${i + 1}</button>
     `
-    }
+}
 
 
 
-    // feat: pagination
+// feat: pagination
 
-    let temp = 0
+let temp = 0
 
-    const render = (temp) => {
-        let target = temp > 0 ? temp * numberData : numberData
+const render = (temp) => {
+    let target = temp > 0 ? temp * numberData : numberData
 
-        const newData = data.slice(target - numberData, target)
+    const newData = data.slice(target - numberData, target)
 
-        document.querySelector('tbody').innerHTML = newData.map((ele, index) => `
+    document.querySelector('tbody').innerHTML = newData.map((ele, index) => `
         <tr>
                                         <td>
                                             ${++index}
@@ -116,30 +117,39 @@
                                                 Sửa
 
                                             </a>
-                                            <a href="#" class=" course_delete-btn">
+                                            <button onclick="handleDelete(${ele.id}, <?= $id_chapter ?>, <?= $id_course ?>)" style="border:none; color:#fff" class=" course_delete-btn">
                                                 Xóa
 
-                                            </a>
+                                            </button>
                                         </td>
                                     </tr>
     `).join('')
+}
+
+
+
+render(temp)
+
+// feat: click paginationFe-btn then pagination
+
+const btnsFe = document.querySelectorAll('.paginationFe-btn')
+btnsFe[0].classList.add("active")
+
+for (let i = 0; i < btnsFe.length; i++) {
+    btnsFe[i].onclick = () => {
+        document.querySelector(".paginationFe-btn.active").classList.remove("active")
+        btnsFe[i].classList.add("active")
+        render(btnsFe[i].innerText)
     }
+}
 
+// feat: delete lesson
+const handleDelete = (id, id_chapter, id_course) => {
 
-
-    render(temp)
-
-    // feat: click paginationFe-btn then pagination
-
-    const btnsFe = document.querySelectorAll('.paginationFe-btn')
-    btnsFe[0].classList.add("active")
-
-    for (let i = 0; i < btnsFe.length; i++) {
-        btnsFe[i].onclick = () => {
-            document.querySelector(".paginationFe-btn.active").classList.remove("active")
-            btnsFe[i].classList.add("active")
-            render(btnsFe[i].innerText)
-        }
+    if (confirm("Bạn chắc chắn muốn xóa bài học này !")) {
+        window.location.href =
+            `${domainPage}/admin_lesson/deleteLesson?lessonId=${id}&chapterId=${id_chapter}&courseId=${id_course}`
     }
+}
 </script>
 <?php ipView("admin.component.footer") ?>
