@@ -12,12 +12,13 @@ ipView("admin.component.header")
                         <p class="card-category">Thông tin chung</p>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Tên khóa học</label>
-                                        <input required type="text" class="form-control">
+                                        <input required type="text" class="form-control" name="course_name"
+                                            value="<?= $data["name"] ?>">
                                     </div>
                                 </div>
                             </div>
@@ -29,10 +30,11 @@ ipView("admin.component.header")
                                         </label>
                                         <span style="font-size: 16px;" id="previewText">test</span>
                                         <div style="margin: 12px;">
-                                            <img style="height: 200px; object-fit: contain;"
-                                                src="https://files.fullstack.edu.vn/f8-prod/courses/13/13.png" alt="">
+                                            <img style="width: 200px;"
+                                                src="<?= $GLOBALS["domainPage"] ?>/uploads/<?= $data["thumb"] ?>"
+                                                alt="">
                                         </div>
-                                        <input required hidden class="prdImage" type="file" name="image" id="image">
+                                        <input hidden class="prdImage" type="file" name="course_image" id="image">
                                     </div>
                                 </div>
                             </div>
@@ -40,13 +42,16 @@ ipView("admin.component.header")
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Giá cũ</label>
-                                        <input required type="text" class="form-control">
+                                        <input value="<?= $data["old_price"] ?>" name="course_oldPrice" required
+                                            type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Giá mới</label>
-                                        <input required type="text" class="form-control">
+                                        <input value="<?= $data["price"] ?>" name="course_price" required type="text"
+                                            class="form-control">
+
                                     </div>
                                 </div>
 
@@ -57,8 +62,8 @@ ipView("admin.component.header")
                                         <label>Mô tả ngắn</label>
                                         <div class="form-group">
 
-                                            <textarea required class="form-control" rows="5">
-                                                test
+                                            <textarea name="course_description" required class="form-control" rows="5">
+                                                <?= $data["description"] ?>"
                                             </textarea>
 
 
@@ -66,6 +71,10 @@ ipView("admin.component.header")
                                     </div>
                                 </div>
                             </div>
+
+                            <input hidden type="text" value="<?= $id_cate ?>" name="cate_id">
+                            <input hidden type="text" value="<?= $data["thumb"] ?>" name="old_img">
+                            <input type="text" value="<?= $id_course ?>" name="id_course" hidden>
                             <button type="submit" class="btn btn-primary pull-right">Cập nhật</button>
                             <div class="clearfix"></div>
                         </form>
@@ -77,6 +86,47 @@ ipView("admin.component.header")
     </div>
 </div>
 
+
+<script>
+const prdImage = document.querySelector(".prdImage")
+
+prdImage.onchange = () => {
+    uploadFiles(prdImage.files)
+}
+
+
+const uploadFiles = (files) => {
+    const CLOUD_NAME = "dpjieqbsk";
+    const PRESET_NAME = "braintech";
+    const FOLDER_NAME = "braintech";
+    const urlImage = "";
+    const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
+
+    const formData = new FormData();
+
+    formData.append("upload_preset", PRESET_NAME);
+    formData.append("folder", FOLDER_NAME);
+
+    for (const file of files) {
+        formData.append("file", file);
+
+        // fetch(api, {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "multipart/form-data"
+        //     },
+        //     body: JSON.stringify(formData)
+        // }).then(res => console.log(res))
+        axios.post(api, formData, {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        }).then(res => console.log(res))
+    }
+
+
+}
+</script>
 <?php
 ipView("admin.component.footer")
 ?>
