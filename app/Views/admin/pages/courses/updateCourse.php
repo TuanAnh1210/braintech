@@ -28,9 +28,9 @@ ipView("admin.component.header")
                                         <label id="labelImage" for="image">
                                             <p>Upload ảnh</p>
                                         </label>
-                                        <span style="font-size: 16px;" id="previewText">test</span>
+                                        <span style="font-size: 16px;" id="previewText"></span>
                                         <div style="margin: 12px;">
-                                            <img style="width: 200px;"
+                                            <img class="imgUpload" style="width: 200px;"
                                                 src="<?= $GLOBALS["domainPage"] ?>/uploads/<?= $data["thumb"] ?>"
                                                 alt="">
                                         </div>
@@ -89,13 +89,16 @@ ipView("admin.component.header")
 
 <script>
 const prdImage = document.querySelector(".prdImage")
+const imgUpload = document.querySelector(".imgUpload")
 
-prdImage.onchange = () => {
-    uploadFiles(prdImage.files)
+prdImage.onchange = async () => {
+    const urlImgUpload = await uploadFiles(prdImage.files)
+
+    imgUpload.src = urlImgUpload;
 }
 
 
-const uploadFiles = (files) => {
+const uploadFiles = async (files) => {
     const CLOUD_NAME = "dpjieqbsk";
     const PRESET_NAME = "braintech";
     const FOLDER_NAME = "braintech";
@@ -117,11 +120,14 @@ const uploadFiles = (files) => {
         //     },
         //     body: JSON.stringify(formData)
         // }).then(res => console.log(res))
-        axios.post(api, formData, {
+        const response = await axios.post(api, formData, {
             headers: {
                 "Content-Type": "multipart/form-data"
             }
-        }).then(res => console.log(res))
+        });
+
+        return response.data.secure_url
+
     }
 
 

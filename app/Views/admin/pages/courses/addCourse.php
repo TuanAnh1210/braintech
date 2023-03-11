@@ -27,10 +27,10 @@ ipView("admin.component.header")
                                         <label id="labelImage" for="image">
                                             <p>Upload ảnh</p>
                                         </label>
-                                        <span style="font-size: 16px;" id="previewText">test</span>
+                                        <span style="font-size: 16px;" id="previewText"></span>
                                         <div style="margin: 12px;">
-                                            <!-- <img style="height: 200px; object-fit: contain;"
-                                                src="https://files.fullstack.edu.vn/f8-prod/courses/13/13.png" alt=""> -->
+                                            <img class="imgUpload" style="height: 200px; object-fit: contain;" src=""
+                                                alt="">
                                         </div>
                                         <input required hidden class="prdImage" type="file" name="course_image"
                                             id="image">
@@ -80,6 +80,54 @@ ipView("admin.component.header")
     </div>
 </div>
 
+
+
+<script>
+const prdImage = document.querySelector(".prdImage")
+const imgUpload = document.querySelector(".imgUpload")
+
+prdImage.onchange = async () => {
+    const urlImgUpload = await uploadFiles(prdImage.files)
+
+    imgUpload.src = urlImgUpload;
+}
+
+
+const uploadFiles = async (files) => {
+    const CLOUD_NAME = "dpjieqbsk";
+    const PRESET_NAME = "braintech";
+    const FOLDER_NAME = "braintech";
+    const urlImage = "";
+    const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
+
+    const formData = new FormData();
+
+    formData.append("upload_preset", PRESET_NAME);
+    formData.append("folder", FOLDER_NAME);
+
+    for (const file of files) {
+        formData.append("file", file);
+
+        // fetch(api, {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "multipart/form-data"
+        //     },
+        //     body: JSON.stringify(formData)
+        // }).then(res => console.log(res))
+        const response = await axios.post(api, formData, {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        });
+
+        return response.data.secure_url
+
+    }
+
+
+}
+</script>
 <?php
 ipView("admin.component.footer")
 ?>
