@@ -15,4 +15,5 @@ class Account extends BaseController
     {
         return $this->view('client.pages.account.index');
     }
+   
 }
