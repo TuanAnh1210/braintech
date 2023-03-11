@@ -12,21 +12,21 @@ ipView("admin.component.header")
                         <p class="card-category">Thông tin chung</p>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Họ tên</label>
-                                        <input required type="text" class="form-control">
+                                        <input name="user_name" required type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Chức vụ</label>
 
-                                        <select class="role-ipt" name="" id="">
-                                            <option>Học viên</option>
-                                            <option>Quản trị</option>
+                                        <select class="role-ipt" name="user_role" id="">
+                                            <option value="1">Học viên</option>
+                                            <option value="0">Quản trị</option>
                                         </select>
                                     </div>
                                 </div>
@@ -37,11 +37,13 @@ ipView("admin.component.header")
                                         <label id="labelImage" for="image">
                                             <p>Upload ảnh</p>
                                         </label>
-                                        <span style="font-size: 16px;" id="previewText">test</span>
+                                        <span style="font-size: 16px;" id="previewText"></span>
                                         <div style="margin: 12px;">
-
+                                            <img class="imgUpload" style="height: 160px; object-fit: contain;" src=""
+                                                alt="">
                                         </div>
-                                        <input required hidden class="prdImage" type="file" name="image" id="image">
+                                        <input required hidden class="prdImage" type="file" name="user_avatar"
+                                            id="image">
                                     </div>
                                 </div>
                             </div>
@@ -49,13 +51,13 @@ ipView("admin.component.header")
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Email</label>
-                                        <input required type="text" class="form-control">
+                                        <input name="user_email" required type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Password</label>
-                                        <input required type="text" class="form-control">
+                                        <input name="user_password" required type="text" class="form-control">
                                     </div>
                                 </div>
 
@@ -65,13 +67,13 @@ ipView("admin.component.header")
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Điện thoại</label>
-                                        <input required type="text" class="form-control">
+                                        <input name="user_phone" required type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Địa chỉ</label>
-                                        <input required type="text" class="form-control">
+                                        <input name="user_address" required type="text" class="form-control">
                                     </div>
                                 </div>
 
@@ -90,6 +92,54 @@ ipView("admin.component.header")
     </div>
 </div>
 
+
+
+<script>
+const prdImage = document.querySelector(".prdImage")
+const imgUpload = document.querySelector(".imgUpload")
+
+prdImage.onchange = async () => {
+    const urlImgUpload = await uploadFiles(prdImage.files)
+
+    imgUpload.src = urlImgUpload;
+}
+
+
+const uploadFiles = async (files) => {
+    const CLOUD_NAME = "dpjieqbsk";
+    const PRESET_NAME = "braintech";
+    const FOLDER_NAME = "braintech";
+    const urlImage = "";
+    const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
+
+    const formData = new FormData();
+
+    formData.append("upload_preset", PRESET_NAME);
+    formData.append("folder", FOLDER_NAME);
+
+    for (const file of files) {
+        formData.append("file", file);
+
+        // fetch(api, {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "multipart/form-data"
+        //     },
+        //     body: JSON.stringify(formData)
+        // }).then(res => console.log(res))
+        const response = await axios.post(api, formData, {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        });
+
+        return response.data.secure_url
+
+    }
+
+
+}
+</script>
 <?php
 ipView("admin.component.footer")
 ?>

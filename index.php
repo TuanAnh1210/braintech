@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 $domainPage = "http://localhost/braintech";
 
@@ -14,5 +15,3 @@ require_once './core/Route.php';
 require_once './app/App.php';
 
 $app = new App();
-?>
-
