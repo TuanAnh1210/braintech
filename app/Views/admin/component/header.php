@@ -32,6 +32,7 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="<?= demo() ?>" rel="stylesheet" />
     <link href="<?= admin_css() ?>" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
 </head>
 
 <body class="dark-edition">

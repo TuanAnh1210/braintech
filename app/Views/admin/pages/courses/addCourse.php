@@ -12,12 +12,12 @@ ipView("admin.component.header")
                         <p class="card-category">Thông tin chung</p>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Tên khóa học</label>
-                                        <input required type="text" class="form-control">
+                                        <input required type="text" class="form-control" name="course_name">
                                     </div>
                                 </div>
                             </div>
@@ -32,7 +32,8 @@ ipView("admin.component.header")
                                             <!-- <img style="height: 200px; object-fit: contain;"
                                                 src="https://files.fullstack.edu.vn/f8-prod/courses/13/13.png" alt=""> -->
                                         </div>
-                                        <input required hidden class="prdImage" type="file" name="image" id="image">
+                                        <input required hidden class="prdImage" type="file" name="course_image"
+                                            id="image">
                                     </div>
                                 </div>
                             </div>
@@ -40,13 +41,13 @@ ipView("admin.component.header")
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Giá cũ</label>
-                                        <input required type="text" class="form-control">
+                                        <input name="course_oldPrice" required type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Giá mới</label>
-                                        <input required type="text" class="form-control">
+                                        <input name="course_price" required type="text" class="form-control">
                                     </div>
                                 </div>
 
@@ -57,7 +58,7 @@ ipView("admin.component.header")
                                         <label>Mô tả ngắn</label>
                                         <div class="form-group">
 
-                                            <textarea required class="form-control" rows="5">
+                                            <textarea name="course_description" required class="form-control" rows="5">
                                                 test
                                             </textarea>
 
@@ -66,7 +67,9 @@ ipView("admin.component.header")
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary pull-right">Cập nhật</button>
+
+                            <input hidden type="text" value="<?= $cateId ?>" name="cate_id">
+                            <button type="submit" class="btn btn-primary pull-right">Thêm mới</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
