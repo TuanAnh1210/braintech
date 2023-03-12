@@ -13,16 +13,16 @@
 <body>
     <div class="account__wrapper">
         <div class="form__wrapper">
-            <form class="form__login" action="">
+            <form class="form__login" action="<?= $GLOBALS['domainPage'] ?>/account/login" method="POST">
                 <h2 class="form__title">Đăng nhập</h2>
                 <div class="form__group">
                     <label for="">Email</label>
-                    <input type="text" placeholder="Email">
+                    <input id="email_login" type="text" placeholder="Email" name="email_login">
                     <p class="error"></p>
                 </div>
                 <div class="form__group">
                     <label for="">Mật khẩu</label>
-                    <input type="password" placeholder="Mật khẩu">
+                    <input id="pass_login" type="password" placeholder="Mật khẩu" name="pass_login">
                     <p class="error"></p>
 
                 </div>
@@ -75,6 +75,18 @@
 
 
     <script>
+        // handle get data from db and convert arr php to arr js
+        const listUser = <?= json_encode($listUser) ?>;
+
+        listUser.forEach(element => {
+            for (let i in element) {
+                if (!isNaN(Number(i))) {
+                    delete element[i];
+                }
+            }
+        });
+
+
         const regisJs = document.querySelector('.regisJs')
         const loginJs = document.querySelector('.loginJs')
         const isInfoRegis = document.querySelector('.isInfoRegis')
@@ -97,6 +109,84 @@
             overlay_container.classList.remove('isRegis')
             form__regis.classList.add('ani')
             form__login.classList.remove('ani')
+
+        };
+
+
+
+
+
+        // show error
+        const showError = (item, message) => {
+            item.nextElementSibling.innerText = message
+        }
+
+        const hideError = (item) => {
+            item.nextElementSibling.innerText = ""
+        }
+
+        // check email & pass true then login
+        const checkExist = () => {
+            const emailLogin = document.querySelector("#email_login")
+            const passLogin = document.querySelector("#pass_login")
+
+            const isSuccess = listUser.some(user => user.email == emailLogin.value && user.password == passLogin.value)
+
+            return isSuccess
+        }
+
+        const regEmail = /^\w+@(\w+\.\w+){1,2}$/;
+
+        const validateFormLogin = (formField) => {
+            let isError = true
+            formField.forEach(field => {
+
+                const ele = document.getElementById(field)
+
+                if (field == "email_login") {
+                    if (!regEmail.test(ele.value.trim())) {
+                        showError(ele, "Email không đúng định dạng")
+                        isError = false
+                    }
+                }
+
+                if (field == "pass_login") {
+                    if (ele.value.trim().length < 6) {
+                        showError(ele, "Mật khẩu tối thiểu 6 kí tự")
+                        isError = false
+
+                    }
+                }
+
+                if (ele.value.trim() == "") {
+                    showError(ele, "Dữ liệu không được để trống");
+                    isError = false
+                }
+
+                ele.oninput = () => {
+                    hideError(ele)
+                }
+            })
+
+            if (isError) {
+                if (checkExist()) {
+                    return true
+                } else {
+                    alert("Email hoặc mật khẩu không chính xác !")
+                    return false
+                }
+            }
+        }
+
+        // handle validate form
+        const formFieldLogin = ["email_login", "pass_login"];
+        form__login.onsubmit = (e) => {
+            e.preventDefault()
+
+            if (validateFormLogin(formFieldLogin)) {
+                form__login.submit()
+            }
+
 
         }
     </script>

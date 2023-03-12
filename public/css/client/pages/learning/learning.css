@@ -236,7 +236,21 @@ header {
 }
 
 .trackItem {
+    padding: 6px 0;
+    border-radius: 6px;
     margin-top: 20px;
+    transition: all linear .3s;
+
+}
+
+.trackItem:hover {
+    background-color: rgba(247, 107, 28, .7);
+    cursor: pointer;
+    transition: all linear .3s;
+}
+
+.trackItem.active {
+    background-color: rgba(247, 107, 28, .7);
 }
 
 .trackItem--title {
@@ -244,6 +258,7 @@ header {
     font-weight: 500;
     margin-left: 16px;
     line-height: 20px;
+    color: #fff;
 }
 
 .quizz {

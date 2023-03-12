@@ -204,6 +204,74 @@ header {
 
 .header__actions {}
 
+.header__acc {
+    width: 146px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header__acc::after {
+    position: absolute;
+    content: "";
+    width: 140%;
+    height: 40px;
+    top: 20px;
+    right: -20px;
+}
+
+.header__acc:hover .accMenu_wrapper {
+    display: block;
+}
+
+.acc_name {
+    /* display: inline-block; */
+}
+
+.header__acc img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.accMenu_wrapper {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 120%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 -4px 32px rgb(0 0 0 / 20%);
+}
+
+.accMenu_item {
+    list-style: none;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.accMenu_item:last-child {
+    border: none;
+
+}
+
+.accMenu_link {
+    color: #1d2129;
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+    padding: 8px 0 8px 16px;
+
+    display: block;
+}
+
+.accMenu_link:hover {
+    color: var(--primary-color);
+
+}
+
 .btn-login {
     background-color: var(--white-color);
     color: var(--primary-color);
@@ -248,6 +316,7 @@ header {
 
 .header_bar {
     display: none;
+    z-index: 100;
 }
 
 .close_nav {
