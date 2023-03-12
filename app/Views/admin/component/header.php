@@ -44,7 +44,8 @@
         Tip 2: you can also add an image using data-image tag
     -->
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                <a href="<?= $GLOBALS['domainPage'] ?>" class="simple-text logo-normal">
+                    <img class="logo_braintech" src="<?= $GLOBALS['domainPage'] ?>/public/imgs/logo.png" alt="" />
                     BrainTech
                 </a>
             </div>

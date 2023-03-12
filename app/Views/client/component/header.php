@@ -70,10 +70,31 @@
                         </li>
 
                     </ul>
+                    <?php if (empty($_SESSION['auth'])) : ?>
                     <div class="header__actions">
                         <a href="<?= $GLOBALS['domainPage'] ?>/account"><button class="btn-login">Đăng nhập</button></a>
                     </div>
+                    <?php endif ?>
 
+                    <?php if (!empty($_SESSION['auth'])) : ?>
+                    <div class="header__acc">
+                        <img src="<?= $GLOBALS['domainPage'] ?>/uploads/<?= $_SESSION['auth']["avatar"] ?>" alt="">
+                        <strong class="acc_name"><?= $_SESSION['auth']["name"] ?></strong>
+                        <ul class="accMenu_wrapper">
+                            <li class="accMenu_item">
+                                <a class="accMenu_link" href="#">Tài khoản</a>
+                            </li>
+                            <li class="accMenu_item">
+                                <a class="accMenu_link" href="#">Ghi chú</a>
+                            </li>
+                            <li class="accMenu_item">
+                                <a class="accMenu_link" href="<?= $GLOBALS['domainPage'] ?>/account/logout">Đăng
+                                    xuất</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <?php endif ?>
                     <div class="header_bar">
                         <i class="fa-solid fa-bars-staggered"></i>
                     </div>

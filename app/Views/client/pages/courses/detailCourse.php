@@ -21,8 +21,10 @@
                         alt="">
                     <h4 class="course_free">Miễn phí</h4>
 
-                    <a href="<?= $GLOBALS["domainPage"] ?>/learning"><button class="course_btn-learn">Học
-                            ngay</button></a>
+                    <div class="firstLessonBtn">
+
+                    </div>
+
 
 
                 </div>
@@ -60,6 +62,21 @@ lesson_list.forEach(element => {
     }
 });
 
+// handle get firstLesson in course
+
+const firstLesson = lesson_list.filter(item => item.course_chapter_id == courses[0].id)
+const firstLessonBtn = document.querySelector(".firstLessonBtn")
+firstLessonBtn.innerHTML = `
+    <a <?php if ($course[0]["courses_id"] == 10) {
+            echo "hidden";
+        } ?> href="<?= $GLOBALS["domainPage"] ?>/learning?courseId=<?= $course[0]["courses_id"] ?>&userId=<?= $_SESSION["auth"]["id"] ?>&lessonId=${firstLesson[0].id}">
+                        <button class="course_btn-learn">Học
+                            ngay
+                        </button>
+                    </a>
+    `
+
+// handle show full lesson
 const course_topic = document.querySelector(".course_topic")
 
 course_topic.innerHTML = courses.map((course, index) => `
@@ -67,7 +84,7 @@ course_topic.innerHTML = courses.map((course, index) => `
                                     <h3 class="learning__chapter--txt">${++index}.${course.name}</h3>
 
                                  
-                                    ${lesson_list.filter(lesson => lesson.course_chapter_id == course.id).map((item, i) => `
+                                    ${lesson_list.filter(lesson => lesson.course_chapter_id == course.id).map((item, i) => `                                        
                                         <div class="trackItem">
                                         <h3 class="trackItem--title">${index}.${++i} ${item.name} <span style="color: #5db85c;">
                                                 <i class="fa-solid fa-circle-check">
@@ -80,11 +97,11 @@ course_topic.innerHTML = courses.map((course, index) => `
                                             <a class="quizz--item" href="#">3</a>
                                         </div>
                                     </div>
-                                        `)}
+                                        `).join("")}
                                    
 
 
                                 </div>
-    `)
+    `).join("")
 </script>
 <?php ipView("client.component.footer") ?>

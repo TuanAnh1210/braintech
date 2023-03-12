@@ -64,53 +64,22 @@
         </div>
 
         <div class="courses-newest">
-            <h2>Khóa học hot nhất</h2>
+            <h2>Khóa học mới nhất</h2>
             <div class="courses-newest_list owl-carousel owl-theme">
-                <div class="courses-newest_item">
-                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
-                    <h4>Hoc ReactJs</h4>
-                    <div class="courses-newest_info">
-                        <i class="fa-solid fa-users"></i>
-                        <span>123</span>
-                        <p>Miễn phí</p>
+                <?php foreach ($courseNewest as $key => $value) : ?>
+                <a href="<?= $GLOBALS["domainPage"] ?>/courses/detailCourse?courseId=<?= $value["id"] ?>">
+                    <div class="courses-newest_item">
+                        <img src="<?= $GLOBALS['domainPage'] ?>/uploads/<?= $value["thumb"]?>" alt="" />
+                        <h4><?= $value["name"]?></h4>
+                        <div class="courses-newest_info">
+                            <i class="fa-solid fa-users"></i>
+                            <span>123</span>
+                            <p>Miễn phí</p>
+                        </div>
                     </div>
-                </div>
-                <div class="courses-newest_item">
-                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
-                    <h4>Hoc ReactJs</h4>
-                    <div class="courses-newest_info">
-                        <i class="fa-solid fa-users"></i>
-                        <span>123</span>
-                        <p>Miễn phí</p>
-                    </div>
-                </div>
-                <div class="courses-newest_item">
-                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
-                    <h4>Hoc ReactJs</h4>
-                    <div class="courses-newest_info">
-                        <i class="fa-solid fa-users"></i>
-                        <span>123</span>
-                        <p>Miễn phí</p>
-                    </div>
-                </div>
-                <div class="courses-newest_item">
-                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
-                    <h4>Hoc ReactJs</h4>
-                    <div class="courses-newest_info">
-                        <i class="fa-solid fa-users"></i>
-                        <span>123</span>
-                        <p>Miễn phí</p>
-                    </div>
-                </div>
-                <div class="courses-newest_item">
-                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
-                    <h4>Hoc ReactJs</h4>
-                    <div class="courses-newest_info">
-                        <i class="fa-solid fa-users"></i>
-                        <span>123</span>
-                        <p>Miễn phí</p>
-                    </div>
-                </div>
+                </a>
+                <?php endforeach ?>
+
             </div>
         </div>
     </div>

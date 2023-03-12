@@ -181,3 +181,8 @@ paginationFe-btn */
     opacity: 1;
     cursor: pointer;
 }
+
+.logo_braintech {
+    width: 48px;
+    border-radius: 8px;
+}

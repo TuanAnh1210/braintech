@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/learnings.css">
+    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/learning.css">
     <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/responsive.css">
 </head>
 
@@ -57,8 +57,8 @@
             <div class="container-fluid">
                 <div class="learning__wrapper">
                     <div class="learning__video">
-                        <iframe class="video--link" src="https://www.youtube.com/embed/x0fSBAgBrOQ"
-                            title="YouTube video player" frameborder="0"
+                        <iframe class="video--link" src="<?= $curLesson["path_video"] ?>" title="YouTube video player"
+                            frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
 
@@ -135,87 +135,9 @@
                     </div>
                     <div class="learning__bar">
                         <h1 class="learning__bar--title">Nội dung khóa học</h1>
-                        <div class="learning__chapter">
-                            <h3 class="learning__chapter--txt">1. Giới thiệu</h3>
-                            <div class="trackItem">
-                                <h3 class="trackItem--title">1. ReactJS là gì? Tại sao nên học ReactJS? <span
-                                        style="color: #5db85c;">
-                                        <i class="fa-solid fa-circle-check">
-                                        </i>
-                                    </span>
-                                </h3>
-                                <div class="quizz">
-                                    <a class="quizz--item finish" href="#">1</a>
-                                    <a class="quizz--item" href="#">2</a>
-                                    <a class="quizz--item" href="#">3</a>
-                                </div>
-                            </div>
-                            <div class="trackItem">
-                                <h3 class="trackItem--title">1. ReactJS là gì? Tại sao nên học ReactJS?</h3>
-                                <div class="quizz">
-                                    <a class="quizz--item finish" href="#">1</a>
-                                    <a class="quizz--item" href="#">2</a>
-                                    <a class="quizz--item" href="#">3</a>
-                                </div>
-                            </div>
-                            <div class="trackItem">
-                                <h3 class="trackItem--title">1. ReactJS là gì? Tại sao nên học ReactJS?</h3>
-                                <div class="quizz">
-                                    <a class="quizz--item finish" href="#">1</a>
-                                    <a class="quizz--item" href="#">2</a>
-                                    <a class="quizz--item" href="#">3</a>
-                                </div>
-                            </div>
-                            <div class="trackItem">
-                                <h3 class="trackItem--title">1. ReactJS là gì? Tại sao nên học ReactJS?</h3>
-                                <div class="quizz">
-                                    <a class="quizz--item finish" href="#">1</a>
-                                    <a class="quizz--item" href="#">2</a>
-                                    <a class="quizz--item" href="#">3</a>
-                                </div>
-                            </div>
-                            <div class="trackItem">
-                                <h3 class="trackItem--title">1. ReactJS là gì? Tại sao nên học ReactJS?</h3>
-                                <div class="quizz">
-                                    <a class="quizz--item finish" href="#">1</a>
-                                    <a class="quizz--item" href="#">2</a>
-                                    <a class="quizz--item" href="#">3</a>
-                                </div>
-                            </div>
-                            <div class="trackItem">
-                                <h3 class="trackItem--title">1. ReactJS là gì? Tại sao nên học ReactJS?</h3>
-                                <div class="quizz">
-                                    <a class="quizz--item finish" href="#">1</a>
-                                    <a class="quizz--item" href="#">2</a>
-                                    <a class="quizz--item" href="#">3</a>
-                                </div>
-                            </div>
-                            <div class="trackItem">
-                                <h3 class="trackItem--title">1. ReactJS là gì? Tại sao nên học ReactJS?</h3>
-                                <div class="quizz">
-                                    <a class="quizz--item finish" href="#">1</a>
-                                    <a class="quizz--item" href="#">2</a>
-                                    <a class="quizz--item" href="#">3</a>
-                                </div>
-                            </div>
-                            <div class="trackItem">
-                                <h3 class="trackItem--title">1. ReactJS là gì? Tại sao nên học ReactJS?</h3>
-                                <div class="quizz">
-                                    <a class="quizz--item finish" href="#">1</a>
-                                    <a class="quizz--item" href="#">2</a>
-                                    <a class="quizz--item" href="#">3</a>
-                                </div>
-                            </div>
-
-                            <div class="trackItem">
-                                <h3 class="trackItem--title">1. ReactJS là gì? Tại sao nên học ReactJS?</h3>
-                                <div class="quizz">
-                                    <a class="quizz--item finish" href="#">1</a>
-                                    <a class="quizz--item" href="#">2</a>
-                                    <a class="quizz--item" href="#">3</a>
-                                </div>
-                            </div>
+                        <div class="course_topic">
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -310,7 +232,58 @@
 
         commentZone.classList.add("open")
         noteZone.classList.remove("open")
-    }
+    };
+
+    // handle show course
+    const courses = <?= json_encode($course) ?>;
+
+    const lesson_list = <?= json_encode($lesson_list) ?>;
+
+    courses.forEach(element => {
+        for (let i in element) {
+            if (!isNaN(Number(i))) {
+                delete element[i];
+            }
+        }
+    });
+
+    lesson_list.forEach(element => {
+        for (let i in element) {
+            if (!isNaN(Number(i))) {
+                delete element[i];
+            }
+        }
+    });
+
+
+    const course_topic = document.querySelector(".course_topic")
+
+    course_topic.innerHTML = courses.map((course, index) => `
+    <div class="learning__chapter">
+                                    <h3 class="learning__chapter--txt">${++index}.${course.name}</h3>
+
+                                 
+                                    ${lesson_list.filter(lesson => lesson.course_chapter_id == course.id).map((item, i) => `
+                                        <a href="<?= $GLOBALS["domainPage"] ?>/learning?courseId=1&userId=1?lessonId=${item.id}">
+                                        <div class="trackItem active">
+                                        <h3 class="trackItem--title">${index}.${++i} ${item.name} <span style="color: #5db85c;">
+                                                <i class="fa-solid fa-circle-check">
+                                                </i>
+                                            </span>
+                                        </h3>
+                                        <div class="quizz">
+                                            <a class="quizz--item finish" href="#">1</a>
+                                            <a class="quizz--item" href="#">2</a>
+                                            <a class="quizz--item" href="#">3</a>
+                                        </div>
+                                    </div>
+                                    </a>
+                                        `).join("")}
+                                   
+
+
+                                </div>
+    `).join("")
     </script>
 </body>
 
