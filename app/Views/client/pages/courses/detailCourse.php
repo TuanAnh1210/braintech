@@ -17,12 +17,16 @@
             </div>
             <div class="col-lg-4">
                 <div class="course_img_wrapper">
-                    <img class="course_img" src="<?= $GLOBALS["domainPage"] ?>/uploads/<?= $course[0]["thumb"] ?>"
-                        alt="">
+                    <img class="course_img" src="<?= $GLOBALS["domainPage"] ?>/uploads/<?= $course[0]["thumb"] ?>" alt="">
                     <h4 class="course_free">Miễn phí</h4>
 
-                    <a href="<?= $GLOBALS["domainPage"] ?>/learning"><button class="course_btn-learn">Học
-                            ngay</button></a>
+                    <a <?php if ($course[0]["courses_id"] == 10) {
+                            echo "hidden";
+                        } ?> href="<?= $GLOBALS["domainPage"] ?>/learning">
+                        <button class="course_btn-learn">Học
+                            ngay
+                        </button>
+                    </a>
 
 
                 </div>
@@ -34,35 +38,35 @@
 
 
 <script>
-// handle get data from db and convert arr php to arr js
-// const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
-const courses = <?= json_encode($course) ?>;
+    // handle get data from db and convert arr php to arr js
+    // const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
+    const courses = <?= json_encode($course) ?>;
 
-const lesson_list = <?= json_encode($lesson_list) ?>;
-
-
+    const lesson_list = <?= json_encode($lesson_list) ?>;
 
 
 
-courses.forEach(element => {
-    for (let i in element) {
-        if (!isNaN(Number(i))) {
-            delete element[i];
+
+
+    courses.forEach(element => {
+        for (let i in element) {
+            if (!isNaN(Number(i))) {
+                delete element[i];
+            }
         }
-    }
-});
+    });
 
-lesson_list.forEach(element => {
-    for (let i in element) {
-        if (!isNaN(Number(i))) {
-            delete element[i];
+    lesson_list.forEach(element => {
+        for (let i in element) {
+            if (!isNaN(Number(i))) {
+                delete element[i];
+            }
         }
-    }
-});
+    });
 
-const course_topic = document.querySelector(".course_topic")
+    const course_topic = document.querySelector(".course_topic")
 
-course_topic.innerHTML = courses.map((course, index) => `
+    course_topic.innerHTML = courses.map((course, index) => `
     <div class="learning__chapter">
                                     <h3 class="learning__chapter--txt">${++index}.${course.name}</h3>
 

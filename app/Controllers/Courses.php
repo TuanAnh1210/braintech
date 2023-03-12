@@ -37,7 +37,9 @@ class Courses extends BaseController
             $id_course = $_GET["courseId"];
 
             $course = $this->chapterModel->getFullChapterByCourseId($id_course);
-
+            // echo "<pre>";
+            // var_dump($course);
+            // die;
             $lesson_list = $this->lessonModel->getFullLesson();
         }
         return $this->view('client.pages.courses.detailCourse', [

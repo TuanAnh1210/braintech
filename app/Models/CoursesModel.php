@@ -27,4 +27,9 @@ class CoursesModel extends BaseModel
     {
         return $this->delete(self::TABLE, $id);
     }
+
+    public function getNewCourse()
+    {
+        return $this->getNewListByNum(self::TABLE, 5);
+    }
 }

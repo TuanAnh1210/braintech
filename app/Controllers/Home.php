@@ -3,17 +3,21 @@
 class Home extends BaseController
 {
 
-    private $homeModel;
+    private $coursesModel;
 
     public function __construct()
     {
-        $this->loadModel('HomeModel');
-        $this->homeModel = new HomeModel;
+        $this->loadModel('CoursesModel');
+        $this->coursesModel = new CoursesModel;
     }
 
     public function index()
     {
-        return $this->view('client.index');
+
+        $courseNewest = $this->coursesModel->getNewCourse();
+        return $this->view('client.index', [
+            "courseNewest" => $courseNewest
+        ]);
     }
 
     public function about()
