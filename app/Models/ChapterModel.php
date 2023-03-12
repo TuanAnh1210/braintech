@@ -32,4 +32,11 @@ class ChapterModel extends BaseModel
     {
         return $this->delete(self::TABLE, $id);
     }
+
+    public function getFullChapterByCourseId($id)
+    {
+        $sql = "SELECT courses_chapter.id, courses_chapter.name, courses_id, courses.name as courseName, courses.description, courses.thumb FROM courses_chapter JOIN courses ON courses_chapter.courses_id = courses.id WHERE courses.id = $id";
+
+        return $this->query_all($sql);
+    }
 }

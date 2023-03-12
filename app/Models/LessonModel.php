@@ -27,4 +27,9 @@ class LessonModel extends BaseModel
     {
         return $this->delete(self::TABLE, $id);
     }
+
+    public function getFullLesson()
+    {
+        return $this->all(self::TABLE);
+    }
 }
