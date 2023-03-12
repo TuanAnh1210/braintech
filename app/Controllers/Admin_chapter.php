@@ -12,20 +12,25 @@ class Admin_chapter extends BaseController
     public function index()
     {
 
-        // get id chapter on url
-        if (!empty($_GET['CourseId'])) {
-            $id = $_GET['CourseId'];
-            $data = $this->chapterModel->getChapter();
-            $courseName = $this->chapterModel->getDep("courses", $id, "id");
+        if (!empty($_SESSION["auth"])) {
+            // get id chapter on url
+            if (!empty($_GET['CourseId'])) {
+                $id = $_GET['CourseId'];
+                $data = $this->chapterModel->getChapter();
+                $courseName = $this->chapterModel->getDep("courses", $id, "id");
+            }
+
+
+            return $this->view("admin.pages.chapter.index", [
+                "id" => $id,
+                "data" => $data,
+                "courseName" => $courseName[0]['name']
+
+            ]);
+        } else {
+            $url = $GLOBALS['domainPage'] . "/account";
+            header("location: $url");
         }
-
-
-        return $this->view("admin.pages.chapter.index", [
-            "id" => $id,
-            "data" => $data,
-            "courseName" => $courseName[0]['name']
-
-        ]);
     }
 
     public function addChapter()

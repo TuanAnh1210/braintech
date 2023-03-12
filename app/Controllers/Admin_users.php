@@ -11,10 +11,15 @@ class Admin_users extends BaseController
 
     public function index()
     {
-        $data = $this->usersModel->getAllUser();
-        return $this->view("admin.pages.users.index", [
-            "data" => $data
-        ]);
+        if (!empty($_SESSION['auth'])) {
+            $data = $this->usersModel->getAllUser();
+            return $this->view("admin.pages.users.index", [
+                "data" => $data
+            ]);
+        } else {
+            $url = $GLOBALS['domainPage'] . "/account";
+            header("location: $url");
+        }
     }
     public function updateUsers()
     {

@@ -15,24 +15,30 @@ class Admin_lesson extends BaseController
 
     public function index()
     {
-        // get id chapter on url
-        if (!empty($_GET['courseId'])) {
-            $id = $_GET['courseId'];
-            $courseName = $this->chapterModel->getDep("courses", $id, "id");
+        if (!empty($_SESSION['auth'])) {
+
+            // get id chapter on url
+            if (!empty($_GET['courseId'])) {
+                $id = $_GET['courseId'];
+                $courseName = $this->chapterModel->getDep("courses", $id, "id");
+            }
+
+
+            if (!empty($_GET['chapterId'])) {
+                $id_chapter = $_GET["chapterId"];
+
+                $data = $this->lessonModel->getAllLesson($id_chapter, "course_chapter_id");
+            }
+            return $this->view("admin.pages.lesson.index", [
+                "data" => $data,
+                "courseName" => $courseName[0]['name'],
+                "id_chapter" => $id_chapter,
+                "id_course" => $id
+            ]);
+        } else {
+            $url = $GLOBALS['domainPage'] . "/account";
+            header("location: $url");
         }
-
-
-        if (!empty($_GET['chapterId'])) {
-            $id_chapter = $_GET["chapterId"];
-
-            $data = $this->lessonModel->getAllLesson($id_chapter, "course_chapter_id");
-        }
-        return $this->view("admin.pages.lesson.index", [
-            "data" => $data,
-            "courseName" => $courseName[0]['name'],
-            "id_chapter" => $id_chapter,
-            "id_course" => $id
-        ]);
     }
 
     public function addLesson()

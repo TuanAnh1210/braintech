@@ -25,13 +25,28 @@ class Learning extends BaseController
             $id_user = $_GET["userId"];
             $id_lesson = $_GET["lessonId"];
 
-            // insert detailCourse 
-            $data = [
-                "course_id" => $id_course,
-                "user_id" => $id_user,
-                "status_learn" => 0
-            ];
-            $this->detail_courseModel->insertDetailCourse($data);
+
+
+            $courseLearning = $this->detail_courseModel->getAll();
+
+            // Check if the user has learned
+
+
+            $isErr = true;
+            foreach ($courseLearning as $key => $value) {
+
+                if ($value["course_id"] == $id_course && $value["user_id"] == $id_user) {
+                    $isErr = false;
+                }
+            }
+            if ($isErr) {
+                $data = [
+                    "course_id" => $id_course,
+                    "user_id" => $id_user,
+                    "status_learn" => 0
+                ];
+                $this->detail_courseModel->insertDetailCourse($data);
+            }
 
             // load course
             $course = $this->chapterModel->getFullChapterByCourseId($id_course);
@@ -44,6 +59,7 @@ class Learning extends BaseController
             "course" => $course,
             "lesson_list" => $lesson_list,
             "curLesson" => $curLesson,
+            "id_lesson" => $id_lesson
         ]);
     }
 }
