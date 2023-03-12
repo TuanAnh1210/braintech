@@ -23,5 +23,10 @@ const arrPath = pathPage.split("/");
 items.forEach((item) => {
   if (item.getAttribute("data-item") == arrPath[arrPath.length - 1]) {
     item.classList.add("active");
+  } else if (
+    item.getAttribute("data-item") == "courses" &&
+    arrPath[arrPath.length - 1] == "detailCourse"
+  ) {
+    item.classList.add("active");
   }
 });

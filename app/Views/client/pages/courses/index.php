@@ -28,75 +28,30 @@
 
 <div class="courses__wrapper">
     <div class="container">
-        <h1 style="font-weight: 700; font-size: 28px; margin-bottom: 20px;">Khóa học Pro <span class="pro__label">Mới</span></h1>
+        <h1 style="font-weight: 700; font-size: 28px; margin-bottom: 20px;">Khóa học Pro <span
+                class="pro__label">Mới</span></h1>
         <div class="row">
+            <?php foreach ($coursesPro as $key => $value) : ?>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="courses-newest_item">
                     <div class="course__pro">
-                        <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
+                        <img src="<?= $GLOBALS['domainPage'] ?>/uploads/<?= $value["thumb"] ?>" alt="" />
                         <span class="course__pro-icon">
                             <i class="fa-solid fa-crown"></i>
                         </span>
                     </div>
-                    <h4>Hoc ReactJs</h4>
+                    <h4><?= $value["name"] ?></h4>
                     <div class="courses-newest_info">
                         <i class="fa-solid fa-users"></i>
                         <span>123</span>
                         <div class="price__wrapper">
-                            <p class="old__price">1.555.888đ</p>
-                            <p>1.222.999đ</p>
+                            <p class="old__price"><?= number_format($value['old_price'], 0, "", ".") ?>đđ</p>
+                            <p><?= number_format($value['price'], 0, "", ".") ?>đ</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="courses-newest_item">
-                    <div class="course__pro">
-                        <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
-                        <span class="course__pro-icon">
-                            <i class="fa-solid fa-crown"></i>
-                        </span>
-                    </div>
-                    <h4>Hoc ReactJs</h4>
-                    <div class="courses-newest_info">
-                        <i class="fa-solid fa-users"></i>
-                        <span>123</span>
-                        <p>Miễn phí</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="courses-newest_item">
-                    <div class="course__pro">
-                        <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
-                        <span class="course__pro-icon">
-                            <i class="fa-solid fa-crown"></i>
-                        </span>
-                    </div>
-                    <h4>Hoc ReactJs</h4>
-                    <div class="courses-newest_info">
-                        <i class="fa-solid fa-users"></i>
-                        <span>123</span>
-                        <p>Miễn phí</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="courses-newest_item">
-                    <div class="course__pro">
-                        <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
-                        <span class="course__pro-icon">
-                            <i class="fa-solid fa-crown"></i>
-                        </span>
-                    </div>
-                    <h4>Hoc ReactJs</h4>
-                    <div class="courses-newest_info">
-                        <i class="fa-solid fa-users"></i>
-                        <span>123</span>
-                        <p>Miễn phí</p>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach ?>
         </div>
     </div>
     <div class="courses__category">
@@ -107,111 +62,54 @@
 <div class="courses__wrapper">
     <div class="container">
         <h1 style="font-weight: 700; font-size: 28px; margin-bottom: 20px;">Khóa học Front-End miễn phí</h1>
-        <div id="test" class="row">
+        <div class="row">
+
+            <?php foreach ($coursesFe as $key => $value) : ?>
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="courses-newest_item">
-                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
-                    <h4>Hoc ReactJs</h4>
-                    <div class="courses-newest_info">
-                        <i class="fa-solid fa-users"></i>
-                        <span>123</span>
-                        <p>Miễn phí</p>
+                <a href="<?= $GLOBALS["domainPage"] ?>/courses/detailCourse?courseId=<?= $value["id"] ?>">
+                    <div class="courses-newest_item">
+                        <img src="<?= $GLOBALS['domainPage'] ?>/uploads/<?= $value['thumb'] ?>" alt="" />
+                        <h4><?= $value['name'] ?></h4>
+                        <div class="courses-newest_info">
+                            <i class="fa-solid fa-users"></i>
+                            <span>123</span>
+                            <p>Miễn phí</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="courses-newest_item">
-                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
-                    <h4>Hoc ReactJs</h4>
-                    <div class="courses-newest_info">
-                        <i class="fa-solid fa-users"></i>
-                        <span>123</span>
-                        <p>Miễn phí</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="courses-newest_item">
-                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
-                    <h4>Hoc ReactJs</h4>
-                    <div class="courses-newest_info">
-                        <i class="fa-solid fa-users"></i>
-                        <span>123</span>
-                        <p>Miễn phí</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="courses-newest_item">
-                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
-                    <h4>Hoc ReactJs</h4>
-                    <div class="courses-newest_info">
-                        <i class="fa-solid fa-users"></i>
-                        <span>123</span>
-                        <p>Miễn phí</p>
-                    </div>
-                </div>
-            </div>
+
+
+            <?php endforeach ?>
         </div>
     </div>
-    <div class="courses__category">
 
-    </div>
 </div>
 
 <div class="courses__wrapper">
     <div class="container">
         <h1 style="font-weight: 700; font-size: 28px; margin-bottom: 20px;">Khóa học Back-End miễn phí</h1>
         <div class="row">
+            <?php foreach ($coursesBe as $key => $value) : ?>
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="courses-newest_item">
-                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
-                    <h4>Hoc ReactJs</h4>
-                    <div class="courses-newest_info">
-                        <i class="fa-solid fa-users"></i>
-                        <span>123</span>
-                        <p>Miễn phí</p>
+                <a href="<?= $GLOBALS["domainPage"] ?>/courses/detailCourse?courseId=<?= $value["id"] ?>">
+                    <div class="courses-newest_item">
+                        <img src="<?= $GLOBALS['domainPage'] ?>/uploads/<?= $value['thumb'] ?>" alt="" />
+                        <h4><?= $value['name'] ?></h4>
+                        <div class="courses-newest_info">
+                            <i class="fa-solid fa-users"></i>
+                            <span>123</span>
+                            <p>Miễn phí</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="courses-newest_item">
-                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
-                    <h4>Hoc ReactJs</h4>
-                    <div class="courses-newest_info">
-                        <i class="fa-solid fa-users"></i>
-                        <span>123</span>
-                        <p>Miễn phí</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="courses-newest_item">
-                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
-                    <h4>Hoc ReactJs</h4>
-                    <div class="courses-newest_info">
-                        <i class="fa-solid fa-users"></i>
-                        <span>123</span>
-                        <p>Miễn phí</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="courses-newest_item">
-                    <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/reactJs.png" alt="" />
-                    <h4>Hoc ReactJs</h4>
-                    <div class="courses-newest_info">
-                        <i class="fa-solid fa-users"></i>
-                        <span>123</span>
-                        <p>Miễn phí</p>
-                    </div>
-                </div>
-            </div>
+
+
+            <?php endforeach ?>
         </div>
     </div>
-    <div class="courses__category">
 
-    </div>
 </div>
 
 <div class="group">

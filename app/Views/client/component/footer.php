@@ -55,7 +55,7 @@
 </footer>
 </div>
 
-<script src="<?= $GLOBALS['domainPage'] ?>/public/js/index.js"></script>
+<script src="<?= $GLOBALS['domainPage'] ?>/public/js/client.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="<?= $GLOBALS['domainPage'] ?>/public/lib/owl/owl.carousel.min.js"></script>
