@@ -12,4 +12,11 @@ class Detail_courseModel extends BaseModel
     {
         return $this->all(self::TABLE);
     }
+
+    public function getInfoCourse_User($id)
+    {
+        $sql = "SELECT courses.id,courses.name, courses.thumb, detail_course.status_learn FROM detail_course JOIN courses ON detail_course.course_id = courses.id WHERE detail_course.user_id = $id";
+
+        return $this->query_all($sql);
+    }
 }

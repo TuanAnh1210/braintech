@@ -12,4 +12,9 @@ class UsersModel extends BaseModel
     {
         return $this->create(self::TABLE, $data);
     }
+
+    public function updateInfo($data, $id)
+    {
+        return $this->update(self::TABLE, $data, $id);
+    }
 }

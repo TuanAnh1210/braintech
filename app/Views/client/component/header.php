@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/lib/owl/owl.theme.default.min.css">
     <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/lib/owl/owl.carousel.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
     <link rel="stylesheet" href="<?= gridmap_css() ?>" />
     <link rel="stylesheet" href="<?= grid_css() ?>" />
     <link rel="stylesheet" href="<?= css_file() ?>" />
@@ -82,7 +83,7 @@
                         <strong class="acc_name"><?= $_SESSION['auth']["name"] ?></strong>
                         <ul class="accMenu_wrapper">
                             <li class="accMenu_item">
-                                <a class="accMenu_link" href="#">Tài khoản</a>
+                                <a class="accMenu_link" href="<?= $GLOBALS['domainPage'] ?>/info">Tài khoản</a>
                             </li>
                             <li class="accMenu_item">
                                 <a class="accMenu_link" href="#">Ghi chú</a>
