@@ -239,26 +239,32 @@ header {
     padding: 6px 0;
     border-radius: 6px;
     margin-top: 20px;
-    transition: all linear .3s;
+    transition: all linear .2s;
 
 }
 
 .trackItem:hover {
     background-color: rgba(247, 107, 28, .7);
     cursor: pointer;
-    transition: all linear .3s;
+    transition: all linear .2s;
+}
+
+.trackItem.active .trackItem--title,
+.trackItem:hover .trackItem--title {
+    color: #fff;
 }
 
 .trackItem.active {
     background-color: rgba(247, 107, 28, .7);
 }
 
+
+
 .trackItem--title {
     font-size: 14px;
     font-weight: 500;
     margin-left: 16px;
     line-height: 20px;
-    color: #fff;
 }
 
 .quizz {

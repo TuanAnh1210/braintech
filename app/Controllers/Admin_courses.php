@@ -11,17 +11,22 @@ class Admin_courses extends BaseController
 
     public function index()
     {
-        $courseFe = $this->coursesModel->getCourse(1, "cate_id");
+        if (!empty($_SESSION['auth'])) {
+            $courseFe = $this->coursesModel->getCourse(1, "cate_id");
 
-        $courseBe = $this->coursesModel->getCourse(2, "cate_id");
-        $coursePro = $this->coursesModel->getCourse(3, "cate_id");
+            $courseBe = $this->coursesModel->getCourse(2, "cate_id");
+            $coursePro = $this->coursesModel->getCourse(3, "cate_id");
 
 
-        return $this->view("admin.pages.courses.index", [
-            "courseFe" => $courseFe,
-            "courseBe" => $courseBe,
-            "coursePro" => $coursePro,
-        ]);
+            return $this->view("admin.pages.courses.index", [
+                "courseFe" => $courseFe,
+                "courseBe" => $courseBe,
+                "coursePro" => $coursePro,
+            ]);
+        } else {
+            $url = $GLOBALS['domainPage'] . "/account";
+            header("location: $url");
+        }
     }
 
     public function updateCourse()
