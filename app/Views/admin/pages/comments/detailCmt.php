@@ -18,11 +18,14 @@
                                     <th width="5%">
                                         ID
                                     </th>
-                                    <th width="45%">
+                                    <th width="20%">
                                         Nội dung
                                     </th>
+                                    <th width="25%">
+                                        Tên người bình luận
+                                    </th>
                                     <th width="15%">
-                                        Người bình luận
+                                        Ảnh người bình luận
                                     </th>
 
                                     <th width="25%">
@@ -33,28 +36,33 @@
                                     </th>
                                 </thead>
                                 <tbody>
+                                    <?php foreach($data as $key=>$value):?>
                                     <tr>
                                         <td>
-                                            1
+                                            <?=++$key?>
                                         </td>
                                         <td>
-                                            Xây Dựng Website với ReactJS
+                                            <?=$value["content"]?>
                                         </td>
                                         <td>
-                                            <img style="width: 100%;"
-                                                src="https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/270175878_978095143129488_2029334598596771592_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=VkrnxjPq-OsAX8UpX8W&_nc_ht=scontent.fhan14-2.fna&oh=00_AfAKN5qSvEaaRktouAmF2yQFEhSneac8YW6KqM2mcso4Bw&oe=640CEC17"
+                                            <?=$value["name"]?>
+                                        </td>
+                                        <td>
+                                            <img style="width: 100%; "
+                                                src="<?=$GLOBALS["domainPage"]?>/uploads/<?=$value["avatar"]?>"
                                                 alt="">
                                         </td>
                                         <td>
-                                            2
+                                            <?=$value["date_cmt"]?>
                                         </td>
                                         <td>
-                                            <a href="#" class=" course_delete-btn">
+                                            <a href="<?=$GLOBALS["domainPage"]?>/admin_comments/deleteCmt?idCmt=<?=$value["id"]?>" class=" course_delete-btn">
                                                 Xóa
                                             </a>
                                         </td>
 
                                     </tr>
+                                    <?php endforeach?>
 
 
                                 </tbody>
