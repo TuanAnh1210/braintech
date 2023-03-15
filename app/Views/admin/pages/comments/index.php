@@ -29,19 +29,23 @@
                                         Chi tiết
                                     </th>
                                 </thead>
+
                                 <tbody>
+                                    <?php foreach($data as $key=>$value): 
+
+                                    ?>
                                     <tr>
                                         <td>
-                                            1
+                                            <?=++$key?>
                                         </td>
                                         <td>
-                                            Xây Dựng Website với ReactJS
+                                            <?= $value["name"]?>
                                         </td>
                                         <td>
-                                            2
+                                            <?= $value["totalCmt"]?>
                                         </td>
                                         <td>
-                                            <a href="<?= $GLOBALS['domainPage'] ?>/admin_comments/detailCmt"
+                                            <a href="<?= $GLOBALS['domainPage'] ?>/admin_comments/detailCmt?id_lesson=<?=$value["id_lesson"]?>"
                                                 class="course_view-btn">
                                                 Xem
                                             </a>
@@ -49,7 +53,7 @@
 
                                     </tr>
 
-
+                                    <?php endforeach?>
                                 </tbody>
                             </table>
                         </div>
