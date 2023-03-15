@@ -5,6 +5,8 @@ class Learning extends BaseController
     private $lessonModel;
     private $detail_courseModel;
     private $chapterModel;
+    private $commentsModel;
+
 
     public function __construct()
     {
@@ -16,6 +18,9 @@ class Learning extends BaseController
 
         $this->loadModel("LessonModel");
         $this->lessonModel = new LessonModel;
+
+        $this->loadModel("CommentsModel");
+        $this->commentsModel = new CommentsModel;
     }
 
     public function index()
@@ -54,12 +59,75 @@ class Learning extends BaseController
 
             // get current lesson
             $curLesson = $this->lessonModel->getOneLesson($id_lesson);
+
+            // get all comment
+            $comments = $this->commentsModel->getFullComment($id_lesson);
         }
         return $this->view('client.pages.learning.index', [
             "course" => $course,
             "lesson_list" => $lesson_list,
             "curLesson" => $curLesson,
-            "id_lesson" => $id_lesson
+            "id_lesson" => $id_lesson,
+            "id_course" => $id_course,
+            "comments" => $comments,
         ]);
+    }
+
+    public function deleteCmt()
+    {
+        if (!empty($_GET["idCmt"]) && !empty($_GET["idCourse"]) && !empty($_GET["idLesson"])) {
+            $idCmt = $_GET["idCmt"];
+            $id_course = $_GET["idCourse"];
+            $id_lesson = $_GET["idLesson"];
+            $id_user = $_SESSION['auth']["id"];
+
+            $this->commentsModel->deleteCmt($idCmt);
+
+            $url = $GLOBALS['domainPage'] . "/learning?courseId=$id_course&userId=$id_user&lessonId=$id_lesson";
+            header("location: $url");
+        }
+    }
+
+    public function addNewCmt()
+    {
+        if (!empty($_POST)) {
+            $id_lesson = $_POST["cmt_idLesson"];
+            $id_user = $_POST["cmt_idUser"];
+            $content = $_POST["cmt_content"];
+            $id_course = $_POST["cmt_idCourse"];
+
+            $data = [
+                "content" => $content,
+                "date_cmt" => date("Y-m-d H:i:s"),
+                "id_user" => $id_user,
+                "id_lesson" => $id_lesson,
+            ];
+
+            $this->commentsModel->addCmt($data);
+
+            $url = $GLOBALS['domainPage'] . "/learning?courseId=$id_course&userId=$id_user&lessonId=$id_lesson";
+            header("location: $url");
+        }
+    }
+
+    public function updateCmt()
+    {
+        if (!empty($_POST)) {
+            $id_lesson = $_POST["cmt_idLesson"];
+            $id_user = $_POST["cmt_idUser"];
+            $content = $_POST["contentUpdateIpt"];
+            $id_course = $_POST["cmt_idCourse"];
+            $id_cmt = $_POST["cmt_idCmt"];
+
+            $data  = [
+                "content" => $content,
+                "id_user" => $id_user,
+                "id_lesson" => $id_lesson,
+            ];
+
+            $this->commentsModel->updateCmt($data, $id_cmt);
+            $url = $GLOBALS['domainPage'] . "/learning?courseId=$id_course&userId=$id_user&lessonId=$id_lesson";
+            header("location: $url");
+        }
     }
 }

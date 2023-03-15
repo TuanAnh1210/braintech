@@ -8,7 +8,8 @@
                     <div class="profile__user">
                         <img src="<?= $GLOBALS["domainPage"] ?>/uploads/<?= $_SESSION["auth"]["avatar"] ?>" alt="">
                         <div class="profile__user--body">
-                            <h3><?= $_SESSION["auth"]["name"] ?><span><i style="color: orangered;" class="fa-solid fa-star"></i></span>
+                            <h3><?= $_SESSION["auth"]["name"] ?><span><i style="color: orangered;"
+                                        class="fa-solid fa-star"></i></span>
                             </h3>
 
                             <p>Thành viên của Braintech</p>
@@ -86,7 +87,8 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4">
                     <div class="img_preview">
-                        <img class="imgUpload" src="<?= $GLOBALS["domainPage"] ?>/uploads/<?= $_SESSION["auth"]["avatar"] ?>" alt="">
+                        <img class="imgUpload"
+                            src="<?= $GLOBALS["domainPage"] ?>/uploads/<?= $_SESSION["auth"]["avatar"] ?>" alt="">
                         <img class="loadingImg" src="https://i.gifer.com/7pld.gif" alt="">
 
                     </div>
@@ -108,14 +110,16 @@
                             <div class="col-lg-6">
                                 <div class="form_group">
                                     <label for="">Họ tên:</label>
-                                    <input type="text" required name="name_user" value="<?= $_SESSION["auth"]["name"] ?>">
+                                    <input type="text" required name="name_user"
+                                        value="<?= $_SESSION["auth"]["name"] ?>">
                                 </div>
 
                             </div>
                             <div class="col-lg-6">
                                 <div class="form_group">
                                     <label for="">Số điện thoại:</label>
-                                    <input type="text" required name="phone_user" value="<?= $_SESSION["auth"]["phone"] ?>">
+                                    <input type="text" required name="phone_user"
+                                        value="<?= $_SESSION["auth"]["phone"] ?>">
                                 </div>
 
                             </div>
@@ -125,7 +129,8 @@
                             <div class="col-lg-12">
                                 <div class="form_group mt">
                                     <label for="">Email:</label>
-                                    <input type="email" required name="email_user" value="<?= $_SESSION["auth"]["email"] ?>">
+                                    <input type="email" required name="email_user"
+                                        value="<?= $_SESSION["auth"]["email"] ?>">
                                 </div>
                             </div>
                         </div>
@@ -144,118 +149,119 @@
 
 
 <script>
-    // handle get data from db and convert arr php to arr js
-    const infoCourse_user = <?= json_encode($infoCourse_user) ?>;
+// handle get data from db and convert arr php to arr js
+const infoCourse_user = <?= json_encode($infoCourse_user) ?>;
 
-    infoCourse_user.forEach(element => {
-        for (let i in element) {
-            if (!isNaN(Number(i))) {
-                delete element[i];
+infoCourse_user.forEach(element => {
+    for (let i in element) {
+        if (!isNaN(Number(i))) {
+            delete element[i];
+        }
+    }
+});
+
+// show courseLearning
+const courseLearning = document.querySelector(".courseLearning");
+const listCourseLearning = infoCourse_user.filter(item => item.status_learn == 0);
+
+courseLearning.innerHTML = listCourseLearning.map(item => `
+    <div class="box__courses--inner">
+                                    <img src="<?= $GLOBALS["domainPage"] ?>/uploads/${item.thumb}" alt="">
+                                    <div class="box__courses--info">
+                                        <h4>${item.name}</h4>
+                                        <p>Ngày bắt đầu: <span>2022-12-10</span></p>
+                                    </div>
+                                </div>
+    `).join("");
+
+// show courseLearned
+
+const courseLearned = document.querySelector(".courseLearned")
+const listCourseLearned = infoCourse_user.filter(item => item.status_learn == 1);
+courseLearned.innerHTML = listCourseLearned.map(item => `
+    <div class="box__courses--inner">
+                                    <img src="<?= $GLOBALS["domainPage"] ?>/uploads/${item.thumb}" alt="">
+                                    <div class="box__courses--info">
+                                        <h4>${item.name}</h4>
+                                        <p>Ngày bắt đầu: <span>2022-12-10</span></p>
+                                    </div>
+                                </div>
+    `).join("");
+
+
+// feat: show form edit info user
+const js_edit_btn = document.querySelectorAll(".js-edit");
+const modal = document.querySelector(".modal");
+const btn_close = document.querySelector(".btn-close")
+const mofal_form = document.querySelector(".mofal_form")
+
+js_edit_btn.forEach(item => {
+    item.onclick = () => {
+        modal.classList.add("open")
+    }
+})
+
+btn_close.onclick = (e) => {
+    e.preventDefault()
+    modal.classList.remove("open")
+}
+
+mofal_form.onclick = (e) => {
+    e.stopPropagation()
+}
+
+modal.onclick = () => {
+    modal.classList.remove("open")
+}
+const imgUpload = document.querySelector(".imgUpload")
+
+const loadingImg = document.querySelector(".loadingImg")
+
+const showLoading = (isSuccess) => {
+    if (isSuccess) {
+        imgUpload.style.display = "block"
+        loadingImg.classList.remove("open")
+    } else {
+        imgUpload.style.display = "none"
+        loadingImg.classList.add("open")
+    }
+}
+
+const prdImage = document.querySelector(".prdImage")
+prdImage.onchange = async () => {
+    showLoading(false);
+    const urlImgUpload = await uploadFiles(prdImage.files)
+
+    imgUpload.src = urlImgUpload;
+}
+
+
+const uploadFiles = async (files) => {
+    const CLOUD_NAME = "dpjieqbsk";
+    const PRESET_NAME = "braintech";
+    const FOLDER_NAME = "braintech";
+    const urlImage = "";
+    const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
+
+    const formData = new FormData();
+
+    formData.append("upload_preset", PRESET_NAME);
+    formData.append("folder", FOLDER_NAME);
+
+    for (const file of files) {
+        formData.append("file", file);
+
+        const response = await axios.post(api, formData, {
+            headers: {
+                "Content-Type": "multipart/form-data"
             }
-        }
-    });
-
-    // show courseLearning
-    const courseLearning = document.querySelector(".courseLearning");
-    const listCourseLearning = infoCourse_user.filter(item => item.status_learn == 0);
-
-    courseLearning.innerHTML = listCourseLearning.map(item => `
-    <div class="box__courses--inner">
-                                    <img src="<?= $GLOBALS["domainPage"] ?>/uploads/${item.thumb}" alt="">
-                                    <div class="box__courses--info">
-                                        <h4>${item.name}</h4>
-                                        <p>Ngày bắt đầu: <span>2022-12-10</span></p>
-                                    </div>
-                                </div>
-    `).join("");
-
-    // show courseLearned
-
-    const courseLearned = document.querySelector(".courseLearned")
-    const listCourseLearned = infoCourse_user.filter(item => item.status_learn == 1);
-    courseLearned.innerHTML = listCourseLearned.map(item => `
-    <div class="box__courses--inner">
-                                    <img src="<?= $GLOBALS["domainPage"] ?>/uploads/${item.thumb}" alt="">
-                                    <div class="box__courses--info">
-                                        <h4>${item.name}</h4>
-                                        <p>Ngày bắt đầu: <span>2022-12-10</span></p>
-                                    </div>
-                                </div>
-    `).join("");
-
-
-    // feat: show form edit info user
-    const js_edit_btn = document.querySelectorAll(".js-edit");
-    const modal = document.querySelector(".modal");
-    const btn_close = document.querySelector(".btn-close")
-    const mofal_form = document.querySelector(".mofal_form")
-
-    js_edit_btn.forEach(item => {
-        item.onclick = () => {
-            modal.classList.add("open")
-        }
-    })
-
-    btn_close.onclick = () => {
-        modal.classList.remove("open")
-    }
-
-    mofal_form.onclick = (e) => {
-        e.stopPropagation()
-    }
-
-    modal.onclick = () => {
-        modal.classList.remove("open")
-    }
-    const imgUpload = document.querySelector(".imgUpload")
-
-    const loadingImg = document.querySelector(".loadingImg")
-
-    const showLoading = (isSuccess) => {
-        if (isSuccess) {
-            imgUpload.style.display = "block"
-            loadingImg.classList.remove("open")
-        } else {
-            imgUpload.style.display = "none"
-            loadingImg.classList.add("open")
-        }
-    }
-
-    const prdImage = document.querySelector(".prdImage")
-    prdImage.onchange = async () => {
-        showLoading(false);
-        const urlImgUpload = await uploadFiles(prdImage.files)
-
-        imgUpload.src = urlImgUpload;
-    }
-
-
-    const uploadFiles = async (files) => {
-        const CLOUD_NAME = "dpjieqbsk";
-        const PRESET_NAME = "braintech";
-        const FOLDER_NAME = "braintech";
-        const urlImage = "";
-        const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
-
-        const formData = new FormData();
-
-        formData.append("upload_preset", PRESET_NAME);
-        formData.append("folder", FOLDER_NAME);
-
-        for (const file of files) {
-            formData.append("file", file);
-
-            const response = await axios.post(api, formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data"
-                }
-            });
-            showLoading(response);
-            return response.data.secure_url
-
-        }
-
+        });
+        showLoading(response);
+        return response.data.secure_url
 
     }
+
+
+}
 </script>
 <?php ipView('client.component.footer') ?>

@@ -370,6 +370,7 @@ header {
 
 
 .commentBox--right {
+    position: relative;
     flex: 1;
     margin-left: 8px;
     background-color: #fff;
@@ -617,3 +618,103 @@ header {
 
 
 /* end note form */
+
+.comments-options {
+    position: absolute;
+    right: 32px;
+    top: 6px;
+    cursor: pointer;
+
+}
+
+.comments-options::after {
+    position: absolute;
+    content: "";
+    width: 130px;
+    height: 20px;
+    top: 10px;
+    right: -10px;
+}
+
+.comments-options:hover .btn_option-cmt {
+    display: block;
+}
+
+.comments-options i {
+    font-size: 24px;
+}
+
+.options-sub {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 120px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-color: #fff;
+}
+
+.btn_option-cmt {
+    display: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    padding: 2px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 0 !important;
+}
+
+.btn_option-cmt:hover {
+    cursor: pointer;
+    background-color: rgba(247, 107, 28, .9);
+    color: #fff;
+}
+
+.btn_option-cmt i {
+    font-size: 16px;
+}
+
+.update_cmt_form {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.update_cmt_form.open {
+    display: flex;
+    animation: showIn linear .2s;
+}
+
+.update_cmt_form input {
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.update_cmt_form button {
+    height: 30px;
+    width: 100px;
+    font-size: 14px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-radius: 10px;
+
+    border: none;
+    margin: 6px 0;
+}
+
+.update_cmt_form button:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+@keyframes showIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
