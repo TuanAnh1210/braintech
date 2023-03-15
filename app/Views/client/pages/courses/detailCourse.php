@@ -38,7 +38,6 @@
     // handle get data from db and convert arr php to arr js
     // const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
     const courses = <?= json_encode($course) ?>;
-
     const lesson_list = <?= json_encode($lesson_list) ?>;
 
 
@@ -60,6 +59,7 @@
             }
         }
     });
+
 
     // handle get firstLesson in course
 
