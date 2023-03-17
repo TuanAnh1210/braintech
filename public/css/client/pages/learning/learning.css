@@ -709,6 +709,84 @@ header {
     cursor: pointer;
 }
 
+
+/* note */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.modal.open {
+    display: block;
+}
+
+.note_wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 60%;
+    padding: 32px 32px 48px 32px;
+    animation: showIn ease-in .3s;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+}
+
+.note_heading {}
+
+.note_heading h2 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.note_list {
+    margin-top: 48px;
+    padding-left: 24px;
+    padding-right: 12px;
+    height: calc(100vh - 50px);
+    padding-bottom: 142px;
+    overflow-y: scroll;
+}
+
+.note_item {
+    margin-top: 24px;
+}
+
+.note-close {
+    padding: 6px;
+    font-size: 22px;
+}
+
+.note-close:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.note_item-heading {}
+
+.note_item-heading p {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.note_item-content {
+    height: 56px;
+    line-height: 56px;
+    background-color: #f0f0f0;
+}
+
+.note_item-content p {
+    margin-bottom: 0;
+    margin-left: 12px;
+}
+
+
 @keyframes showIn {
     from {
         opacity: 0;

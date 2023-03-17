@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/learningss.css">
+    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/learning.css">
     <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/responsive.css">
 </head>
 
@@ -57,8 +57,8 @@
             <div class="container-fluid">
                 <div class="learning__wrapper">
                     <div class="learning__video">
-                        <iframe class="video--link" src="<?= $curLesson["path_video"] ?>" title="YouTube video player"
-                            frameborder="0"
+                        <iframe id="video-player" class="video--link" src="<?= $curLesson["path_video"] ?>"
+                            title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
 
@@ -139,13 +139,16 @@
                             </div>
 
                             <div class="noteZone">
-                                <form class="noteForm" action="">
+                                <form class="noteForm" action="<?= $GLOBALS["domainPage"] ?>/learning/AddNewNote"
+                                    method="POST">
                                     <h2 class="note--title">Thêm ghi chú tại <span class="note--time">00:00</span></h2>
-
+                                    <input hidden type="text" value="<?= $id_lesson ?>" name="id_lesson">
+                                    <input hidden type="text" value="<?= $id_course ?>" name="id_course">
+                                    <input hidden type="text" value="<?= $_SESSION["auth"]['id'] ?>" name="id_user">
                                     <div class="form__group">
                                         <label for="">Nội dung ghi chú:</label>
-                                        <textarea required placeholder="Nội dung ghi chú..." class="note--ipt" name=""
-                                            id="" cols="30" rows="10"></textarea>
+                                        <textarea required placeholder="Nội dung ghi chú..." class="note--ipt"
+                                            name="note_content" id="" cols="30" rows="10"></textarea>
                                     </div>
 
                                     <button class="send__comment">Thêm ghi chú</button>
@@ -178,6 +181,32 @@
             <button class="btn__bar">
                 <i class="fa-solid fa-bars"></i>
             </button>
+        </div>
+
+        <div class="modal">
+            <div class="note_wrapper">
+                <div style="display: flex; justify-content: end;"><span class="note-close"><i
+                            class="fa-solid fa-xmark"></i></span></div>
+                <div class="note_heading">
+                    <h2>Ghi chú của tôi</h2>
+                </div>
+                <div class="note_list">
+                    <?php foreach ($notes as $key => $value) : ?>
+                    <div class="note_item">
+                        <div class="note_item-heading">
+                            <p>Bài: <?= $value["name"] ?></p>
+                        </div>
+                        <div class="note_item-content">
+
+                            <p><?= $value["content"] ?></p>
+                        </div>
+                    </div>
+
+                    <?php endforeach ?>
+
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -363,7 +392,33 @@
             inputUpdate.focus()
         }
     })
+
+    // note-storage
+
+    const note_storage = document.querySelector(".note-storage")
+    const modal = document.querySelector(".modal")
+    const note_wrapper = document.querySelector(".note_wrapper")
+    const note_close = document.querySelector(".note-close")
+    note_storage.onclick = (e) => {
+        e.preventDefault()
+        modal.classList.add("open")
+    }
+
+    note_close.onclick = () => {
+        modal.classList.remove("open")
+
+    }
+
+    note_wrapper.onclick = (e) => {
+        e.stopPropagation()
+    }
+    modal.onclick = () => {
+        modal.classList.remove("open")
+
+    }
     </script>
+
+
 </body>
 
 </html>

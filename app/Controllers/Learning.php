@@ -6,6 +6,7 @@ class Learning extends BaseController
     private $detail_courseModel;
     private $chapterModel;
     private $commentsModel;
+    private $noteModel;
 
 
     public function __construct()
@@ -21,6 +22,9 @@ class Learning extends BaseController
 
         $this->loadModel("CommentsModel");
         $this->commentsModel = new CommentsModel;
+
+        $this->loadModel("NoteModel");
+        $this->noteModel = new NoteModel;
     }
 
     public function index()
@@ -62,6 +66,9 @@ class Learning extends BaseController
 
             // get all comment
             $comments = $this->commentsModel->getFullComment($id_lesson);
+
+            // get note
+            $notes = $this->noteModel->getAllNote($id_user);
         }
         return $this->view('client.pages.learning.index', [
             "course" => $course,
@@ -70,6 +77,7 @@ class Learning extends BaseController
             "id_lesson" => $id_lesson,
             "id_course" => $id_course,
             "comments" => $comments,
+            "notes" => $notes,
         ]);
     }
 
@@ -126,6 +134,28 @@ class Learning extends BaseController
             ];
 
             $this->commentsModel->updateCmt($data, $id_cmt);
+            $url = $GLOBALS['domainPage'] . "/learning?courseId=$id_course&userId=$id_user&lessonId=$id_lesson";
+            header("location: $url");
+        }
+    }
+
+
+    public function AddNewNote()
+    {
+        if (!empty($_POST)) {
+            $id_user = $_POST["id_user"];
+            $id_lesson = $_POST["id_lesson"];
+            $id_course = $_POST["id_course"];
+            $note_content = $_POST["note_content"];
+
+            $data = [
+                "content" => $note_content,
+                "id_lesson" => $id_lesson,
+                "id_user" => $id_user,
+            ];
+
+            $this->noteModel->addNewNote($data);
+
             $url = $GLOBALS['domainPage'] . "/learning?courseId=$id_course&userId=$id_user&lessonId=$id_lesson";
             header("location: $url");
         }
