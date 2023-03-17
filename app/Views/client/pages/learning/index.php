@@ -25,7 +25,7 @@
                         <div class="header__logo">
                             <a href="<?= $GLOBALS['domainPage'] ?>">
                                 <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/logo.png" alt="" />
-                                <p>Xây Dựng Website với ReactJS</p>
+                                <p><?= $curCourse["name"]?></p>
                             </a>
                         </div>
                     </div>

@@ -8,6 +8,11 @@ class CoursesModel extends BaseModel
         return $this->getDep(self::TABLE, $cate_id, $dep);
     }
 
+    public function getCourseById($id)
+    {
+        return $this->one(self::TABLE, $id);
+    }
+
     public function getOneCourse($id)
     {
         return $this->one(self::TABLE, $id);
