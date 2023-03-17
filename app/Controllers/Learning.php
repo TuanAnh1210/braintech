@@ -7,6 +7,7 @@ class Learning extends BaseController
     private $chapterModel;
     private $commentsModel;
     private $noteModel;
+    private $coursesModel;
 
 
     public function __construct()
@@ -25,6 +26,9 @@ class Learning extends BaseController
 
         $this->loadModel("NoteModel");
         $this->noteModel = new NoteModel;
+
+        $this->loadModel("CoursesModel");
+        $this->coursesModel = new CoursesModel;
     }
 
     public function index()
@@ -35,10 +39,12 @@ class Learning extends BaseController
             $id_lesson = $_GET["lessonId"];
 
 
+            $curCourse = $this->coursesModel->getCourseById($id_course);
+
 
             $courseLearning = $this->detail_courseModel->getAll();
 
-            // Check if the user has learned
+            // Check if the user has join course
 
 
             $isErr = true;
@@ -78,6 +84,7 @@ class Learning extends BaseController
             "id_course" => $id_course,
             "comments" => $comments,
             "notes" => $notes,
+            "curCourse" =>  $curCourse
         ]);
     }
 

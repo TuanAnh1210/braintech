@@ -30,26 +30,26 @@
                 <a class="forgot__pass" href="#">Quên mật khẩu</a>
                 <a class="forgot__pass" href="<?= $GLOBALS['domainPage'] ?>">Trang chủ</a>
             </form>
-            <form class="form__regis" action="">
+            <form class="form__regis" action="<?= $GLOBALS['domainPage'] ?>/account/handleRegisAcc" method="POST">
                 <h2 class="form__title regis">Đăng ký</h2>
                 <div class="form__group">
                     <label for="">Họ tên</label>
-                    <input type="text" placeholder="Họ và tên">
+                    <input type="text" placeholder="Họ và tên" id="name_regis" name="name_regis">
                     <p class="error"></p>
                 </div>
                 <div class="form__group">
                     <label for="">Email</label>
-                    <input type="text" placeholder="Email">
+                    <input type="text" placeholder="Email" id="email_regis" name="email_regis">
                     <p class="error"></p>
                 </div>
                 <div class="form__group">
                     <label for="">Mật khẩu</label>
-                    <input type="password" placeholder="Mật khẩu">
+                    <input type="password" placeholder="Mật khẩu" id="pass_regis" name="pass_regis">
                     <p class="error"></p>
                 </div>
                 <div class="form__group">
                     <label for="">Nhập lại mật khẩu</label>
-                    <input type="password" placeholder="Xác nhận mật khẩu">
+                    <input type="password" placeholder="Xác nhận mật khẩu" id="rePass_regis">
                     <p class="error"></p>
                 </div>
                 <button class="btn__regis">Đăng ký</button>
@@ -126,13 +126,22 @@
         }
 
         // check email & pass true then login
-        const checkExist = () => {
-            const emailLogin = document.querySelector("#email_login")
-            const passLogin = document.querySelector("#pass_login")
+        const checkExist = (options) => {
+            if (options == 0) {
+                const emailLogin = document.querySelector("#email_login")
+                const passLogin = document.querySelector("#pass_login")
 
-            const isSuccess = listUser.some(user => user.email == emailLogin.value && user.password == passLogin.value)
+                const isSuccess = listUser.some(user => user.email == emailLogin.value && user.password == passLogin
+                    .value)
 
-            return isSuccess
+                return isSuccess
+
+            } else if (options == 1) {
+                const emailRegis = document.querySelector("#email_regis")
+                const isExist = listUser.some(user => user.email == emailRegis.value);
+
+                return isExist
+            }
         }
 
         const regEmail = /^\w+@(\w+\.\w+){1,2}$/;
@@ -169,7 +178,7 @@
             })
 
             if (isError) {
-                if (checkExist()) {
+                if (checkExist(0)) {
                     return true
                 } else {
                     alert("Email hoặc mật khẩu không chính xác !")
@@ -178,7 +187,7 @@
             }
         }
 
-        // handle validate form
+        // handle validate form login
         const formFieldLogin = ["email_login", "pass_login"];
         form__login.onsubmit = (e) => {
             e.preventDefault()
@@ -188,6 +197,76 @@
             }
 
 
+        }
+
+
+
+
+        // handle validate form register
+        const pass_regis = document.getElementById("pass_regis")
+        const rePass_regis = document.getElementById("rePass_regis")
+
+        const validateFormRegis = (formField) => {
+            let isError = true
+            formField.forEach(field => {
+
+                const ele = document.getElementById(field)
+
+                if (field == "email_regis") {
+                    if (!regEmail.test(ele.value.trim())) {
+                        showError(ele, "Email không đúng định dạng")
+                        isError = false
+                    }
+                }
+
+                if (field == "pass_regis") {
+                    if (ele.value.trim().length < 6) {
+                        showError(ele, "Mật khẩu tối thiểu 6 kí tự")
+                        isError = false
+
+                    }
+                }
+
+                if (pass_regis.value.trim() != rePass_regis.value.trim()) {
+                    showError(rePass_regis, "Mật khẩu nhập lại không chính xác")
+                    showError(pass_regis, "Mật khẩu nhập lại không chính xác")
+                    isError = false
+                }
+
+                if (ele.value.trim() == "") {
+                    showError(ele, "Dữ liệu không được để trống");
+                    isError = false
+                }
+
+                ele.oninput = () => {
+                    hideError(ele)
+                }
+            })
+
+            if (isError) {
+                if (!!checkExist(1)) {
+                    alert("Email đã tồn tại. Vui lòng sử dựng email khác")
+                    return false
+                } else {
+                    return true
+                }
+            }
+        }
+
+
+        const formFieldRegis = [
+            "name_regis",
+            "email_regis",
+            "pass_regis",
+            "rePass_regis"
+        ]
+
+        form__regis.onsubmit = (e) => {
+            e.preventDefault()
+
+            if (validateFormRegis(formFieldRegis)) {
+                form__regis.submit()
+            }
         }
     </script>
 </body>

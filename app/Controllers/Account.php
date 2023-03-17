@@ -47,8 +47,60 @@ class Account extends BaseController
         }
     }
 
-    public function info()
+    public function handleRegisAcc()
     {
-        return $this->view('client.pages.info.index');
+        if (!empty($_POST)) {
+            $name = $_POST['name_regis'];
+            $email = $_POST['email_regis'];
+            $password = $_POST['pass_regis'];
+            $avatar = "default.jpg";
+            $address = "not available";
+            $phone = "not available";
+            $date_join = date("Y-m-d H:i:s");
+
+
+            $arrInfo = [
+                "name" => $name,
+                "email" => $email,
+                "password" => $password,
+                "avatar" => $avatar,
+                "address" => $address,
+                "phone" => $phone,
+                "date_join" => $date_join,
+            ];
+
+            mailAuth('sendmail', [
+                "arrInfo" => $arrInfo
+            ]);
+        }
+    }
+
+    public function authSuccess()
+    {
+        {
+            if (!empty($_POST)) {
+                $name = $_POST['fullnameUser'];
+                $email = $_POST['emailUser'];
+                $avatar = $_POST['avatarUser'];
+                $address = $_POST['addressUser'];
+                $password = $_POST['passwordUser'];
+                $phone = $_POST['phoneUser'];
+                $date_join = $_POST['date_joinUser'];
+    
+                $data = [
+                    'name' => $name,
+                    'email' => $email,
+                    'password' => $password,
+                    'avatar' => $avatar,
+                    'address' => $address,
+                    'phone' => $phone,
+                    'date_join' => $date_join,
+                    'role' => 1,
+                ];
+                $this->accountModel->addNewAcc($data);
+                $url = $GLOBALS['domainPage'] . "/account";
+                header("location: $url");
+            }
+        }
     }
 }

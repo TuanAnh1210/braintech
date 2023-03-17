@@ -13,4 +13,9 @@ class AccountModel extends BaseModel
         $sql = "SELECT * FROM users WHERE email = '$emailUser'";
         return $this->query_one($sql);
     }
+
+    public function addNewAcc($data)
+    {
+        return $this->create(self::TABLE, $data);
+    }
 }
