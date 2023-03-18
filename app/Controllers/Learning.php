@@ -8,6 +8,8 @@ class Learning extends BaseController
     private $commentsModel;
     private $noteModel;
     private $coursesModel;
+    private $quizzsModel;
+    private $fn_lessonModel;
 
 
     public function __construct()
@@ -29,6 +31,13 @@ class Learning extends BaseController
 
         $this->loadModel("CoursesModel");
         $this->coursesModel = new CoursesModel;
+
+
+        $this->loadModel("QuizzsModel");
+        $this->quizzsModel = new QuizzsModel;
+
+        $this->loadModel("Finish_lessonModel");
+        $this->fn_lessonModel = new Finish_lessonModel;
     }
 
     public function index()
@@ -70,11 +79,19 @@ class Learning extends BaseController
             // get current lesson
             $curLesson = $this->lessonModel->getOneLesson($id_lesson);
 
+
+
             // get all comment
             $comments = $this->commentsModel->getFullComment($id_lesson);
 
             // get note
             $notes = $this->noteModel->getAllNote($id_user);
+
+            // get quizz
+            $quizzs = $this->quizzsModel->getAllQuizz();
+
+            // get lesson finish
+            $finishLesson = $this->fn_lessonModel->getFinishLessonByIdUser($id_user);
         }
         return $this->view('client.pages.learning.index', [
             "course" => $course,
@@ -84,7 +101,9 @@ class Learning extends BaseController
             "id_course" => $id_course,
             "comments" => $comments,
             "notes" => $notes,
-            "curCourse" =>  $curCourse
+            "curCourse" =>  $curCourse,
+            "quizzs" => $quizzs,
+            "finishLesson" => $finishLesson,
         ]);
     }
 

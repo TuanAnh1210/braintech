@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://www.youtube.com/iframe_api"></script>
+  </head>
+  <body>
+    <iframe
+      id="player"
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/kqOybgUwTGY"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+
+    <script>
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player("player", {
+          videoId: "kqOybgUwTGY",
+          playerVars: {
+            autoplay: 1,
+            controls: 0,
+          },
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+            onError: onPlayerError,
+          },
+          apiKey: "AIzaSyDIdla45YmokVSwCzni0h_Yc4XGHmLXrCY",
+        });
+      }
+
+      function onPlayerReady(event) {
+        console.log("Player is ready.");
+      }
+    </script>
+  </body>
+</html>

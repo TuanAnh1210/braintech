@@ -236,10 +236,12 @@ header {
 }
 
 .trackItem {
+    min-height: 66px;
     padding: 6px 0;
     border-radius: 6px;
     margin-top: 20px;
     transition: all linear .2s;
+    background-color: #f1f1f1;
 
 }
 
@@ -260,6 +262,8 @@ header {
 
 
 
+
+
 .trackItem--title {
     font-size: 14px;
     font-weight: 500;
@@ -273,12 +277,11 @@ header {
 
 .quizz--item {
     background-color: rgba(204, 204, 204, .5);
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 8px;
     display: inline-block;
     text-align: center;
-    line-height: 26px;
     margin-right: 4px;
 }
 

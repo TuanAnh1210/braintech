@@ -76,8 +76,7 @@ class Account extends BaseController
     }
 
     public function authSuccess()
-    {
-        {
+    { {
             if (!empty($_POST)) {
                 $name = $_POST['fullnameUser'];
                 $email = $_POST['emailUser'];
@@ -86,7 +85,7 @@ class Account extends BaseController
                 $password = $_POST['passwordUser'];
                 $phone = $_POST['phoneUser'];
                 $date_join = $_POST['date_joinUser'];
-    
+
                 $data = [
                     'name' => $name,
                     'email' => $email,
@@ -101,6 +100,41 @@ class Account extends BaseController
                 $url = $GLOBALS['domainPage'] . "/account";
                 header("location: $url");
             }
+        }
+    }
+
+    public function forgotPass()
+    {
+        if (!empty($_POST["emailIpt"])) {
+            $emailCheck = $_POST["emailIpt"];
+            mailAuth('forgotPass', [
+                "emailCheck" => $emailCheck
+            ]);
+            die;
+        }
+        return $this->view("client.pages.account.forgotPass");
+    }
+
+    public function authForgotPass()
+    {
+        if (!empty($_POST['emailUser'])) {
+            $emailUser = $_POST['emailUser'];
+            return $this->view("client.pages.account.updatePass", [
+                "emailUser" => $emailUser
+            ]);
+        }
+    }
+
+    public function updatePassword()
+    {
+        if (!empty($_POST['passIpt']) && !empty($_POST['emailIpt'])) {
+            $password = $_POST['passIpt'];
+            $email = $_POST['emailIpt'];
+
+
+            $this->accountModel->updateNewPass($password, $email);
+            $url = $GLOBALS['domainPage'] . "/account";
+            header("location: $url");
         }
     }
 }
