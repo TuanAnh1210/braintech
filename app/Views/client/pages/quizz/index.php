@@ -73,6 +73,17 @@ btn.onclick = (e) => {
 
         </div>
         `
+
+        document.querySelector(".no").onclick = () => {
+            message__delete.classList.remove("open")
+
+        }
+
+        document.querySelector(".yes").onclick = () => {
+            window.location.href =
+                `<?= $GLOBALS["domainPage"] ?>/learning?courseId=<?= $id_course ?>&userId=<?= $_SESSION["auth"]["id"] ?>&lessonId=<?= $id_lesson ?>`
+
+        }
     } else {
         const message__delete = document.querySelector(".message__delete")
         message__delete.classList.add("open")
@@ -81,9 +92,13 @@ btn.onclick = (e) => {
         <h4>Hãy chọn lại nhé !</h4>
         <div class="btn__delete-container">
             <button class="yes">Yes</button>
-            <button class="no">No</button>
         </div>
         `
+
+        document.querySelector(".yes").onclick = () => {
+            message__delete.classList.remove("open")
+
+        }
     }
 
 }

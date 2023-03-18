@@ -17,6 +17,8 @@ class Quizz extends BaseController
     {
         if (!empty($_GET["quizzId"])) {
             $id_quizz = $_GET["quizzId"];
+            $id_lesson = $_GET["idLesson"];
+            $id_course = $_GET["idCourse"];
 
             $quizz = $this->quizzsModel->getQuizzById($id_quizz);
             $answers = $this->quizz_answerModel->getAnswer($id_quizz);
@@ -27,11 +29,9 @@ class Quizz extends BaseController
         }
         return $this->view("client.pages.quizz.index", [
             "quizz" => $quizz,
-            "answers" => $answers
+            "answers" => $answers,
+            "id_lesson" => $id_lesson,
+            "id_course" => $id_course,
         ]);
-    }
-
-    public function finishLesson()
-    {
     }
 }

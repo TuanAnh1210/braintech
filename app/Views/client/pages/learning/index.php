@@ -15,6 +15,10 @@
 
 <body>
     <div class="main">
+        <div class="message__delete">
+
+        </div>
+
         <header>
             <div style="height: 100%;" class="container-fluid">
                 <div class="header__wrapper">
@@ -350,7 +354,7 @@
                                         </h3>
                                         <div class="quizz">
                         ${quizzs.filter(quizz => quizz.lesson_id == item.id).map((value, i) => `
-                            <a class="quizz--item finish" href="<?= $GLOBALS["domainPage"] ?>/quizz?quizzId=${value.id}">Bài tập</a>
+                            <a class="quizz--item finish" href="<?= $GLOBALS["domainPage"] ?>/quizz?quizzId=${value.id}&idLesson=${value.lesson_id}&idCourse=<?= $id_course ?>">Bài tập</a>
                             
                             `).join("")}
                                                 
@@ -463,33 +467,51 @@
         });
     }
 
-    // 4. The API will call this function when the video player is ready.
+
+    var myChangeVideo = setInterval(function() {
+        onPlayerStateChange();
+    }, 1000);
+
     function onPlayerReady(event) {
         event.target.playVideo();
-        setInterval(function() {
-            onPlayerStateChange();
-        }, 1000);
     }
 
-    // 5. The API calls this function when the player's state changes.
-    //    The function indicates that when playing a video (state=1),
-    //    the player should play for six seconds and then stop.
-    var done = false;
 
-    function onPlayerStateChange() {
+    function onSeeking(event) {
+        var currentTime = player.getCurrentTime();
+        var targetTime = event.target.getCurrentTime();
+
+        if (targetTime < currentTime) {
+            player.seekTo(currentTime);
+        }
+    }
+
+
+    function onPlayerStateChange(e) {
         if (player.getPlayerState() == YT.PlayerState.PLAYING) {
             var currentTime = player.getCurrentTime();
-            console.log("Video is playing at " + currentTime + " seconds.");
-        } else {
-            var currentTime = player.getCurrentTime();
             const timeVideo = player.getDuration();
-            console.log("Video is paused at " + currentTime + " seconds.");
-            console.log(timeVideo, "thoi luong video");
+            if (currentTime / timeVideo > 0.9) {
+                clearInterval(myChangeVideo);
 
-            if (currentTime / timeVideo > 0.8) {
-                console.log("qua bai nay roi");
+                showModal(1)
             }
-            console.log(currentTime / timeVideo, "ti le");
+        }
+    }
+
+
+
+    function showModal(flag) {
+        const message__delete = document.querySelector(".message__delete")
+        message__delete.classList.add("open")
+        if (!!flag) {
+            message__delete.innerHTML = `
+            <h2>Bạn đã hoàn thành bài học này!!</h2>
+            <h4>Nhấn yes để mở khóa nhé</h4>
+            <div class="btn__delete-container">
+                <a href="<?= $GLOBALS["domainPage"] ?>/learning/handleFinishLesson?idLesson=<?= $id_lesson ?>&idUser=<?= $_SESSION["auth"]["id"] ?>&courseId=<?= $id_course ?>"><button class="yes">Yes</button></a>
+            </div>
+            `
         }
     }
     </script>

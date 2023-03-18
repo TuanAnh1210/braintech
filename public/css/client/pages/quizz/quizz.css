@@ -306,3 +306,18 @@ form:invalid #btn {
         opacity: 1;
     }
 }
+
+.btn-submit {
+    display: flex;
+    margin: auto;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 4px 20px;
+    border-radius: 20px;
+}
+
+.btn-submit:hover {
+    cursor: pointer;
+    background-color: #de6300;
+    color: #fff;
+}

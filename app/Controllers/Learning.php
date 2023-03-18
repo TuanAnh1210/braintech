@@ -54,8 +54,6 @@ class Learning extends BaseController
             $courseLearning = $this->detail_courseModel->getAll();
 
             // Check if the user has join course
-
-
             $isErr = true;
             foreach ($courseLearning as $key => $value) {
 
@@ -182,6 +180,34 @@ class Learning extends BaseController
 
             $this->noteModel->addNewNote($data);
 
+            $url = $GLOBALS['domainPage'] . "/learning?courseId=$id_course&userId=$id_user&lessonId=$id_lesson";
+            header("location: $url");
+        }
+    }
+
+    public function handleFinishLesson()
+    {
+        if (!empty($_GET)) {
+            $id_lesson = $_GET["idLesson"];
+            $id_user = $_GET["idUser"];
+            $id_course = $_GET["courseId"];
+
+            $fnLessonCheck = $this->fn_lessonModel->getAll();
+            // Check if the user finish lesson
+            $isErr = true;
+            foreach ($fnLessonCheck as $key => $value) {
+
+                if ($value["id_lesson"] == $id_lesson && $value["id_user"] == $id_user) {
+                    $isErr = false;
+                }
+            }
+            if ($isErr) {
+                $data = [
+                    "id_user" => $id_user,
+                    "id_lesson" => $id_lesson
+                ];
+                $this->fn_lessonModel->insertLessonFinish($data);
+            }
             $url = $GLOBALS['domainPage'] . "/learning?courseId=$id_course&userId=$id_user&lessonId=$id_lesson";
             header("location: $url");
         }
