@@ -15,6 +15,10 @@
 
 <body>
     <div class="main">
+        <div class="message__delete">
+
+        </div>
+
         <header>
             <div style="height: 100%;" class="container-fluid">
                 <div class="header__wrapper">
@@ -25,7 +29,7 @@
                         <div class="header__logo">
                             <a href="<?= $GLOBALS['domainPage'] ?>">
                                 <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/logo.png" alt="" />
-                                <p><?= $curCourse["name"]?></p>
+                                <p><?= $curCourse["name"] ?></p>
                             </a>
                         </div>
                     </div>
@@ -57,10 +61,8 @@
             <div class="container-fluid">
                 <div class="learning__wrapper">
                     <div class="learning__video">
-                        <iframe id="video-player" class="video--link" src="<?= $curLesson["path_video"] ?>"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen></iframe>
+                        <div id="player"></div>
+                        <!-- <iframe id="video-player" class="video--link" src="<?= $curLesson["path_video"] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
 
                         <div class="comment__wrapper">
                             <div class="commment__option">
@@ -289,7 +291,15 @@
     const courses = <?= json_encode($course) ?>;
     const comments = <?= json_encode($comments) ?>;
 
+    const quizzs = <?= json_encode($quizzs) ?>;
+
     const lesson_list = <?= json_encode($lesson_list) ?>;
+
+    const curLesson = <?= json_encode($curLesson) ?>;
+
+    const finishLesson = <?= json_encode($finishLesson) ?>;
+
+
 
     courses.forEach(element => {
         for (let i in element) {
@@ -315,7 +325,16 @@
         }
     });
 
-    console.log(comments)
+    finishLesson.forEach(element => {
+        for (let i in element) {
+            if (!isNaN(Number(i))) {
+                delete element[i];
+            }
+        }
+    });
+
+
+    console.log(finishLesson)
 
     const course_topic = document.querySelector(".course_topic")
 
@@ -326,16 +345,21 @@
                                  
                                     ${lesson_list.filter(lesson => lesson.course_chapter_id == course.id).map((item, i) => `
                                         <a href="<?= $GLOBALS["domainPage"] ?>/learning?courseId=1&userId=1&lessonId=${item.id}">
-                                        <div data-idLesson="${item.id}" class="trackItem">
+                                        <div data-idLesson="${item.id}" class="trackItem ${finishLesson.some(check => check.id_lesson == item.id) ? "learned" : ""}">
                                         <h3 class="trackItem--title">${index}.${++i} ${item.name} <span style="color: #5db85c;">
-                                                <i class="fa-solid fa-circle-check">
-                                                </i>
+                                        ${finishLesson.some(check => check.id_lesson == item.id) ? `<i class="fa-solid fa-circle-check">
+                                                </i>` : `<i style="color:#9d9d9d" class="fa-solid fa-lock"></i>`}
+                                                
                                             </span>
                                         </h3>
                                         <div class="quizz">
-                                            <a class="quizz--item finish" href="#">1</a>
-                                            <a class="quizz--item" href="#">2</a>
-                                            <a class="quizz--item" href="#">3</a>
+                        ${quizzs.filter(quizz => quizz.lesson_id == item.id).map((value, i) => `
+                            <a class="quizz--item finish" href="<?= $GLOBALS["domainPage"] ?>/quizz?quizzId=${value.id}&idLesson=${value.lesson_id}&idCourse=<?= $id_course ?>">Bài tập</a>
+                            
+                            `).join("")}
+                                                
+                                                
+                                          
                                         </div>
                                     </div>
                                     </a>
@@ -415,6 +439,80 @@
     modal.onclick = () => {
         modal.classList.remove("open")
 
+    }
+
+    // 2. This code loads the IFrame Player API code asynchronously.
+    var tag = document.createElement("script");
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName("script")[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var player;
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player("player", {
+            height: "515",
+            width: "100%",
+            videoId: curLesson.path_video,
+            playerVars: {
+                playsinline: 1,
+            },
+            events: {
+                onReady: onPlayerReady,
+                onStateChange: onPlayerStateChange,
+            },
+        });
+    }
+
+
+    var myChangeVideo = setInterval(function() {
+        onPlayerStateChange();
+    }, 1000);
+
+    function onPlayerReady(event) {
+        event.target.playVideo();
+    }
+
+
+    function onSeeking(event) {
+        var currentTime = player.getCurrentTime();
+        var targetTime = event.target.getCurrentTime();
+
+        if (targetTime < currentTime) {
+            player.seekTo(currentTime);
+        }
+    }
+
+
+    function onPlayerStateChange(e) {
+        if (player.getPlayerState() == YT.PlayerState.PLAYING) {
+            var currentTime = player.getCurrentTime();
+            const timeVideo = player.getDuration();
+            if (currentTime / timeVideo > 0.9) {
+                clearInterval(myChangeVideo);
+
+                showModal(1)
+            }
+        }
+    }
+
+
+
+    function showModal(flag) {
+        const message__delete = document.querySelector(".message__delete")
+        message__delete.classList.add("open")
+        if (!!flag) {
+            message__delete.innerHTML = `
+            <h2>Bạn đã hoàn thành bài học này!!</h2>
+            <h4>Nhấn yes để mở khóa nhé</h4>
+            <div class="btn__delete-container">
+                <a href="<?= $GLOBALS["domainPage"] ?>/learning/handleFinishLesson?idLesson=<?= $id_lesson ?>&idUser=<?= $_SESSION["auth"]["id"] ?>&courseId=<?= $id_course ?>"><button class="yes">Yes</button></a>
+            </div>
+            `
+        }
     }
     </script>
 

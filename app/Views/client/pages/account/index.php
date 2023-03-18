@@ -27,7 +27,7 @@
 
                 </div>
                 <button class="btn__login">Đăng nhập</button>
-                <a class="forgot__pass" href="#">Quên mật khẩu</a>
+                <a class="forgot__pass" href="<?= $GLOBALS['domainPage'] ?>/account/forgotPass">Quên mật khẩu</a>
                 <a class="forgot__pass" href="<?= $GLOBALS['domainPage'] ?>">Trang chủ</a>
             </form>
             <form class="form__regis" action="<?= $GLOBALS['domainPage'] ?>/account/handleRegisAcc" method="POST">

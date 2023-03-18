@@ -236,10 +236,12 @@ header {
 }
 
 .trackItem {
+    min-height: 66px;
     padding: 6px 0;
     border-radius: 6px;
     margin-top: 20px;
     transition: all linear .2s;
+    background-color: #f1f1f1;
 
 }
 
@@ -259,6 +261,93 @@ header {
 }
 
 
+/* message delete */
+.message__delete {
+    z-index: 10;
+    display: none;
+    width: 400px;
+    height: 120px;
+    position: fixed;
+    right: 26px;
+    top: 20%;
+    background-color: #111;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    padding: 8px;
+    border-left: 6px solid orangered;
+    color: #fff;
+    animation: runIn linear .2s;
+}
+
+.message__delete.open {
+    display: block;
+}
+
+.message__delete h2 {
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.message__delete h4 {
+    font-size: 14px;
+
+    margin-left: 28px;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 32px;
+}
+
+.btn__delete-container {
+    margin-left: 18px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: end;
+}
+
+.no,
+.yes {
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #fff;
+    color: #111;
+    padding: 4px 20px;
+
+}
+
+.no:hover,
+.yes:hover {
+    color: orangered;
+    cursor: pointer;
+}
+
+.no {
+    margin: 0 12px;
+}
+
+@keyframes runIn {
+    from {
+        transform: translateX(110%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes ani {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
 
 .trackItem--title {
     font-size: 14px;
@@ -273,12 +362,11 @@ header {
 
 .quizz--item {
     background-color: rgba(204, 204, 204, .5);
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 8px;
     display: inline-block;
     text-align: center;
-    line-height: 26px;
     margin-right: 4px;
 }
 
