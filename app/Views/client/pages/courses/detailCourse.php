@@ -17,7 +17,8 @@
             </div>
             <div class="col-lg-4">
                 <div class="course_img_wrapper">
-                    <img class="course_img" src="<?= $GLOBALS["domainPage"] ?>/uploads/<?= $course[0]["thumb"] ?>" alt="">
+                    <img class="course_img" src="<?= $GLOBALS["domainPage"] ?>/uploads/<?= $course[0]["thumb"] ?>"
+                        alt="">
                     <h4 class="course_free">Miễn phí</h4>
 
                     <div class="firstLessonBtn">
@@ -35,37 +36,37 @@
 
 
 <script>
-    // handle get data from db and convert arr php to arr js
-    // const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
-    const courses = <?= json_encode($course) ?>;
-    const lesson_list = <?= json_encode($lesson_list) ?>;
+// handle get data from db and convert arr php to arr js
+// const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
+const courses = <?= json_encode($course) ?>;
+const lesson_list = <?= json_encode($lesson_list) ?>;
 
 
 
 
 
-    courses.forEach(element => {
-        for (let i in element) {
-            if (!isNaN(Number(i))) {
-                delete element[i];
-            }
+courses.forEach(element => {
+    for (let i in element) {
+        if (!isNaN(Number(i))) {
+            delete element[i];
         }
-    });
+    }
+});
 
-    lesson_list.forEach(element => {
-        for (let i in element) {
-            if (!isNaN(Number(i))) {
-                delete element[i];
-            }
+lesson_list.forEach(element => {
+    for (let i in element) {
+        if (!isNaN(Number(i))) {
+            delete element[i];
         }
-    });
+    }
+});
 
 
-    // handle get firstLesson in course
+// handle get firstLesson in course
 
-    const firstLesson = lesson_list.filter(item => item.course_chapter_id == courses[0].id)
-    const firstLessonBtn = document.querySelector(".firstLessonBtn")
-    firstLessonBtn.innerHTML = `
+const firstLesson = lesson_list.filter(item => item.course_chapter_id == courses[0].id)
+const firstLessonBtn = document.querySelector(".firstLessonBtn")
+firstLessonBtn.innerHTML = `
     <a <?php if ($course[0]["courses_id"] == 10) {
             echo "hidden";
         } ?> href="<?= $GLOBALS["domainPage"] ?>/learning?courseId=<?= $course[0]["courses_id"] ?>&userId=<?= $_SESSION["auth"]["id"] ?>&lessonId=${firstLesson[0].id}">
@@ -75,10 +76,10 @@
                     </a>
     `
 
-    // handle show full lesson
-    const course_topic = document.querySelector(".course_topic")
+// handle show full lesson
+const course_topic = document.querySelector(".course_topic")
 
-    course_topic.innerHTML = courses.map((course, index) => `
+course_topic.innerHTML = courses.map((course, index) => `
     <div class="learning__chapter">
                                     <h3 class="learning__chapter--txt">${++index}.${course.name}</h3>
 
@@ -90,11 +91,7 @@
                                                 </i>
                                             </span>
                                         </h3>
-                                        <div class="quizz">
-                                            <a class="quizz--item finish" href="#">1</a>
-                                            <a class="quizz--item" href="#">2</a>
-                                            <a class="quizz--item" href="#">3</a>
-                                        </div>
+                                       
                                     </div>
                                         `).join("")}
                                    
