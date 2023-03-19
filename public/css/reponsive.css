@@ -50,6 +50,21 @@
         padding: 0;
         box-shadow: none;
     }
+
+    /* .cert-info */
+    .cert-info {
+        width: auto;
+    }
+
+    .cert-nameUser {
+        height: 64px;
+        font-size: 32px;
+    }
+
+    .cert-nameCourse {
+        font-size: 16px;
+        top: calc(50% + 40px);
+    }
 }
 
 
