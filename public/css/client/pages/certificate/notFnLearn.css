@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,400;1,600;1,700&display=swap');
+
+.certificate_wrapper {
+    padding-top: var(--height-header);
+    text-align: center;
+}
+
+.cert-title {
+    margin: 32px 0 24px 0;
+
+    color: #242424;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.cert-text {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.cert-info {
+    margin: 32px auto;
+    width: 620px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .3), 0 2px 6px 2px rgba(60, 64, 67, .15);
+    /* font-family: "Source Serif", sans-serif; */
+    position: relative;
+}
+
+.cert-image {
+    width: 100%;
+}
+
+.cert-nameUser {
+    position: absolute;
+    height: 107px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    background-color: transparent;
+    color: #f43900;
+    font-weight: 700;
+    font-family: 'Cormorant', serif;
+    font-size: 51px;
+}
+
+.cert-nameCourse {
+    position: absolute;
+    top: calc(50% + 74px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #023887;
+    font-size: 22px;
+    font-weight: 600;
+    font-family: 'Cormorant', serif;
+    width: 100%;
+}
