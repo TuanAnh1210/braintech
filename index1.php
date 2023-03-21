@@ -22,8 +22,8 @@
                 <ul>
                     <li><a href="">Trang chủ</a></li>
                     <li><a href="">Khóa học</a></li>
-                    <li><a href="">Gioi thieu</a></li>
-                    <li><a href="">Lien he</a></li>
+                    <li><a href="">Giới thiệu</a></li>
+                    <li><a href="">Liên hệ</a></li>
                 </ul>
             </div>
         </div>
