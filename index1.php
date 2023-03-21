@@ -20,8 +20,8 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="">Trang chu</a></li>
-                    <li><a href="">Khoa hoc</a></li>
+                    <li><a href="">Trang chủ</a></li>
+                    <li><a href="">Khóa học</a></li>
                     <li><a href="">Gioi thieu</a></li>
                     <li><a href="">Lien he</a></li>
                 </ul>
