@@ -3,65 +3,67 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
-                    <div style="display: flex; justify-content: space-between; align-items: center;" class="card-header card-header-primary">
-                        <div class="courses-heading">
-                            <h4 class="card-title ">Quản lí tài khoản</h4>
-                            <p class="card-category">Danh sách tài khoản</p>
+                <form class="form_user" action="" method="post" >
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center;" class="card-header card-header-primary">
+                            <div class="courses-heading">
+                                <h4 class="card-title ">Quản lí tài khoản</h4>
+                                <p class="card-category">Danh sách tài khoản</p>
+                            </div>
+                            <div>
+                                <select class="action_user">
+                                    <option value="delete">----Xóa----</option>
+                                    <option value="edit">----Sửa----</option>
+                                </select>
+
+                                <button class="btn-action">Thực hiện</button>
+
+                                <a class="addNewAcc" href="<?= $GLOBALS['domainPage'] ?>/admin_users/addUsers" class="course_view-btn">Tạo mới</a>
+                            </div>
+
                         </div>
-                        <div>
-                            <select class="action_user">
-                                <option value="delete">----Xóa----</option>
-                                <option value="edit">----Sửa----</option>
-                            </select>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                        <th width="3%">
+                                            ID
+                                        </th>
+                                        <th width="22%">
+                                            Tên người dùng
+                                        </th>
+                                        <th width="10%">
+                                            Ảnh
+                                        </th>
 
-                            <button class="btn-action">Thực hiện</button>
+                                        <th width="25%">
+                                            Email
+                                        </th>
+                                        <th width="10%">
+                                            Mật khẩu
+                                        </th>
+                                        <th width="15%">
+                                            Điện thoại
+                                        </th>
+                                        <th width="10%">
+                                            Quyền
+                                        </th>
+                                        <th width="5%">
 
-                            <a class="addNewAcc" href="<?= $GLOBALS['domainPage'] ?>/admin_users/addUsers" class="course_view-btn">Tạo mới</a>
+                                        </th>
+                                    </thead>
+                                    <tbody>
+
+
+
+                                    </tbody>
+                                </table>
+
+                                <div class="paginationFe"></div>
+                            </div>
                         </div>
-
                     </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
-                                    <th width="3%">
-                                        ID
-                                    </th>
-                                    <th width="22%">
-                                        Tên người dùng
-                                    </th>
-                                    <th width="10%">
-                                        Ảnh
-                                    </th>
-
-                                    <th width="25%">
-                                        Email
-                                    </th>
-                                    <th width="10%">
-                                        Mật khẩu
-                                    </th>
-                                    <th width="15%">
-                                        Điện thoại
-                                    </th>
-                                    <th width="10%">
-                                        Quyền
-                                    </th>
-                                    <th width="5%">
-
-                                    </th>
-                                </thead>
-                                <tbody>
-
-
-
-                                </tbody>
-                            </table>
-
-                            <div class="paginationFe"></div>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
 
 
@@ -74,6 +76,7 @@
     // handle get data from db and convert arr php to arr js
     const data = <?= json_encode($data) ?>;
     const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
+
 
 
     data.forEach(element => {
@@ -139,7 +142,7 @@
                                             ${ele.role == 0 ? "Quản trị" : "Học viên"}
                                         </td>
                                         <td>
-                                            <input class="check-user" type="checkbox">
+                                            <input class="check-user" value="${ele.id}" name="${ele.id}" type="checkbox">
                                         </td>
 
                                     </tr>
@@ -160,6 +163,24 @@
             document.querySelector(".paginationFe-btn.active").classList.remove("active")
             btnsFe[i].classList.add("active")
             render(btnsFe[i].innerText)
+        }
+    }
+    
+    const form_user=document.querySelector('.form_user')
+    const btn_action=document.querySelector('.btn-action')
+    const action_user=document.querySelector('.action_user')
+
+    btn_action.onclick = (e)=>{
+        e.preventDefault()
+        console.log(action_user.value)
+        switch (action_user.value) {
+            case 'edit':
+                form_user.action="http://localhost/braintech/admin_users/updateUsers"
+                form_user.submit()
+                break;
+            
+            default:
+                break;
         }
     }
 </script>
