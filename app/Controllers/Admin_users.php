@@ -22,44 +22,87 @@ class Admin_users extends BaseController
         }
     }
     public function updateUsers()
-    {
-        return $this->view("admin.pages.users.updateUsers");
+    {   
+        if(!empty($_POST)){
+            $idArr=$_POST;
+            // var_dump($idArr);die();
+            foreach ($idArr as $value) {
+                $id = $value;
+                
+            } 
+            $data = $this->usersModel->getOne($id);
+            // $listCate = $this->categoryModel->getAll();
+        }
+        return $this->view("admin.pages.users.updateUsers",[
+            "data" => $data
+        ]);
+
     }
+
+    public function handleUpdateUsers(){
+        if(!empty($_POST)){
+            if(!empty($_FILES["user_avatar"]["name"])){
+                $target_dir = "upload/";
+                $target_file = $target_dir . basename($_FILES["user_avatar"]["name"]);
+                move_uploaded_file($_FILES["user_avatar"]["tmp_name"], $target_file);
+                $newAvatar = basename($_FILES['user_avatar']['name']);
+            }else{
+                $newAvatar=$_POST["old_image"];
+            }
+            $user_id=$_POST["user_id"];
+            $user_name=$_POST['user_name'];
+            $user_role=$_POST['user_role'];
+            $user_avatar=$newAvatar;
+            $user_email=$_POST['user_email'];
+            $user_password=$_POST['user_password'];
+            $user_phone=$_POST['user_phone'];
+            $user_address=$_POST['user_address'];
+            $data=[
+                "name"=>$user_name,
+                "email"=>$user_email,
+                "password"=>$user_password,
+                "avatar"=>$user_avatar,
+                "address"=>$user_address,
+                "phone"=>$user_phone,
+                "role"=>$user_role,
+            ];
+            $this->usersModel->handleUpdateUsers($data, $user_id);
+            $url = $GLOBALS['domainPage'] . "/admin_users";
+            header("location: $url");
+        }
+    }
+
 
     public function addUsers()
     {
 
         // handle add new course
-        if (!empty($_POST)) {
-            if (!empty($_FILES['user_avatar']['name'])) {
-                $target_dir = "uploads/";
-                $target_file = $target_dir . basename($_FILES['user_avatar']['name']);
+        if(!empty($_POST)){
+            if(!empty($_FILES["user_avatar"]["name"])){
+                $target_dir = "upload/";
+                $target_file = $target_dir . basename($_FILES["user_avatar"]["name"]);
                 move_uploaded_file($_FILES["user_avatar"]["tmp_name"], $target_file);
                 $newAvatar = basename($_FILES['user_avatar']['name']);
             }
-
-            $name = $_POST['user_name'];
-            $email = $_POST['user_email'];
-            $password = $_POST['user_password'];
-            $avatar = $newAvatar;
-            $address = $_POST['user_address'];
-            $phone = $_POST['user_phone'];
-            $date_join = date("Y-m-d H:i:s");
-            $role = $_POST['user_role'];
-
-            $data = [
-                "name" => $name,
-                "email" => $email,
-                "password" => $password,
-                "avatar" => $avatar,
-                "address" => $address,
-                "phone" => $phone,
-                "date_join" => $date_join,
-                "role" => $role,
+            $user_name=$_POST['user_name'];
+            $user_role=$_POST['user_role'];
+            $user_avatar=$newAvatar;
+            $user_email=$_POST['user_email'];
+            $user_password=$_POST['user_password'];
+            $user_phone=$_POST['user_phone'];
+            $user_address=$_POST['user_address'];
+            $date_join=date("Y-m-d H:i:s");
+            $data=[
+                "name"=>$user_name,
+                "email"=>$user_email,
+                "password"=>$user_password,
+                "avatar"=>$user_avatar,
+                "address"=>$user_address,
+                "phone"=>$user_phone,
+                "date_join"=>$date_join,
+                "role"=>$user_role,
             ];
-
             $this->usersModel->addNewUser($data);
-
             $url = $GLOBALS['domainPage'] . "/admin_users";
             header("location: $url");
         }

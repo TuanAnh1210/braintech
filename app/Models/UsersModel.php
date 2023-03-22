@@ -17,4 +17,10 @@ class UsersModel extends BaseModel
     {
         return $this->update(self::TABLE, $data, $id);
     }
+    public function getOne($id){
+        return $this->one(self::TABLE, $id);
+    }
+    public function handleUpdateUsers($data, $id){
+        return $this->update(self::TABLE, $data, $id);
+    }
 }
