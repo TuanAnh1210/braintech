@@ -181,6 +181,7 @@
                 break;
             case 'delete':
                 form_user.action="http://localhost/braintech/admin_users/deleteUsers"
+                    if(confirm('Are you sure you want to delete'))
                 form_user.submit()
                 break;
             default:
