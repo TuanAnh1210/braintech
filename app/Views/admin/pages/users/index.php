@@ -159,7 +159,8 @@
     btnsFe[0].classList.add("active")
 
     for (let i = 0; i < btnsFe.length; i++) {
-        btnsFe[i].onclick = () => {
+        btnsFe[i].onclick = (e) => {
+            e.preventDefault();
             document.querySelector(".paginationFe-btn.active").classList.remove("active")
             btnsFe[i].classList.add("active")
             render(btnsFe[i].innerText)

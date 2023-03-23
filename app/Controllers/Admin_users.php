@@ -42,7 +42,7 @@ class Admin_users extends BaseController
     public function handleUpdateUsers(){
         if(!empty($_POST)){
             if(!empty($_FILES["user_avatar"]["name"])){
-                $target_dir = "upload/";
+                $target_dir = "uploads/";
                 $target_file = $target_dir . basename($_FILES["user_avatar"]["name"]);
                 move_uploaded_file($_FILES["user_avatar"]["tmp_name"], $target_file);
                 $newAvatar = basename($_FILES['user_avatar']['name']);
@@ -79,7 +79,7 @@ class Admin_users extends BaseController
         // handle add new course
         if(!empty($_POST)){
             if(!empty($_FILES["user_avatar"]["name"])){
-                $target_dir = "upload/";
+                $target_dir = "uploads/";
                 $target_file = $target_dir . basename($_FILES["user_avatar"]["name"]);
                 move_uploaded_file($_FILES["user_avatar"]["tmp_name"], $target_file);
                 $newAvatar = basename($_FILES['user_avatar']['name']);
