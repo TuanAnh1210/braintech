@@ -179,7 +179,10 @@
                 form_user.action="http://localhost/braintech/admin_users/updateUsers"
                 form_user.submit()
                 break;
-            
+            case 'delete':
+                form_user.action="http://localhost/braintech/admin_users/deleteUsers"
+                form_user.submit()
+                break;
             default:
                 break;
         }

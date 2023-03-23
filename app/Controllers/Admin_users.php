@@ -108,4 +108,12 @@ class Admin_users extends BaseController
         }
         return $this->view("admin.pages.users.addUsers");
     }
+    public function deleteUsers(){
+        if(!empty($_POST)){
+            $ids=$_POST;
+            $this->usersModel->deleteUsers($ids);
+            $url = $GLOBALS['domainPage'] . "/admin_users";
+            header("location: $url");
+        }
+    }
 }
