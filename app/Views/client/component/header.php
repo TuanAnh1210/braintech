@@ -88,6 +88,14 @@
                             <li class="accMenu_item">
                                 <a class="accMenu_link" href="#">Ghi chú</a>
                             </li>
+                            <?php
+                                if(($_SESSION['auth']['role']==0)){
+                                    echo' <li class="accMenu_item">
+                                    <a class="accMenu_link" href="#">Quản trị</a>
+                                </li>';
+                                }
+                            ?>
+                           
                             <li class="accMenu_item">
                                 <a class="accMenu_link" href="<?= $GLOBALS['domainPage'] ?>/account/logout">Đăng
                                     xuất</a>
