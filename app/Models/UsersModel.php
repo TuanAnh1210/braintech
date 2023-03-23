@@ -23,4 +23,9 @@ class UsersModel extends BaseModel
     public function handleUpdateUsers($data, $id){
         return $this->update(self::TABLE, $data, $id);
     }
+    public function deleteUsers($id)
+    {   
+        $sql="DELETE FROM users WHERE id=7 OR id=8";
+        return $this->delete(self::TABLE,$id);
+    }
 }

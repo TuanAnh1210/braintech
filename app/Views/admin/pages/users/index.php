@@ -159,7 +159,8 @@
     btnsFe[0].classList.add("active")
 
     for (let i = 0; i < btnsFe.length; i++) {
-        btnsFe[i].onclick = () => {
+        btnsFe[i].onclick = (e) => {
+            e.preventDefault();
             document.querySelector(".paginationFe-btn.active").classList.remove("active")
             btnsFe[i].classList.add("active")
             render(btnsFe[i].innerText)
@@ -178,7 +179,11 @@
                 form_user.action="http://localhost/braintech/admin_users/updateUsers"
                 form_user.submit()
                 break;
-            
+            case 'delete':
+                form_user.action="http://localhost/braintech/admin_users/deleteUsers"
+                    if(confirm('Are you sure you want to delete'))
+                form_user.submit()
+                break;
             default:
                 break;
         }
