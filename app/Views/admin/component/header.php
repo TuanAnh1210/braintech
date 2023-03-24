@@ -75,13 +75,13 @@
                             <p>Bình luận</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./icons.html">
+                    <li data-item="admin_statistical" class="nav-item">
+                        <a class="nav-link" href="<?= $GLOBALS['domainPage'] ?>/admin_statistical">
                             <i class="material-icons">bubble_chart</i>
-                            <p>Icons</p>
+                            <p>Thống kê</p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="./map.html">
                             <i class="material-icons">location_ons</i>
                             <p>Maps</p>
@@ -92,7 +92,7 @@
                             <i class="material-icons">notifications</i>
                             <p>Notifications</p>
                         </a>
-                    </li>
+                    </li> -->
                     <!-- <li class="nav-item active-pro ">
                 <a class="nav-link" href="./upgrade.html">
                     <i class="material-icons">unarchive</i>
@@ -118,15 +118,7 @@
                         <span class="navbar-toggler-icon icon-bar"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end">
-                        <form class="navbar-form">
-                            <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search..." />
-                                <button type="submit" class="btn btn-default btn-round btn-just-icon">
-                                    <i class="material-icons">search</i>
-                                    <div class="ripple-container"></div>
-                                </button>
-                            </div>
-                        </form>
+
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link" href="javascript:void(0)">
@@ -150,12 +142,18 @@
                                     <a class="dropdown-item" href="javascript:void(0)">Another One</a>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0)">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="javscript:void(0)" id="navbarDropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">person</i>
-                                    <p class="d-lg-none d-md-block">Account</p>
+                                    <p class="d-lg-none d-md-block">Some Actions</p>
                                 </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="<?= $GLOBALS['domainPage'] ?>/account/logout">Đăng
+                                        xuất</a>
+                                </div>
                             </li>
+
                         </ul>
                     </div>
                 </div>

@@ -193,3 +193,12 @@ paginationFe-btn */
     width: 48px;
     border-radius: 8px;
 }
+
+.loadingImg {
+    display: none;
+    width: 200px;
+}
+
+.loadingImg.open {
+    display: block;
+}
