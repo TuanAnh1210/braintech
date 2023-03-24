@@ -4,7 +4,7 @@ $css_responsive = "$domainPage/public/css/reponsive.css";
 $grid_css = "$domainPage/public/css/bootstrap-grid.css";
 $gridmap_css = "$domainPage/public/css/bootstrap-grid.css.map";
 $material_dashboard = "$domainPage/public/css/admin/material-dashboards.css";
-$admin_css = "$domainPage/public/css/admin/admin.css";
+$admin_css = "$domainPage/public/css/admin/admins.css";
 $demo = "$domainPage/public/css/admin/demo.css";
 
 function css_file()
