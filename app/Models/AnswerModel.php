@@ -15,4 +15,24 @@ class AnswerModel extends BaseModel
             $this->create(self::TABLE, $value);
         }
     }
+
+    public function deleteAnswer($id)
+    {
+        $sql = "DELETE FROM quizz_answer WHERE quizz_id = $id";
+        return $this->execute($sql);
+    }
+
+    public function updateAnswer($data)
+    {
+
+        foreach ($data as $key => $value) {
+            $dataUpdate = [
+                "name" => $value["name"],
+                "is_correct" => $value["is_correct"]
+            ];
+
+            $idUpdate = $value["id"];
+            $this->update(self::TABLE, $dataUpdate,  $idUpdate);
+        }
+    }
 }

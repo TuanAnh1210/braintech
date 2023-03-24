@@ -81,4 +81,43 @@
     </div>
 </div>
 
+
+<script>
+// handle get data from db and convert arr php to arr js
+const answers = <?= json_encode($answers) ?>;
+
+
+answers.forEach(element => {
+    for (let i in element) {
+        if (!isNaN(Number(i))) {
+            delete element[i];
+        }
+    }
+});
+
+const addNewAcc = document.querySelector(".addNewAcc")
+if (answers.length == 3) {
+    addNewAcc.classList.add("dis")
+}
+
+// handle check select
+
+const btn_action = document.querySelector(".btn-action")
+const action_user = document.querySelector('.action_user')
+
+btn_action.onclick = () => {
+    switch (action_user.value) {
+        case "delete":
+            if (confirm("Bạn chắc chắn muốn xóa không?")) {
+                window.location.href = `<?= $GLOBALS["domainPage"]?>/admin_answer/deleteAnswer?quizzId=<?= $id?>`
+            }
+            break;
+        case "edit":
+            window.location.href = `<?= $GLOBALS["domainPage"]?>/admin_answer/handleUpdateAnswer?quizzId=<?= $id?>`
+            break
+        default:
+            break;
+    }
+}
+</script>
 <?php ipView("admin.component.footer") ?>

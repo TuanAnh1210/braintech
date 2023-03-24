@@ -60,4 +60,65 @@ class Admin_answer extends BaseController
         }
         return $this->view("admin.pages.answer.addAnswer");
     }
+
+    public function deleteAnswer()
+    {
+        if (!empty($_GET)) {
+            $quizzId = $_GET["quizzId"];
+
+            $this->answerModel->deleteAnswer($quizzId);
+            $url = $GLOBALS["domainPage"] . "/admin_answer?quizzId=$quizzId";
+            header("location: $url");
+        }
+    }
+
+    public function handleUpdateAnswer()
+    {
+        if (!empty($_GET)) {
+            $quizzId = $_GET["quizzId"];
+
+            $answer = $this->answerModel->getAnswer($quizzId);
+
+            if (!empty($_POST)) {
+                $answer1 = $_POST["answer1"];
+                $answer_is_correct1 = $_POST["answer_is_correct1"];
+                $answer_id1 = $_POST["answer_id1"];
+                $answer2 = $_POST["answer2"];
+                $answer_is_correct2 = $_POST["answer_is_correct2"];
+                $answer_id2 = $_POST["answer_id2"];
+
+                $answer3 = $_POST["answer3"];
+                $answer_is_correct3 = $_POST["answer_is_correct3"];
+                $answer_id3 = $_POST["answer_id3"];
+
+                $data = [
+                    [
+                        "name" => $answer1,
+                        "is_correct" => $answer_is_correct1,
+                        "id" => $answer_id1
+                    ],
+                    [
+                        "name" => $answer2,
+                        "is_correct" => $answer_is_correct2,
+                        "id" => $answer_id2
+                    ],
+                    [
+                        "name" => $answer3,
+                        "is_correct" => $answer_is_correct3,
+                        "id" => $answer_id3
+                    ],
+                ];
+                $this->answerModel->updateAnswer($data);
+    
+                $url = $GLOBALS["domainPage"] . "/admin_answer?quizzId=$quizzId";
+                header("location: $url");
+            }
+
+
+
+            return $this->view("admin.pages.answer.updateAnswer", [
+                "answer" => $answer
+            ]);
+        }
+    }
 }
