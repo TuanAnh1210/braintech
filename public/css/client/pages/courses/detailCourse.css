@@ -54,7 +54,12 @@
 }
 
 .trackItem {
+    border-radius: 8px;
+    background-color: #f1f1f1;
     margin-top: 20px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
 }
 
 .trackItem--title {

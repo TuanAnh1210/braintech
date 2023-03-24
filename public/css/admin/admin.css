@@ -152,6 +152,13 @@
     opacity: .8;
 }
 
+.addNewAcc.dis {
+    opacity: .3;
+
+    pointer-events: none;
+    user-select: none;
+}
+
 /* paginationFe">
 paginationFe-btn */
 
