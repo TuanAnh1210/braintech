@@ -41,10 +41,17 @@ quiz_options.innerHTML = answers.map((answer, i) => `
 <div class="quizz_group">
                         
                         <label data-corr="${answer.is_correct}" class="radio-label" for="one-a">
-                            <span class="alphabet">${++i}</span> ${answer.name}
+                            <span class="alphabet">${++i}</span> <span class="answer_content">${answer.name}</span>
                         </label>
                     </div>
 `).join("")
+
+const answer_content = document.querySelectorAll(".answer_content")
+answer_content.forEach(item => {
+    item.innerText = item.innerHTML
+    // console.log(item.innerHTML)
+})
+
 
 const radio_label = document.querySelectorAll(".radio-label")
 radio_label.forEach(item => {

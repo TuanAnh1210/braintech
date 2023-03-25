@@ -842,6 +842,7 @@ header {
 }
 
 .note_item {
+    position: relative;
     margin-top: 24px;
 }
 

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/learning.css">
+    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/learnings.css">
     <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/responsive.css">
 </head>
 
@@ -199,11 +199,28 @@
                     <div class="note_item">
                         <div class="note_item-heading">
                             <p>Bài: <?= $value["name"] ?></p>
+                            <span style="font-size: 14px;">Nội dung:</span>
                         </div>
                         <div class="note_item-content">
 
                             <p><?= $value["content"] ?></p>
+
                         </div>
+                        <div class="comments-options">
+                            <i style="color: #f76b1c;" class="fa-solid fa-caret-down"></i>
+                            <div class="options-sub">
+                                <p class="btn_option-cmt updateCmt-btn">Sửa&emsp;<i class="fa-solid fa-pen"></i>
+                                </p>
+
+                                <p data-idCourse="<?= $id_course ?>" data-idLesson="<?= $id_lesson ?>"
+                                    data-idNote="<?= $value["id"] ?>" class="btn_option-cmt deleteNote-btn">Xóa&emsp;<i
+                                        class="fa-solid fa-trash"></i>
+                                </p>
+
+
+                            </div>
+                        </div>
+
                     </div>
 
                     <?php endforeach ?>
@@ -336,7 +353,6 @@
     });
 
 
-    console.log(finishLesson)
 
     // list chapter
     const course_topic = document.querySelector(".course_topic")
@@ -444,6 +460,17 @@
 
     }
 
+    // feat: delete note
+    const deleteNote_btn = document.querySelectorAll(".deleteNote-btn")
+
+    deleteNote_btn.forEach(item => {
+        item.onclick = () => {
+            if (confirm("Bạn chắc chắn muốn xóa ghi chú này?")) {
+                window.location.href = `<?= $GLOBALS["domainPage"]?>/learning/deleteNote`;
+            }
+        }
+    })
+
     // 2. This code loads the IFrame Player API code asynchronously.
     var tag = document.createElement("script");
 
@@ -494,7 +521,11 @@
         if (player.getPlayerState() == YT.PlayerState.PLAYING) {
             var currentTime = player.getCurrentTime();
             const timeVideo = player.getDuration();
+
+
+            // feat: When watching over 90%, pass the post
             if (currentTime / timeVideo > 0.9) {
+
                 clearInterval(myChangeVideo);
 
                 showModal(1)
