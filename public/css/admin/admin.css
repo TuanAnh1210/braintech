@@ -202,3 +202,62 @@ paginationFe-btn */
 .loadingImg.open {
     display: block;
 }
+
+/* filter-wrapper */
+.filter-wrapper {
+    position: relative;
+    cursor: pointer;
+
+}
+
+.filter-icon {
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+.filter-wrapper::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    height: 30px;
+    right: -20px;
+    width: 270%;
+}
+
+.filter-wrapper:hover .filter-sub {
+    display: block;
+}
+
+.filter-sub {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 260%;
+    background-color: rgba(255, 255, 255, .9);
+    padding: 0;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.filter-item {
+    list-style: none;
+    text-align: center;
+    font-size: 14px;
+    padding: 4px 0;
+    user-select: none;
+    color: #606477;
+    border-bottom: 1px solid #606477;
+}
+
+.filter-item:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: #7b1fa2;
+}
+
+
+
+/* ================ */
