@@ -45,26 +45,7 @@
                                 </thead>
                                 <tbody>
                                     <?php foreach ($answers as $key => $value) : ?>
-                                    <tr>
-                                        <td>
-                                            <?= ++$key ?>
-                                        </td>
-                                        <td>
-                                            <?= $value["name"] ?>
 
-                                        </td>
-                                        <td>
-                                            <?php
-                                                if ($value["is_correct"] == 1) {
-                                                    echo "true";
-                                                } else {
-                                                    echo "false";
-                                                }
-                                                ?>
-                                        </td>
-
-
-                                    </tr>
                                     <?php endforeach ?>
 
                                 </tbody>
@@ -100,6 +81,30 @@ if (answers.length == 3) {
     addNewAcc.classList.add("dis")
 }
 
+// handle show answer
+const tbody = document.querySelector("tbody")
+tbody.innerHTML = answers.map((answer, i) => `
+<tr>
+                                        <td>
+                                            ${++i}
+                                        </td>
+                                        <td class="answer_content">${answer.name}</td>
+                                        <td>
+                                         
+
+                                            ${answer.is_correct == 1 ? "true" : "false"}
+                                        </td>
+
+
+                                    </tr>
+`).join("")
+
+
+const answer_content = document.querySelectorAll(".answer_content")
+
+answer_content.forEach(item => {
+    item.innerText = item.innerHTML
+})
 // handle check select
 
 const btn_action = document.querySelector(".btn-action")
@@ -109,11 +114,12 @@ btn_action.onclick = () => {
     switch (action_user.value) {
         case "delete":
             if (confirm("Bạn chắc chắn muốn xóa không?")) {
-                window.location.href = `<?= $GLOBALS["domainPage"]?>/admin_answer/deleteAnswer?quizzId=<?= $id?>`
+                window.location.href = `<?= $GLOBALS["domainPage"] ?>/admin_answer/deleteAnswer?quizzId=<?= $id ?>`
             }
             break;
         case "edit":
-            window.location.href = `<?= $GLOBALS["domainPage"]?>/admin_answer/handleUpdateAnswer?quizzId=<?= $id?>`
+            window.location.href =
+                `<?= $GLOBALS["domainPage"] ?>/admin_answer/handleUpdateAnswer?quizzId=<?= $id ?>`
             break
         default:
             break;
