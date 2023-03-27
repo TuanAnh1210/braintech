@@ -212,4 +212,10 @@ class Learning extends BaseController
             header("location: $url");
         }
     }
+
+    // public function deleteNote() {
+    //     if(!empty($_GET)) {
+    //         $noteId = $_GET[""]
+    //     }
+    // }
 }
