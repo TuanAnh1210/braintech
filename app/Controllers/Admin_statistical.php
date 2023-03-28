@@ -35,4 +35,22 @@ class Admin_statistical extends BaseController
             header("location: $url");
         }
     }
+
+    public function chart()
+    {
+        if (!empty($_SESSION['auth'])) {
+            if (!empty($_GET["course_cate"])) {
+                $cate = $_GET["course_cate"];
+                $data = $this->detail_courseModel->getCourseDetail($cate);
+
+
+                return $this->view("admin.pages.statistical.chart", [
+                    "data" => $data
+                ]);
+            }
+        } else {
+            $url = $GLOBALS['domainPage'] . "/account";
+            header("location: $url");
+        }
+    }
 }

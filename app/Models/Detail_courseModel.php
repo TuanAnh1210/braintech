@@ -19,4 +19,10 @@ class Detail_courseModel extends BaseModel
 
         return $this->query_all($sql);
     }
+
+    public function getCourseDetail($id)
+    {
+        $sql = "SELECT courses.name, COUNT(detail_course.course_id) totalLearner FROM detail_course RIGHT JOIN courses ON detail_course.course_id = courses.id WHERE courses.cate_id = $id GROUP BY courses.id";
+        return $this->query_all($sql);
+    }
 }

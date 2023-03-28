@@ -12,7 +12,7 @@ ipView("admin.component.header")
                         <p class="card-category">Thông tin chung</p>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="http://localhost/braintech/admin_users/handleUpdateUsers"
+                        <form method="post" action="<?= $GLOBALS["domainPage"] ?>/admin_users/handleUpdateUsers"
                             enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-6">

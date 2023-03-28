@@ -261,12 +261,12 @@ btn_action.onclick = (e) => {
     console.log(action_user.value)
     switch (action_user.value) {
         case 'edit':
-            form_user.action = "http://localhost/braintech/admin_users/updateUsers"
+            form_user.action = "<?= $GLOBALS["domainPage"] ?>/admin_users/updateUsers"
             form_user.submit()
             break;
         case 'delete':
-            form_user.action = "http://localhost/braintech/admin_users/deleteUsers"
-            if (confirm('Are you sure you want to delete'))
+            form_user.action = "<?= $GLOBALS["domainPage"] ?>/admin_users/deleteUsers"
+            if (confirm('Bạn chắc chắn muốn xóa ?'))
                 form_user.submit()
             break;
         default:
