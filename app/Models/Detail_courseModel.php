@@ -25,4 +25,12 @@ class Detail_courseModel extends BaseModel
         $sql = "SELECT courses.name, COUNT(detail_course.course_id) totalLearner FROM detail_course RIGHT JOIN courses ON detail_course.course_id = courses.id WHERE courses.cate_id = $id GROUP BY courses.id";
         return $this->query_all($sql);
     }
+
+
+    public function finishCourse($id_course, $id_user)
+    {
+        $sql = "UPDATE detail_course SET status_learn = 1 WHERE course_id = $id_course AND user_id=$id_user";
+
+        return $this->execute($sql);
+    }
 }
