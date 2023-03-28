@@ -86,9 +86,8 @@ course_topic.innerHTML = courses.map((course, index) => `
                                  
                                     ${lesson_list.filter(lesson => lesson.course_chapter_id == course.id).map((item, i) => `                                        
                                         <div class="trackItem">
-                                        <h3 class="trackItem--title">${index}.${++i} ${item.name} <span style="color: #5db85c;">
-                                                <i class="fa-solid fa-circle-check">
-                                                </i>
+                                        <h3 class="trackItem--title">${index}.${++i} ${item.name} <span style="color: #f76b1c;">
+                                        <i class="fa-solid fa-graduation-cap"></i>
                                             </span>
                                         </h3>
                                        
