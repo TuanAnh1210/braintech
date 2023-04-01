@@ -258,19 +258,32 @@ const action_user = document.querySelector('.action_user')
 
 btn_action.onclick = (e) => {
     e.preventDefault()
-    console.log(action_user.value)
-    switch (action_user.value) {
-        case 'edit':
-            form_user.action = "<?= $GLOBALS["domainPage"] ?>/admin_users/updateUsers"
-            form_user.submit()
-            break;
-        case 'delete':
-            form_user.action = "<?= $GLOBALS["domainPage"] ?>/admin_users/deleteUsers"
-            if (confirm('Bạn chắc chắn muốn xóa ?'))
+
+    const check_users = document.querySelectorAll(".check-user")
+    let isChecked = false
+    check_users.forEach(item => {
+        if (item.checked) {
+            isChecked = true
+        }
+    })
+
+    if (!!isChecked) {
+        switch (action_user.value) {
+            case 'edit':
+                form_user.action = "<?= $GLOBALS["domainPage"] ?>/admin_users/updateUsers"
                 form_user.submit()
-            break;
-        default:
-            break;
+                break;
+            case 'delete':
+                form_user.action = "<?= $GLOBALS["domainPage"] ?>/admin_users/deleteUsers"
+                if (confirm('Bạn chắc chắn muốn xóa ?'))
+                    form_user.submit()
+                break;
+            default:
+                break;
+        }
+
+    } else {
+        alert("Vui lòng chọn ít nhất một tài khoản")
     }
 }
 </script>
