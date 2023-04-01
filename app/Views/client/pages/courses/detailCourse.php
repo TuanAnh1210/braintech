@@ -19,11 +19,33 @@
                 <div class="course_img_wrapper">
                     <img class="course_img" src="<?= $GLOBALS["domainPage"] ?>/uploads/<?= $course[0]["thumb"] ?>"
                         alt="">
+
+                    <?php if ($course[0]['price'] == 0) : ?>
                     <h4 class="course_free">Miễn phí</h4>
-
                     <div class="firstLessonBtn">
-
                     </div>
+                    <?php endif ?>
+
+                    <?php if (!$isBought && $course[0]['price'] > 0) : ?>
+                    <div style="margin: 12px 0 24px 0;" class="price__wrapper">
+                        <p class="old__price"><?= number_format($course[0]['old_price'], 0, "", ".") ?>đđ</p>
+                        <p class="price_cur"><?= number_format($course[0]['price'], 0, "", ".") ?>đ</p>
+                    </div>
+                    <a
+                        href="<?= $GLOBALS["domainPage"] ?>/courses/buyCourse?courseId=<?= $course[0]["courses_id"] ?>&userId=<?= $_SESSION["auth"]["id"] ?>"><button
+                            class="course_btn-learn">Mua
+                            ngay</button></a>
+
+                    <?php endif ?>
+
+                    <?php if ($isBought) : ?>
+                    <h4 class="course_free">Đã mua</h4>
+                    <div class="firstLessonBtn">
+                    </div>
+
+                    <?php endif ?>
+
+
 
 
 
@@ -65,8 +87,13 @@ lesson_list.forEach(element => {
 // handle get firstLesson in course
 
 const firstLesson = lesson_list.filter(item => item.course_chapter_id == courses[0].id)
+
+
 const firstLessonBtn = document.querySelector(".firstLessonBtn")
-firstLessonBtn.innerHTML = `
+
+if (firstLessonBtn) {
+
+    firstLessonBtn.innerHTML = `
     <a <?php if ($course[0]["courses_id"] == 10) {
             echo "hidden";
         } ?> href="<?= $GLOBALS["domainPage"] ?>/learning?courseId=<?= $course[0]["courses_id"] ?>&userId=<?= $_SESSION["auth"]["id"] ?>&lessonId=${firstLesson[0].id}">
@@ -75,6 +102,7 @@ firstLessonBtn.innerHTML = `
                         </button>
                     </a>
     `
+}
 
 // handle show full lesson
 const course_topic = document.querySelector(".course_topic")
