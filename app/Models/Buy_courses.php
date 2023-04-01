@@ -13,4 +13,10 @@ class Buy_courses extends BaseModel
     {
         return $this->create(self::TABLE, $data);
     }
+
+    public function getCourseBoughtInfo($id)
+    {
+        $sql = "SELECT courses_buy.date_pay, courses.name, courses.thumb FROM courses_buy JOIN courses ON courses_buy.id_course = courses.id JOIN users ON courses_buy.id_user = users.id WHERE courses_buy.id_user = $id";
+        return $this->query_all($sql);
+    }
 }

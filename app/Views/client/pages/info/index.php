@@ -71,6 +71,22 @@
                         </div>
                     </div>
 
+                    <div class="col-lg-6 col-md-12">
+                        <div class="box__courses mt">
+                            <div class="box__courses--title">
+                                <h3><span><i class="fa-solid fa-cart-shopping"></i></span> &ensp; Khóa học đã mua</h3>
+
+
+                                <div class="courseBought">
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -152,7 +168,17 @@
 // handle get data from db and convert arr php to arr js
 const infoCourse_user = <?= json_encode($infoCourse_user) ?>;
 
+const coursesBoughtData = <?= json_encode($coursesBought) ?>;
+
 infoCourse_user.forEach(element => {
+    for (let i in element) {
+        if (!isNaN(Number(i))) {
+            delete element[i];
+        }
+    }
+});
+
+coursesBoughtData.forEach(element => {
     for (let i in element) {
         if (!isNaN(Number(i))) {
             delete element[i];
@@ -173,6 +199,20 @@ courseLearning.innerHTML = listCourseLearning.map(item => `
                                     </div>
                                 </div>
     `).join("");
+
+// show courseLearned
+
+const courseBought = document.querySelector(".courseBought")
+courseBought.innerHTML = coursesBoughtData.map(item => `
+    <div class="box__courses--inner">
+                                    <img src="<?= $GLOBALS["domainPage"] ?>/uploads/${item.thumb}" alt="">
+                                    <div class="box__courses--info">
+                                        <h4>${item.name}</h4>
+                                        <p>Ngày mua: <span>${item.date_pay}</span></p>
+                                    </div>
+                                </div>
+    `).join("");
+
 
 // show courseLearned
 

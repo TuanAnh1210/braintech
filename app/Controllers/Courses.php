@@ -91,6 +91,7 @@ class Courses extends BaseController
 
             // handle update buy_CoursesModel
             $data = [
+                "date_pay" => date("Y-m-d H:i:s"),
                 "id_course" => $courseId,
                 "id_user" => $userId,
             ];
