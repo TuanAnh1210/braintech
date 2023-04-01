@@ -26,4 +26,18 @@ class Buy_courses extends BaseModel
 
         return $this->query_all($sql);
     }
+
+    public function getBill()
+    {
+        $sql = "SELECT courses_buy.id,courses.name, courses_buy.id_course as courseId, courses.thumb,COUNT(courses_buy.id_course) as bought , courses.price FROM courses_buy LEFT JOIN courses ON courses_buy.id_course = courses.id GROUP BY courses.id";
+
+        return $this->query_all($sql);
+    }
+
+    public function getDetailBill($id)
+    {
+        $sql = "SELECT courses_buy.id, users.name, users.email, courses_buy.code_bill, courses_buy.date_pay,courses_buy.content_bill FROM courses_buy JOIN users ON courses_buy.id_user = users.id WHERE courses_buy.id_course = $id";
+
+        return $this->query_all($sql);
+    }
 }
