@@ -51,7 +51,7 @@
             <div class="form-group">
                 <label>Mã đơn hàng:</label>
 
-                <label><?php echo $_GET['vnp_TxnRef'] ?></label>
+                <label class="code_bill"><?php echo $_GET['vnp_TxnRef'] ?></label>
 
 
             </div>
@@ -62,7 +62,7 @@
             </div>
             <div class="form-group">
                 <label>Nội dung thanh toán:</label>
-                <label><?php echo $_GET['vnp_OrderInfo'] ?></label>
+                <label class="content_bill"><?php echo $_GET['vnp_OrderInfo'] ?></label>
             </div>
             <div class="form-group">
                 <label>Mã phản hồi (vnp_ResponseCode):</label>
@@ -111,6 +111,8 @@
 
     <script>
     const finishPay = document.querySelector(".finishPay")
+    const code_bill = document.querySelector(".code_bill").innerText
+    const content_bill = document.querySelector(".content_bill").innerText
     finishPay.onclick = () => {
         const {
             pay_course,
@@ -120,7 +122,7 @@
         localStorage.removeItem("infoCourse")
 
         window.location.href =
-            `http://localhost/braintech/courses/buySuccess?courseId=${pay_course}&userId=${pay_user}`
+            `http://localhost/braintech/courses/buySuccess?courseId=${pay_course}&userId=${pay_user}&codeBill=${code_bill}&contentBill=${content_bill}`
     }
     </script>
 </body>
