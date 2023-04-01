@@ -29,7 +29,7 @@
     });
 
     // convert data to data of chart
-    const infoChart = [...data].map(item => [item.name, item.totalLearner])
+    const infoChart = [...data].map(item => [item.name, item.bought])
 
 
     google.charts.load("current", {
@@ -44,7 +44,7 @@
         ]);
 
         var options = {
-            title: 'Biểu đồ thống kế theo học viên',
+            title: 'Biểu đồ thống kế lượt mua',
             is3D: true,
 
         };
