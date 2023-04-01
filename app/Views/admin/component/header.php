@@ -75,6 +75,15 @@
                             <p>Bình luận</p>
                         </a>
                     </li>
+                    <li data-item="admin_bills" class="nav-item">
+                        <a class="nav-link" href="<?= $GLOBALS['domainPage'] ?>/admin_bills">
+
+                            <i class="material-icons">
+                                receipt_long
+                            </i>
+                            <p>Hóa đơn</p>
+                        </a>
+                    </li>
                     <li data-item="admin_statistical" class="nav-item">
                         <a class="nav-link" href="<?= $GLOBALS['domainPage'] ?>/admin_statistical">
                             <i class="material-icons">bubble_chart</i>
