@@ -3,6 +3,7 @@ class Info extends BaseController
 {
     private $detail_courseModel;
     private $usersModel;
+    private $buy_CoursesModel;
 
     public function __construct()
     {
@@ -11,6 +12,9 @@ class Info extends BaseController
 
         $this->loadModel("UsersModel");
         $this->usersModel = new UsersModel;
+
+        $this->loadModel('Buy_courses');
+        $this->buy_CoursesModel = new Buy_courses;
     }
     public function index()
     {
@@ -18,9 +22,11 @@ class Info extends BaseController
             $id_user = $_SESSION["auth"]['id'];
             $listCourse = $this->detail_courseModel->getAll();
             $infoCourse_user = $this->detail_courseModel->getInfoCourse_User($id_user);
+            $coursesBought = $this->buy_CoursesModel->getCourseBoughtInfo($id_user);
             return $this->view("client.pages.info.index", [
                 "listCourse" => $listCourse,
-                "infoCourse_user" => $infoCourse_user
+                "infoCourse_user" => $infoCourse_user,
+                "coursesBought" => $coursesBought
             ]);
         }
     }
