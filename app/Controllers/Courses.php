@@ -88,10 +88,14 @@ class Courses extends BaseController
         if (!empty($_GET)) {
             $courseId = $_GET["courseId"];
             $userId = $_GET["userId"];
+            $codeBill = $_GET["codeBill"];
+            $contentBill = $_GET["contentBill"];
 
             // handle update buy_CoursesModel
             $data = [
                 "date_pay" => date("Y-m-d H:i:s"),
+                "code_bill" => $codeBill,
+                "content_bill" => $contentBill,
                 "id_course" => $courseId,
                 "id_user" => $userId,
             ];

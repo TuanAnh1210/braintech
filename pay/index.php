@@ -35,11 +35,13 @@
                 </div>
                 <div class="form-group">
                     <label for="order_id">Mã hóa đơn</label>
-                    <input class="form-control" id="order_id" name="order_id" type="text" value="<?php echo date("YmdHis") ?>" />
+                    <input class="form-control" id="order_id" name="order_id" type="text"
+                        value="<?php echo date("YmdHis") ?>" />
                 </div>
                 <div class="form-group">
                     <label for="amount">Số tiền</label>
-                    <input class="form-control" id="amount" name="amount" type="number" value="<?= $course["price"] ?>" />
+                    <input class="form-control" id="amount" name="amount" type="number"
+                        value="<?= $course["price"] ?>" />
                 </div>
 
                 <div class="form-group">
@@ -50,7 +52,8 @@
                 </div>
                 <div class="form-group">
                     <label for="order_desc">Nội dung thanh toán</label>
-                    <textarea class="form-control" cols="20" id="order_desc" name="order_desc" rows="2">Thanh toán khóa học: <?= $course["name"] ?></textarea>
+                    <textarea class="form-control" cols="20" id="order_desc" name="order_desc"
+                        rows="2">Thanh toán khóa học: <?= $course["name"] ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="bank_code">Ngân hàng</label>
@@ -89,26 +92,31 @@
                 </div>
                 <div class="form-group">
                     <label>Thời hạn thanh toán</label>
-                    <input class="form-control" id="txtexpire" name="txtexpire" type="text" value="<?php echo $expire; ?>" />
+                    <input class="form-control" id="txtexpire" name="txtexpire" type="text"
+                        value="<?php echo $expire; ?>" />
                 </div>
                 <div class="form-group">
                     <h3>Thông tin hóa đơn (Billing)</h3>
                 </div>
                 <div class="form-group">
                     <label>Họ tên (*)</label>
-                    <input class="form-control" id="txt_billing_fullname" name="txt_billing_fullname" type="text" value="<?= $userInfo["name"] ?>" />
+                    <input class="form-control" id="txt_billing_fullname" name="txt_billing_fullname" type="text"
+                        value="<?= $userInfo["name"] ?>" />
                 </div>
                 <div class="form-group">
                     <label>Email (*)</label>
-                    <input class="form-control" id="txt_billing_email" name="txt_billing_email" type="text" value="<?= $userInfo["email"] ?>" />
+                    <input class="form-control" id="txt_billing_email" name="txt_billing_email" type="text"
+                        value="<?= $userInfo["email"] ?>" />
                 </div>
                 <div class="form-group">
                     <label>Số điện thoại (*)</label>
-                    <input class="form-control" id="txt_billing_mobile" name="txt_billing_mobile" type="text" value="<?= $userInfo["phone"] ?>" />
+                    <input class="form-control" id="txt_billing_mobile" name="txt_billing_mobile" type="text"
+                        value="<?= $userInfo["phone"] ?>" />
                 </div>
                 <div class="form-group">
                     <label>Địa chỉ (*)</label>
-                    <input class="form-control" id="txt_billing_addr1" name="txt_billing_addr1" type="text" value="<?= $userInfo["address"] ?>" />
+                    <input class="form-control" id="txt_billing_addr1" name="txt_billing_addr1" type="text"
+                        value="<?= $userInfo["address"] ?>" />
                 </div>
                 <div class="form-group">
                     <label>Mã bưu điện (*)</label>
@@ -116,7 +124,8 @@
                 </div>
                 <div class="form-group">
                     <label>Tỉnh/TP (*)</label>
-                    <input class="form-control" id="txt_bill_city" name="txt_bill_city" type="text" value="<?= $userInfo["address"] ?>" />
+                    <input class="form-control" id="txt_bill_city" name="txt_bill_city" type="text"
+                        value="<?= $userInfo["address"] ?>" />
                 </div>
                 <div class="form-group">
                     <label>Bang (Áp dụng cho US,CA)</label>
@@ -132,19 +141,23 @@
                 </div>
                 <div class="form-group">
                     <label>Tên khách hàng</label>
-                    <input class="form-control" id="txt_inv_customer" name="txt_inv_customer" type="text" value="<?= $userInfo["name"] ?>" />
+                    <input class="form-control" id="txt_inv_customer" name="txt_inv_customer" type="text"
+                        value="<?= $userInfo["name"] ?>" />
                 </div>
                 <div class="form-group">
                     <label>Công ty</label>
-                    <input class="form-control" id="txt_inv_company" name="txt_inv_company" type="text" value="Công ty Cổ phần giải pháp Thanh toán Việt Nam" />
+                    <input class="form-control" id="txt_inv_company" name="txt_inv_company" type="text"
+                        value="Công ty Cổ phần giải pháp Thanh toán Việt Nam" />
                 </div>
                 <div class="form-group">
                     <label>Địa chỉ</label>
-                    <input class="form-control" id="txt_inv_addr1" name="txt_inv_addr1" type="text" value="22 Láng Hạ, Phường Láng Hạ, Quận Đống Đa, TP Hà Nội" />
+                    <input class="form-control" id="txt_inv_addr1" name="txt_inv_addr1" type="text"
+                        value="22 Láng Hạ, Phường Láng Hạ, Quận Đống Đa, TP Hà Nội" />
                 </div>
                 <div class="form-group">
                     <label>Mã số thuế</label>
-                    <input class="form-control" id="txt_inv_taxcode" name="txt_inv_taxcode" type="text" value="0102182292" />
+                    <input class="form-control" id="txt_inv_taxcode" name="txt_inv_taxcode" type="text"
+                        value="0102182292" />
                 </div>
                 <div class="form-group">
                     <label>Loại hóa đơn</label>
@@ -155,11 +168,13 @@
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input class="form-control" id="txt_inv_email" name="txt_inv_email" type="text" value="<?= $userInfo["email"] ?>" />
+                    <input class="form-control" id="txt_inv_email" name="txt_inv_email" type="text"
+                        value="<?= $userInfo["email"] ?>" />
                 </div>
                 <div class="form-group">
                     <label>Điện thoại</label>
-                    <input class="form-control" id="txt_inv_mobile" name="txt_inv_mobile" type="text" value="<?= $userInfo["phone"] ?>" />
+                    <input class="form-control" id="txt_inv_mobile" name="txt_inv_mobile" type="text"
+                        value="<?= $userInfo["phone"] ?>" />
                 </div>
                 <button type="submit" name="redirect" id="redirect" class="btn btn-default">Thanh toán</button>
 
@@ -174,16 +189,19 @@
     </div>
 
     <script>
-        const pay_course = document.querySelector(".pay_course")
-        const pay_user = document.querySelector(".pay_user")
+    const pay_course = document.querySelector(".pay_course")
+    const pay_user = document.querySelector(".pay_user")
+    const order_id = document.querySelector("#order_id")
 
-        const tempPay = {
-            pay_course: pay_course.value,
-            pay_user: pay_user.value,
-        }
+    const tempPay = {
+        pay_course: pay_course.value,
+        pay_user: pay_user.value,
+        pay_code: order_id.value
+    }
 
 
-        localStorage.setItem("infoCourse", JSON.stringify(tempPay))
+    localStorage.removeItem("infoCourse")
+    localStorage.setItem("infoCourse", JSON.stringify(tempPay))
     </script>
 
 

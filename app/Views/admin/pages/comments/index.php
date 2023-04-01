@@ -31,21 +31,21 @@
                                 </thead>
 
                                 <tbody>
-                                    <?php foreach($data as $key=>$value): 
+                                    <?php foreach ($data as $key => $value) :
 
                                     ?>
                                     <tr>
                                         <td>
-                                            <?=++$key?>
+                                            <?= ++$key ?>
                                         </td>
                                         <td>
-                                            <?= $value["name"]?>
+                                            <?= $value["name"] ?>
                                         </td>
                                         <td>
-                                            <?= $value["totalCmt"]?>
+                                            <?= $value["totalCmt"] ?>
                                         </td>
                                         <td>
-                                            <a href="<?= $GLOBALS['domainPage'] ?>/admin_comments/detailCmt?id_lesson=<?=$value["id_lesson"]?>"
+                                            <a href="<?= $GLOBALS['domainPage'] ?>/admin_comments/detailCmt?id_lesson=<?= $value["id_lesson"] ?>"
                                                 class="course_view-btn">
                                                 Xem
                                             </a>
@@ -53,7 +53,7 @@
 
                                     </tr>
 
-                                    <?php endforeach?>
+                                    <?php endforeach ?>
                                 </tbody>
                             </table>
                         </div>
