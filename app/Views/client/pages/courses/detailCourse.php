@@ -75,6 +75,8 @@ courses.forEach(element => {
     }
 });
 
+
+
 lesson_list.forEach(element => {
     for (let i in element) {
         if (!isNaN(Number(i))) {
@@ -88,20 +90,16 @@ lesson_list.forEach(element => {
 
 const firstLesson = lesson_list.filter(item => item.course_chapter_id == courses[0].id)
 
-
 const firstLessonBtn = document.querySelector(".firstLessonBtn")
-
 if (firstLessonBtn) {
-
     firstLessonBtn.innerHTML = `
-    <a <?php if ($course[0]["courses_id"] == 10) {
-            echo "hidden";
-        } ?> href="<?= $GLOBALS["domainPage"] ?>/learning?courseId=<?= $course[0]["courses_id"] ?>&userId=<?= $_SESSION["auth"]["id"] ?>&lessonId=${firstLesson[0].id}">
+    <a href="<?= $GLOBALS["domainPage"] ?>/learning?courseId=<?= $course[0]["courses_id"] ?>&userId=<?= $_SESSION["auth"]["id"] ?>&lessonId=${firstLesson[0].id}">
                         <button class="course_btn-learn">Học
                             ngay
                         </button>
                     </a>
     `
+
 }
 
 // handle show full lesson
