@@ -18,13 +18,13 @@ try {
     $mail->isSMTP(); // Set mailer to use SMTP
     $mail->Host = 'smtp.gmail.com'; // Specify main and backup SMTP servers
     $mail->SMTPAuth = true; // Enable SMTP authentication
-    $mail->Username = 'braintech0852131210@gmail.com'; // SMTP username
-    $mail->Password = 'zurbsmwbtvmkhuzs'; // SMTP password
+    $mail->Username = 'braintech1210085213@gmail.com'; // SMTP username
+    $mail->Password = 'ubfcxsujzgiglijd'; // SMTP password
     $mail->SMTPSecure = 'tls'; // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 587; // TCP port to connect to
 
     //Recipients
-    $mail->setFrom('braintech0852131210@gmail.com', 'BrainTech');
+    $mail->setFrom('braintech1210085213@gmail.com', 'BrainTech');
 
     $mail->addAddress($arrInfo['email'], 'tuan anh'); // Add a recipient
     // $mail->addAddress('tuananh1210085213@gmail.com', 'tuan em'); // Add a recipient
@@ -60,76 +60,76 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xác minh</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        html {
-            font-family: Arial, Helvetica, sans-serif;
-        }
+    html {
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-        .form__wrapper {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: url('http://localhost/braintech/public/imgs/bg_blue.png') center center / cover no-repeat;
+    .form__wrapper {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url('http://localhost/braintech/public/imgs/bg_blue.png') center center / cover no-repeat;
 
-        }
+    }
 
-        .authForm {
-            width: 600px;
-            max-height: 500px;
-            border: 1px solid #ccc;
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            padding: 24px 12px;
-            border-radius: 8px;
-            box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    .authForm {
+        width: 600px;
+        max-height: 500px;
+        border: 1px solid #ccc;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        padding: 24px 12px;
+        border-radius: 8px;
+        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
 
-        }
+    }
 
-        .authTitle {
-            font-size: 24px;
-            font-weight: 500;
-            letter-spacing: .5px;
-        }
+    .authTitle {
+        font-size: 24px;
+        font-weight: 500;
+        letter-spacing: .5px;
+    }
 
-        .authSub {
-            font-size: 16px;
-            font-style: italic;
-            margin: 32px 0 12px 0;
-        }
+    .authSub {
+        font-size: 16px;
+        font-style: italic;
+        margin: 32px 0 12px 0;
+    }
 
-        .authCode {
-            padding: 8px 20px;
-            font-size: 16px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
+    .authCode {
+        padding: 8px 20px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
 
-            outline: none;
-        }
+        outline: none;
+    }
 
-        .authBtn {
-            margin-top: 24px;
-            background-color: #8EC5FC;
-            background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-            border: none;
-            font-size: 16px;
-            font-weight: 700;
-            padding: 10px 0;
-            border-radius: 8px;
-            opacity: .8;
-        }
+    .authBtn {
+        margin-top: 24px;
+        background-color: #8EC5FC;
+        background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+        border: none;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 10px 0;
+        border-radius: 8px;
+        opacity: .8;
+    }
 
-        .authBtn:hover {
-            opacity: 1;
-            cursor: pointer;
-        }
+    .authBtn:hover {
+        opacity: 1;
+        cursor: pointer;
+    }
     </style>
 </head>
 
@@ -152,18 +152,18 @@ try {
 
 
     <script>
-        const code = <?= json_encode($code) ?>
+    const code = <?= json_encode($code) ?>
 
-        const authForm_wrapper = document.querySelector('.authForm')
+    const authForm_wrapper = document.querySelector('.authForm')
 
-        authForm_wrapper.onsubmit = (e) => {
-            e.preventDefault()
-            const codeIpt = document.querySelector('.authCode')
-            if (codeIpt.value == code) {
-                alert('Xác minh thành công !')
-                authForm_wrapper.submit()
-            }
+    authForm_wrapper.onsubmit = (e) => {
+        e.preventDefault()
+        const codeIpt = document.querySelector('.authCode')
+        if (codeIpt.value == code) {
+            alert('Xác minh thành công !')
+            authForm_wrapper.submit()
         }
+    }
     </script>
 </body>
 
