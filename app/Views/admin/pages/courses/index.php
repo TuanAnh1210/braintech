@@ -128,42 +128,8 @@
                                         Hành động
                                     </th>
                                 </thead>
-                                <tbody>
-                                    <?php foreach ($coursePro as $key => $value) : ?>
-                                    <tr>
-                                        <td>
-                                            <?= ++$key ?>
-                                        </td>
-                                        <td>
-                                            <?= $value["name"] ?>
-                                        </td>
-                                        <td>
-                                            <img class="course_img"
-                                                src="<?= $GLOBALS["domainPage"] ?>/uploads/<?= $value["thumb"] ?>"
-                                                alt="">
-                                        </td>
-                                        <td>
-                                            <?= number_format($value['price'], 0, "", ".") ?>đ
-                                        </td>
-                                        <td>
-                                            <a href="<?= $GLOBALS["domainPage"] ?>/admin_chapter?CourseId=<?= $value["id"] ?>"
-                                                class="course_view-btn">
-                                                Xem
-                                            </a>
-                                        </td>
-                                        <td class="text-primary">
-                                            <a href="<?= $GLOBALS['domainPage'] ?>/admin_courses/updateCourse"
-                                                class=" course_update-btn">
-                                                Sửa
+                                <tbody class="bodyPro">
 
-                                            </a>
-                                            <a href="#" class=" course_delete-btn">
-                                                Xóa
-
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <?php endforeach ?>
 
                                 </tbody>
                             </table>
@@ -181,6 +147,7 @@
 // handle get data from db and convert arr php to arr js
 const courseFe = <?= json_encode($courseFe) ?>;
 const courseBe = <?= json_encode($courseBe) ?>;
+const coursePro = <?= json_encode($coursePro) ?>;
 const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
 
 
@@ -192,6 +159,14 @@ courseFe.forEach(element => {
     }
 });
 courseBe.forEach(element => {
+    for (let i in element) {
+        if (!isNaN(Number(i))) {
+            delete element[i];
+        }
+    }
+});
+
+coursePro.forEach(element => {
     for (let i in element) {
         if (!isNaN(Number(i))) {
             delete element[i];
@@ -240,6 +215,7 @@ const renderFe = (temp) => {
                                             <img class="course_img"
                                                 src="${domainPage}/uploads/${ele.thumb}" alt="">
                                         </td>
+                                       
                                         <td>
                                             <a href="${domainPage}/admin_chapter?CourseId=${ele.id}"
                                                 class="course_view-btn">
@@ -299,8 +275,52 @@ const renderBe = (temp) => {
     `).join('')
 }
 
+const renderPro = (temp) => {
+    let target = temp > 0 ? temp * numberData : numberData
+
+    const newData = coursePro.slice(target - numberData, target)
+
+    document.querySelector('.bodyPro').innerHTML = newData.map((ele, index) => `
+    <tr>
+                                        <td>
+                                        ${++index}
+                                        </td>
+                                        <td>
+                                            ${ele.name}
+                                        </td>
+                                        <td>
+                                            <img class="course_img"
+                                                src="${domainPage}/uploads/${ele.thumb}" alt="">
+                                        </td>
+                                        <td>
+                                            ${ele.price.toLocaleString()}
+                                        </td>
+                                        <td>
+                                        <a href="${domainPage}/admin_chapter?CourseId=${ele.id}"
+                                                class="course_view-btn">
+                                                Xem
+                                            </a>
+                                        </td>
+                                        <td class="text-primary">
+                                        <a href="${domainPage}/admin_courses/updateCourse?courseId=${ele.id}&cateId=3"
+                                                class=" course_update-btn">
+                                                Sửa
+
+                                            </a>
+                                            <button onclick="handleDelete(${ele.id})" style="border:none; color:#fff" class=" course_delete-btn">
+                                                Xóa
+
+                                            </button>
+                                        </td>
+                                    </tr>
+    `).join('')
+}
+
+
+
 renderFe(temp)
 renderBe(temp)
+renderPro(temp)
 
 // feat: click paginationFe-btn then pagination
 
