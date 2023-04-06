@@ -22,11 +22,13 @@ class Admin_statistical extends BaseController
         if (!empty($_SESSION['auth'])) {
             $courseFe = $this->coursesModel->getCourse(1, "cate_id");
             $courseBe = $this->coursesModel->getCourse(2, "cate_id");
+            $coursePro = $this->coursesModel->getCourse(3, "cate_id");
             $chapters = $this->chapterModel->getChapter();
             $detail_courses = $this->detail_courseModel->getAll();
             return $this->view("admin.pages.statistical.index", [
                 "courseFe" => $courseFe,
                 "courseBe" => $courseBe,
+                "coursePro" => $coursePro,
                 "chapters" => $chapters,
                 "detail_courses" => $detail_courses,
             ]);
