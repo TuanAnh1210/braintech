@@ -825,7 +825,12 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
 }
 
-.note_heading {}
+.note_heading {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .note_heading h2 {
     font-size: 24px;
