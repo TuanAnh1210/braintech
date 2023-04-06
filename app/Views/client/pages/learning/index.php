@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/learnings.css">
+    <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/learning.css">
     <link rel="stylesheet" href="<?= $GLOBALS['domainPage'] ?>/public/css/client/pages/learning/responsive.css">
 </head>
 
@@ -193,6 +193,18 @@
                             class="fa-solid fa-xmark"></i></span></div>
                 <div class="note_heading">
                     <h2>Ghi chú của tôi</h2>
+
+
+
+
+                    <!-- <select name="" id="">
+                        <option value="all" data-note="all" class="note-option">
+                            -----Tất cả-----
+                        </option>
+                        <option value="only" data-note="only" class="note-option">
+                            -----Trong bài học này-----
+                        </option>
+                    </select> -->
                 </div>
                 <div class="note_list">
                     <?php foreach ($notes as $key => $value) : ?>
@@ -309,6 +321,7 @@
     // handle show course
     const courses = <?= json_encode($course) ?>;
     const comments = <?= json_encode($comments) ?>;
+    const notes = <?= json_encode($notes) ?>
 
     const quizzs = <?= json_encode($quizzs) ?>;
 
@@ -321,6 +334,14 @@
 
 
     courses.forEach(element => {
+        for (let i in element) {
+            if (!isNaN(Number(i))) {
+                delete element[i];
+            }
+        }
+    });
+
+    notes.forEach(element => {
         for (let i in element) {
             if (!isNaN(Number(i))) {
                 delete element[i];
@@ -466,7 +487,7 @@
     deleteNote_btn.forEach(item => {
         item.onclick = () => {
             if (confirm("Bạn chắc chắn muốn xóa ghi chú này?")) {
-                window.location.href = `<?= $GLOBALS["domainPage"]?>/learning/deleteNote`;
+                window.location.href = `<?= $GLOBALS["domainPage"] ?>/learning/deleteNote`;
             }
         }
     })
@@ -571,6 +592,15 @@
     const progress_user = Math.floor((lessonLearned.length / totalLesson.length) * 100)
     progress_bar.style.width = `${progress_user}%`;
     progress_bar.innerText = `${progress_user}%`
+
+
+    // feat: note-option
+    const note_option = document.querySelectorAll(".note-option")
+    note_option.forEach(item => {
+        item.onclick = () => {
+            console.log(12)
+        }
+    })
     </script>
 
 
