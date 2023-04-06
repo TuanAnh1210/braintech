@@ -110,6 +110,57 @@
                 </div>
             </div>
 
+            <div class="col-md-12">
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between;" class="card-header card-header-primary">
+                        <div class="courses-heading">
+                            <h4 class="card-title ">Khóa học Pro</h4>
+                            <p class="card-category"> Thống kê</p>
+                        </div>
+                        <button class="courses-add">
+                            <a style="height: 100%; display: flex; align-items: center; width: 100%;"
+                                href="<?= $GLOBALS['domainPage'] ?>/admin_statistical/chart?course_cate=3">Biểu đồ</a>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th width="5%">
+                                        ID
+                                    </th>
+                                    <th width="25%">
+                                        Tên khóa học
+                                    </th>
+                                    <th width="12%">
+                                        Giá
+                                    </th>
+                                    <th width="20%">
+                                        Ảnh
+                                    </th>
+                                    <th width="13%">
+                                        Chương học
+                                    </th>
+                                    <th width="12%">
+                                        Bài học
+                                    </th>
+                                    <th width="13%">
+                                        Học viên
+                                    </th>
+                                </thead>
+                                <tbody class="bodyPro">
+
+
+                                </tbody>
+                            </table>
+                            <div class="paginationPro">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
         </div>
     </div>
@@ -120,6 +171,7 @@
 // handle get data from db and convert arr php to arr js
 const courseFe = <?= json_encode($courseFe) ?>;
 const courseBe = <?= json_encode($courseBe) ?>;
+const coursePro = <?= json_encode($coursePro) ?>;
 const chapters = <?= json_encode($chapters) ?>;
 const detail_courses = <?= json_encode($detail_courses) ?>;
 const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
@@ -133,6 +185,14 @@ courseFe.forEach(element => {
     }
 });
 courseBe.forEach(element => {
+    for (let i in element) {
+        if (!isNaN(Number(i))) {
+            delete element[i];
+        }
+    }
+});
+
+coursePro.forEach(element => {
     for (let i in element) {
         if (!isNaN(Number(i))) {
             delete element[i];
@@ -243,8 +303,43 @@ const renderBe = (temp, arr) => {
     `).join('')
 }
 
+
+const renderPro = (temp, arr) => {
+    let target = temp > 0 ? temp * numberData : numberData
+
+    const newData = arr.slice(target - numberData, target)
+
+    document.querySelector('.bodyPro').innerHTML = newData.map((course, index) => `
+    <tr>
+                                        <td>
+                                        ${index + 1}
+                                        </td>
+                                        <td>
+                                        ${course.name}
+                                        </td>
+                                        <td>
+                                        ${course.price.toLocaleString()}đ
+                                        </td>
+                                        <td>
+                                         <img class="course_img"
+                                                src="${domainPage}/uploads/${course.thumb}" alt="">
+                                        </td>
+                                        <td>
+                                            ${chapters.filter(item => item.courses_id == course.id).length} chương
+                                        </td>
+                                        <td>
+                                        ${chapters.filter(item => item.courses_id == course.id).reduce((pre, cur) => pre + cur.totalLesson, 0)} bài
+                                        </td>
+                                        <td>
+                                        ${detail_courses.filter(item => item.course_id == course.id).length} học viên
+                                        </td>
+                                    </tr>
+    `).join('')
+}
+
 renderFe(temp, courseFe)
 renderBe(temp, courseBe)
+renderPro(temp, coursePro)
 
 // feat: click paginationFe-btn then pagination
 
