@@ -880,6 +880,44 @@ header {
     margin-left: 12px;
 }
 
+.update_note_form {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.update_note_form.open {
+    display: flex;
+}
+
+.updateNoteIpt {
+    flex: 1;
+    border: none;
+    background-color: transparent;
+    padding-left: 12px;
+    outline: none;
+}
+
+.update_note_form>button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: #fff;
+    width: 66px;
+    height: 30px;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    opacity: .8;
+    margin-right: 12px;
+}
+
+.update_note_form>button:hover {
+    cursor: pointer;
+    opacity: 1;
+}
 
 @keyframes showIn {
     from {
