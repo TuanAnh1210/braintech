@@ -14,4 +14,14 @@ class NoteModel extends BaseModel
     {
         return $this->create(self::TABLE, $data);
     }
+
+    public function deleteNote($id)
+    {
+        return $this->delete(self::TABLE, $id);
+    }
+
+    public function updateNote($data, $id)
+    {
+        return $this->update(self::TABLE, $data, $id);
+    }
 }
