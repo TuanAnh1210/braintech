@@ -213,9 +213,39 @@ class Learning extends BaseController
         }
     }
 
-    // public function deleteNote() {
-    //     if(!empty($_GET)) {
-    //         $noteId = $_GET[""]
-    //     }
-    // }
+    public function deleteNote()
+    {
+        if (!empty($_GET)) {
+            $idNote = $_GET["idNote"];
+            $idLesson = $_GET["idLesson"];
+            $idCourse = $_GET["idCourse"];
+            $idUser = $_SESSION["auth"]["id"];
+
+            $this->noteModel->deleteNote($idNote);
+
+            $url = $GLOBALS['domainPage'] . "/learning?courseId=$idCourse&userId=$idUser&lessonId=$idLesson";
+            header("location: $url");
+        }
+    }
+
+    public function updateNote()
+    {
+        if (!empty($_POST)) {
+            $idNote = $_POST["idNote"];
+            $idLesson = $_POST["idLesson"];
+            $idCourse = $_POST["idCourse"];
+            $idUser = $_SESSION["auth"]["id"];
+
+            $content = $_POST["updateNoteIpt"];
+
+            $data = [
+                "content" => $content,
+            ];
+
+            $this->noteModel->updateNote($data, $idNote);
+
+            $url = $GLOBALS['domainPage'] . "/learning?courseId=$idCourse&userId=$idUser&lessonId=$idLesson";
+            header("location: $url");
+        }
+    }
 }

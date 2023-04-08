@@ -63,7 +63,7 @@
         <h1 style="font-weight: 600; text-align: center; margin-bottom: 32px;">ĐỘI NGŨ CỦA BRAINTECH</h1>
 
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-3">
+            <!-- <div class="col-12 col-md-6 col-lg-3">
                 <div class="about_hr-card">
                     <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/tuananh.jpg" alt="">
                     <h4>Nguyễn Tuấn Anh</h4>
@@ -80,11 +80,11 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="about_hr-card">
-                   
+
                     <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/Đức Huynh.jpg" alt="">
                     <h4>Lê Đức Huỳnh</h4>
                     <p>Member (FE)</p>
@@ -103,7 +103,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="about_hr-card">
-                   
+
                     <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/thuong.jpg" alt="" height="215">
                     <h4>Trần Thị Thương</h4>
                     <p>Member (FE)</p>
@@ -122,7 +122,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="about_hr-card">
-                   
+
                     <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/quang minh.jpg" alt="">
                     <h4>Lê Quang Minh</h4>
                     <p>Member (FE)</p>
@@ -141,7 +141,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="about_hr-card">
-                   
+
                     <img src="<?= $GLOBALS['domainPage'] ?>/public/imgs/quang Dũng.jpg" alt="">
                     <h4>Tạ Quang Dũng </h4>
                     <p>Member (BE)</p>
@@ -159,6 +159,8 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 </div>
 
