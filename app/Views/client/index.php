@@ -67,17 +67,7 @@
             <h2>Khóa học mới nhất</h2>
             <div class="courses-newest_list owl-carousel owl-theme">
                 <?php foreach ($courseNewest as $key => $value) : ?>
-                <a href="<?= $GLOBALS["domainPage"] ?>/courses/detailCourse?courseId=<?= $value["id"] ?>">
-                    <div class="courses-newest_item">
-                        <img src="<?= $GLOBALS['domainPage'] ?>/uploads/<?= $value["thumb"]?>" alt="" />
-                        <h4><?= $value["name"]?></h4>
-                        <div class="courses-newest_info">
-                            <i class="fa-solid fa-users"></i>
-                            <span>123</span>
-                            <p>Miễn phí</p>
-                        </div>
-                    </div>
-                </a>
+
                 <?php endforeach ?>
 
             </div>
@@ -198,9 +188,49 @@
         </div>
     </div>
 </div>
+<script>
+    // handle get data from db and convert arr php to arr js
+    const courseNewest = <?= json_encode($courseNewest) ?>;
+    const detail_courses = <?= json_encode($detail_courses) ?>;
+
+
+
+    courseNewest.forEach(element => {
+        for (let i in element) {
+            if (!isNaN(Number(i))) {
+                delete element[i];
+            }
+        }
+    });
+
+    detail_courses.forEach(element => {
+        for (let i in element) {
+            if (!isNaN(Number(i))) {
+                delete element[i];
+            }
+        }
+    });
+
+    const courses_newest_list = document.querySelector(".courses-newest_list")
+
+    courses_newest_list.innerHTML = courseNewest.map(course => `
+<a href="<?= $GLOBALS['domainPage'] ?>/courses/detailCourse?courseId=${course.id}">
+                    <div class="courses-newest_item">
+                        <img src="<?= $GLOBALS['domainPage'] ?>/uploads/${course.thumb}" alt="" />
+                        <h4>${course.name}</h4>
+                        <div class="courses-newest_info">
+                            <i class="fa-solid fa-users"></i>
+                            <span>${detail_courses.filter(item => item.course_id == course.id).length}</span>
+                            ${course.price ?  `<div class="price__wrapper">
+                                <p class="old__price">${course.old_price.toLocaleString()}đ</p>
+                                <p>${course.price.toLocaleString()}đ</p>
+                            </div>` : `<p>Miễn phí</p>`}
+                            
+                           
+                        </div>
+                    </div>
+                </a>
+`).join("")
+</script>
 
 <?php ipView('client.component.footer') ?>
-
-<script>
-
-</script>

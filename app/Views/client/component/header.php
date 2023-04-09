@@ -85,9 +85,7 @@
                             <li class="accMenu_item">
                                 <a class="accMenu_link" href="<?= $GLOBALS['domainPage'] ?>/info">Tài khoản</a>
                             </li>
-                            <li class="accMenu_item">
-                                <a class="accMenu_link" href="#">Ghi chú</a>
-                            </li>
+
 
 
                             <li <?php if ($_SESSION["auth"]["role"] == 1) {
