@@ -6,6 +6,7 @@ class Courses extends BaseController
     private $lessonModel;
     private $buy_CoursesModel;
     private $usersModel;
+    private $detail_courseModel;
 
     public function __construct()
     {
@@ -23,18 +24,23 @@ class Courses extends BaseController
 
         $this->loadModel('UsersModel');
         $this->usersModel = new UsersModel;
+
+        $this->loadModel("Detail_courseModel");
+        $this->detail_courseModel = new Detail_courseModel;
     }
 
     public function index()
     {
-        $coursesFe = $this->coursesModel->getCourse(1, "cate_id");
-        $coursesBe = $this->coursesModel->getCourse(2, "cate_id");
-        $coursesPro = $this->coursesModel->getCourse(3, "cate_id");
+        // $coursesFe = $this->coursesModel->getCourse(1, "cate_id");
+        // $coursesBe = $this->coursesModel->getCourse(2, "cate_id");
+        // $coursesPro = $this->coursesModel->getCourse(3, "cate_id");
+        $courses = $this->coursesModel->getAll();
+        $detail_courses = $this->detail_courseModel->getAll();
 
         return $this->view('client.pages.courses.index', [
-            "coursesFe" => $coursesFe,
-            "coursesBe" => $coursesBe,
-            "coursesPro" => $coursesPro,
+            "courses" => $courses,
+
+            "detail_courses" => $detail_courses
         ]);
     }
 
