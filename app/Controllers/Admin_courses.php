@@ -40,11 +40,9 @@ class Admin_courses extends BaseController
 
         // handle update course
         if (!empty($_POST)) {
-            if (!empty($_FILES['course_image']['name'])) {
-                $target_dir = "uploads/";
-                $target_file = $target_dir . basename($_FILES['course_image']['name']);
-                move_uploaded_file($_FILES["course_image"]["tmp_name"], $target_file);
-                $newAvatar = basename($_FILES['course_image']['name']);
+            if (!empty($_POST['course_curImg'])) {
+
+                $newAvatar = $_POST['course_curImg'];
             } else {
                 $newAvatar = $_POST["old_img"];
             }
@@ -87,15 +85,10 @@ class Admin_courses extends BaseController
 
         // handle add new course
         if (!empty($_POST)) {
-            if (!empty($_FILES['course_image']['name'])) {
-                $target_dir = "uploads/";
-                $target_file = $target_dir . basename($_FILES['course_image']['name']);
-                move_uploaded_file($_FILES["course_image"]["tmp_name"], $target_file);
-                $newAvatar = basename($_FILES['course_image']['name']);
-            }
+
 
             $name = $_POST['course_name'];
-            $thumb = $newAvatar;
+            $thumb = $_POST['course_curImg'];
             $price = $_POST['course_price'];
             $old_price = $_POST['course_oldPrice'];
             $description = $_POST['course_description'];

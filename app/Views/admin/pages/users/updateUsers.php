@@ -12,14 +12,12 @@ ipView("admin.component.header")
                         <p class="card-category">Thông tin chung</p>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="<?= $GLOBALS["domainPage"] ?>/admin_users/handleUpdateUsers"
-                            enctype="multipart/form-data">
+                        <form method="post" action="<?= $GLOBALS["domainPage"] ?>/admin_users/handleUpdateUsers" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Họ tên</label>
-                                        <input required type="text" name="user_name" value="<?= $data["name"] ?>"
-                                            class="form-control">
+                                        <input required type="text" name="user_name" value="<?= $data["name"] ?>" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -45,11 +43,9 @@ ipView("admin.component.header")
                                         <label id="labelImage" for="image">
                                             <p>Upload ảnh</p>
                                         </label>
-                                        <span style="font-size: 16px;" id="previewText">test</span>
+                                        <span style="font-size: 16px;" id="previewText"></span>
                                         <div style="margin: 12px;">
-                                            <img class="imgUpload" style="height: 200px; object-fit: contain;"
-                                                src="<?= $GLOBALS["domainPage"] ?>/uploads/<?= $data["avatar"] ?>"
-                                                alt="">
+                                            <img class="imgUpload" style="height: 200px; object-fit: contain;" src="<?= $data["avatar"] ?>" alt="">
                                             <img class="loadingImg" src="https://i.gifer.com/7pld.gif" alt="">
                                         </div>
                                         <input hidden class="prdImage" type="file" name="user_avatar" id="image">
@@ -60,15 +56,13 @@ ipView("admin.component.header")
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Email</label>
-                                        <input required type="text" name="user_email" value="<?= $data["email"] ?>"
-                                            class="form-control">
+                                        <input required type="text" name="user_email" value="<?= $data["email"] ?>" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Password</label>
-                                        <input required type="text" name="user_password"
-                                            value="<?= $data["password"] ?>" class="form-control">
+                                        <input required type="text" name="user_password" value="<?= $data["password"] ?>" class="form-control">
                                     </div>
                                 </div>
 
@@ -78,21 +72,21 @@ ipView("admin.component.header")
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Điện thoại</label>
-                                        <input required type="text" name="user_phone" value="<?= $data["phone"] ?>"
-                                            class="form-control">
+                                        <input required type="text" name="user_phone" value="<?= $data["phone"] ?>" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Địa chỉ</label>
-                                        <input required type="text" name="user_address" value="<?= $data["address"] ?>"
-                                            class="form-control">
+                                        <input required type="text" name="user_address" value="<?= $data["address"] ?>" class="form-control">
                                     </div>
                                 </div>
 
                             </div>
 
                             <input type="text" hidden name="user_id" value="<?= $data["id"] ?>">
+                            <input type="text" class="user_curImg" name="user_curImg" hidden>
+
                             <input type="text" name="old_image" value="<?= $data["avatar"] ?>" hidden>
                             <button type="submit" class="btn btn-primary pull-right">Cập nhật</button>
                             <div class="clearfix"></div>
@@ -107,56 +101,60 @@ ipView("admin.component.header")
 
 
 <script>
-const imgUpload = document.querySelector(".imgUpload")
+    const imgUpload = document.querySelector(".imgUpload")
 
-const loadingImg = document.querySelector(".loadingImg")
+    const loadingImg = document.querySelector(".loadingImg")
 
-const showLoading = (isSuccess) => {
-    if (isSuccess) {
-        imgUpload.style.display = "block"
-        loadingImg.classList.remove("open")
-    } else {
-        imgUpload.style.display = "none"
-        loadingImg.classList.add("open")
+    const user_curImg = document.querySelector(".user_curImg")
+
+
+    const showLoading = (isSuccess) => {
+        if (isSuccess) {
+            imgUpload.style.display = "block"
+            loadingImg.classList.remove("open")
+        } else {
+            imgUpload.style.display = "none"
+            loadingImg.classList.add("open")
+        }
     }
-}
 
-const prdImage = document.querySelector(".prdImage")
-prdImage.onchange = async () => {
-    showLoading(false);
-    const urlImgUpload = await uploadFiles(prdImage.files)
+    const prdImage = document.querySelector(".prdImage")
+    prdImage.onchange = async () => {
+        showLoading(false);
+        const urlImgUpload = await uploadFiles(prdImage.files)
 
-    imgUpload.src = urlImgUpload;
-}
-
-
-const uploadFiles = async (files) => {
-    const CLOUD_NAME = "dpjieqbsk";
-    const PRESET_NAME = "braintech";
-    const FOLDER_NAME = "braintech";
-    const urlImage = "";
-    const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
-
-    const formData = new FormData();
-
-    formData.append("upload_preset", PRESET_NAME);
-    formData.append("folder", FOLDER_NAME);
-
-    for (const file of files) {
-        formData.append("file", file);
-
-        const response = await axios.post(api, formData, {
-            headers: {
-                "Content-Type": "multipart/form-data"
-            }
-        });
-        showLoading(response);
-        return response.data.secure_url
-
+        imgUpload.src = urlImgUpload;
+        user_curImg.value = urlImgUpload
     }
 
 
-}
+    const uploadFiles = async (files) => {
+        const CLOUD_NAME = "dpjieqbsk";
+        const PRESET_NAME = "braintech";
+        const FOLDER_NAME = "braintech";
+        const urlImage = "";
+        const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
+
+        const formData = new FormData();
+
+        formData.append("upload_preset", PRESET_NAME);
+        formData.append("folder", FOLDER_NAME);
+
+        for (const file of files) {
+            formData.append("file", file);
+
+            const response = await axios.post(api, formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                }
+            });
+            showLoading(response);
+            return response.data.secure_url
+
+        }
+
+
+    }
 </script>
 <?php
 ipView("admin.component.footer")

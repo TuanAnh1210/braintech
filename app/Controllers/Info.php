@@ -39,11 +39,9 @@ class Info extends BaseController
             $email = $_POST["email_user"];
             $phone = $_POST["phone_user"];
 
-            if (!empty($_FILES['avatar_user']['name'])) {
-                $target_dir = "uploads/";
-                $target_file = $target_dir . basename($_FILES['avatar_user']['name']);
-                move_uploaded_file($_FILES["avatar_user"]["tmp_name"], $target_file);
-                $newAvatar = basename($_FILES['avatar_user']['name']);
+            if (!empty($_POST['avaCur_user'])) {
+
+                $newAvatar = $_POST['avaCur_user'];
             } else {
                 $newAvatar =  $_SESSION["auth"]["avatar"];
             }

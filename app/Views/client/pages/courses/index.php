@@ -28,7 +28,8 @@
 
 <div class="courses__wrapper">
     <div class="container">
-        <h1 style="font-weight: 700; font-size: 28px; margin-bottom: 20px;">Khóa học Pro <span class="pro__label">Mới</span></h1>
+        <h1 style="font-weight: 700; font-size: 28px; margin-bottom: 20px;">Khóa học Pro <span
+                class="pro__label">Mới</span></h1>
         <div data-course="3" class="row courseWrapper">
 
         </div>
@@ -85,41 +86,41 @@
 
 
 <script>
-    // handle get data from db and convert arr php to arr js
-    const courses = <?= json_encode($courses) ?>;
+// handle get data from db and convert arr php to arr js
+const courses = <?= json_encode($courses) ?>;
 
-    const detail_courses = <?= json_encode($detail_courses) ?>;
+const detail_courses = <?= json_encode($detail_courses) ?>;
 
 
 
-    courses.forEach(element => {
-        for (let i in element) {
-            if (!isNaN(Number(i))) {
-                delete element[i];
-            }
+courses.forEach(element => {
+    for (let i in element) {
+        if (!isNaN(Number(i))) {
+            delete element[i];
         }
-    });
+    }
+});
 
 
-    detail_courses.forEach(element => {
-        for (let i in element) {
-            if (!isNaN(Number(i))) {
-                delete element[i];
-            }
+detail_courses.forEach(element => {
+    for (let i in element) {
+        if (!isNaN(Number(i))) {
+            delete element[i];
         }
-    });
+    }
+});
 
 
 
-    const courseWrapper = document.querySelectorAll(".courseWrapper")
+const courseWrapper = document.querySelectorAll(".courseWrapper")
 
-    courseWrapper.forEach(item => {
-        const data = courses.filter(course => course.cate_id == item.dataset.course)
-        item.innerHTML = data.map(ele => `
+courseWrapper.forEach(item => {
+    const data = courses.filter(course => course.cate_id == item.dataset.course)
+    item.innerHTML = data.map(ele => `
     <div class="col-12 col-md-6 col-lg-3">
 <a href="<?= $GLOBALS['domainPage'] ?>/courses/detailCourse?courseId=${ele.id}">
                     <div class="courses-newest_item">
-                        <img src="<?= $GLOBALS['domainPage'] ?>/uploads/${ele.thumb}" alt="" />
+                        <img src="${ele.thumb}" alt="" />
                         <h4>${ele.name}</h4>
                         <div class="courses-newest_info">
                             <i class="fa-solid fa-users"></i>
@@ -135,7 +136,7 @@
                 </a>
                 </div>
    `).join("")
-    })
+})
 </script>
 
 <?php ipView('client.component.footer') ?>

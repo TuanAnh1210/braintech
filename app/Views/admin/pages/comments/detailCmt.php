@@ -48,18 +48,13 @@
                                             <?= $value["name"] ?>
                                         </td>
                                         <td>
-                                            <img style="width: 100%; "
-                                                src="<?= $GLOBALS["domainPage"] ?>/uploads/<?= $value["avatar"] ?>"
-                                                alt="">
+                                            <img style="width: 100%; " src="<?= $value["avatar"] ?>" alt="">
                                         </td>
                                         <td>
                                             <?= $value["date_cmt"] ?>
                                         </td>
                                         <td>
-                                            <!-- <a href="<?= $GLOBALS["domainPage"] ?>/admin_comments/deleteCmt?idCmt=<?= $value["id"] ?>&idLesson=<?= $value["id_lesson"] ?>"
-                                                class=" course_delete-btn">
-                                                Xóa
-                                            </a> -->
+
 
                                             <span data-idCmt="<?= $value["id"] ?>"
                                                 data-idLesson="<?= $value["id_lesson"] ?>" style="color: #fff;"
