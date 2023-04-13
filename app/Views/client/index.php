@@ -189,34 +189,34 @@
     </div>
 </div>
 <script>
-    // handle get data from db and convert arr php to arr js
-    const courseNewest = <?= json_encode($courseNewest) ?>;
-    const detail_courses = <?= json_encode($detail_courses) ?>;
+// handle get data from db and convert arr php to arr js
+const courseNewest = <?= json_encode($courseNewest) ?>;
+const detail_courses = <?= json_encode($detail_courses) ?>;
 
 
 
-    courseNewest.forEach(element => {
-        for (let i in element) {
-            if (!isNaN(Number(i))) {
-                delete element[i];
-            }
+courseNewest.forEach(element => {
+    for (let i in element) {
+        if (!isNaN(Number(i))) {
+            delete element[i];
         }
-    });
+    }
+});
 
-    detail_courses.forEach(element => {
-        for (let i in element) {
-            if (!isNaN(Number(i))) {
-                delete element[i];
-            }
+detail_courses.forEach(element => {
+    for (let i in element) {
+        if (!isNaN(Number(i))) {
+            delete element[i];
         }
-    });
+    }
+});
 
-    const courses_newest_list = document.querySelector(".courses-newest_list")
+const courses_newest_list = document.querySelector(".courses-newest_list")
 
-    courses_newest_list.innerHTML = courseNewest.map(course => `
+courses_newest_list.innerHTML = courseNewest.map(course => `
 <a href="<?= $GLOBALS['domainPage'] ?>/courses/detailCourse?courseId=${course.id}">
                     <div class="courses-newest_item">
-                        <img src="<?= $GLOBALS['domainPage'] ?>/uploads/${course.thumb}" alt="" />
+                        <img src="${course.thumb}" alt="" />
                         <h4>${course.name}</h4>
                         <div class="courses-newest_info">
                             <i class="fa-solid fa-users"></i>

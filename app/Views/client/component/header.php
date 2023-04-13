@@ -79,7 +79,7 @@
 
                     <?php if (!empty($_SESSION['auth'])) : ?>
                     <div class="header__acc">
-                        <img src="<?= $GLOBALS['domainPage'] ?>/uploads/<?= $_SESSION['auth']["avatar"] ?>" alt="">
+                        <img src="<?= $_SESSION['auth']["avatar"] ?>" alt="">
                         <strong class="acc_name"><?= $_SESSION['auth']["name"] ?></strong>
                         <ul class="accMenu_wrapper">
                             <li class="accMenu_item">

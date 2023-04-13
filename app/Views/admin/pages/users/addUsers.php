@@ -81,6 +81,7 @@ ipView("admin.component.header")
                             </div>
 
 
+                            <input type="text" class="user_curImg" name="user_curImg" hidden>
 
                             <button type="submit" class="btn btn-primary pull-right">Tạo ngay</button>
                             <div class="clearfix"></div>
@@ -100,6 +101,9 @@ const imgUpload = document.querySelector(".imgUpload")
 
 const loadingImg = document.querySelector(".loadingImg")
 
+const user_curImg = document.querySelector(".user_curImg")
+
+
 const showLoading = (isSuccess) => {
     if (isSuccess) {
         imgUpload.style.display = "block"
@@ -116,6 +120,7 @@ prdImage.onchange = async () => {
     const urlImgUpload = await uploadFiles(prdImage.files)
 
     imgUpload.src = urlImgUpload;
+    user_curImg.value = urlImgUpload
 }
 
 
