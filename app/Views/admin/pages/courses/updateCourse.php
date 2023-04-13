@@ -30,9 +30,9 @@ ipView("admin.component.header")
                                         </label>
                                         <span style="font-size: 16px;" id="previewText"></span>
                                         <div style="margin: 12px;">
-                                            <img class="imgUpload" style="width: 200px;"
-                                                src="<?= $GLOBALS["domainPage"] ?>/uploads/<?= $data["thumb"] ?>"
+                                            <img class="imgUpload" style="width: 200px;" src="<?= $data["thumb"] ?>"
                                                 alt="">
+                                            <img class="loadingImg" src="https://i.gifer.com/7pld.gif" alt="">
                                         </div>
                                         <input hidden class="prdImage" type="file" name="course_image" id="image">
                                     </div>
@@ -74,6 +74,7 @@ ipView("admin.component.header")
 
                             <input hidden type="text" value="<?= $id_cate ?>" name="cate_id">
                             <input hidden type="text" value="<?= $data["thumb"] ?>" name="old_img">
+                            <input type="text" class="course_curImg" name="course_curImg" hidden>
                             <input type="text" value="<?= $id_course ?>" name="id_course" hidden>
                             <button type="submit" class="btn btn-primary pull-right">Cập nhật</button>
                             <div class="clearfix"></div>
@@ -88,13 +89,29 @@ ipView("admin.component.header")
 
 
 <script>
-const prdImage = document.querySelector(".prdImage")
 const imgUpload = document.querySelector(".imgUpload")
 
+const loadingImg = document.querySelector(".loadingImg")
+
+const course_curImg = document.querySelector(".course_curImg")
+
+const showLoading = (isSuccess) => {
+    if (isSuccess) {
+        imgUpload.style.display = "block"
+        loadingImg.classList.remove("open")
+    } else {
+        imgUpload.style.display = "none"
+        loadingImg.classList.add("open")
+    }
+}
+
+const prdImage = document.querySelector(".prdImage")
 prdImage.onchange = async () => {
+    showLoading(false);
     const urlImgUpload = await uploadFiles(prdImage.files)
 
     imgUpload.src = urlImgUpload;
+    course_curImg.value = urlImgUpload
 }
 
 
@@ -113,19 +130,12 @@ const uploadFiles = async (files) => {
     for (const file of files) {
         formData.append("file", file);
 
-        // fetch(api, {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "multipart/form-data"
-        //     },
-        //     body: JSON.stringify(formData)
-        // }).then(res => console.log(res))
         const response = await axios.post(api, formData, {
             headers: {
                 "Content-Type": "multipart/form-data"
             }
         });
-
+        showLoading(response);
         return response.data.secure_url
 
     }

@@ -258,7 +258,7 @@ const renderFe = (temp, arr) => {
                                         </td>
                                         <td>
                                          <img class="course_img"
-                                                src="${domainPage}/uploads/${course.thumb}" alt="">
+                                                src="${course.thumb}" alt="">
                                         </td>
                                         <td>
                                             ${chapters.filter(item => item.courses_id == course.id).length} chương
@@ -288,7 +288,7 @@ const renderBe = (temp, arr) => {
                                         </td>
                                         <td>
                                          <img class="course_img"
-                                                src="${domainPage}/uploads/${course.thumb}" alt="">
+                                                src="${course.thumb}" alt="">
                                         </td>
                                         <td>
                                             ${chapters.filter(item => item.courses_id == course.id).length} chương
@@ -322,7 +322,7 @@ const renderPro = (temp, arr) => {
                                         </td>
                                         <td>
                                          <img class="course_img"
-                                                src="${domainPage}/uploads/${course.thumb}" alt="">
+                                                src="${course.thumb}" alt="">
                                         </td>
                                         <td>
                                             ${chapters.filter(item => item.courses_id == course.id).length} chương

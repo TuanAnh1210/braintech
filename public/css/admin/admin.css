@@ -162,13 +162,16 @@
 /* paginationFe">
 paginationFe-btn */
 
+
+.paginationPro,
 .paginationBe,
 .paginationFe {
     text-align: center;
 }
 
 .paginationBe-btn,
-.paginationFe-btn {
+.paginationFe-btn,
+.paginationPro-btn {
     border: none;
     background: linear-gradient(60deg, #7b1fa2, #913f9e);
     box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(156 39 176 / 40%);
@@ -178,11 +181,13 @@ paginationFe-btn */
     opacity: .4;
 }
 
+.paginationPro-btn.active,
 .paginationBe-btn.active,
 .paginationFe-btn.active {
     opacity: 1;
 }
 
+.paginationPro-btn:hover,
 .paginationBe-btn:hover,
 .paginationFe-btn:hover {
     opacity: 1;

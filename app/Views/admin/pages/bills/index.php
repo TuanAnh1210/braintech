@@ -18,7 +18,8 @@
                             </p>
                         </div>
                         <button class="courses-add">
-                            <a style="height: 100%; display: flex; align-items: center; width: 100%;" href="<?= $GLOBALS['domainPage'] ?>/admin_bills/statisticalBill">Biểu
+                            <a style="height: 100%; display: flex; align-items: center; width: 100%;"
+                                href="<?= $GLOBALS['domainPage'] ?>/admin_bills/statisticalBill">Biểu
                                 đồ</a>
                         </button>
                     </div>
@@ -61,48 +62,48 @@
 
 
 <script>
-    // handle get data from db and convert arr php to arr js
-    const data = <?= json_encode($data) ?>;
-    const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
+// handle get data from db and convert arr php to arr js
+const data = <?= json_encode($data) ?>;
+const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
 
 
-    data.forEach(element => {
-        for (let i in element) {
-            if (!isNaN(Number(i))) {
-                delete element[i];
-            }
+data.forEach(element => {
+    for (let i in element) {
+        if (!isNaN(Number(i))) {
+            delete element[i];
         }
-    });
+    }
+});
 
 
 
 
 
 
-    // handle quantity btn pagination fe courses
-    let numberData = 3
+// handle quantity btn pagination fe courses
+let numberData = 3
 
 
-    const paginationFe = document.querySelector('.paginationFe')
+const paginationFe = document.querySelector('.paginationFe')
 
-    for (let i = 0; i < Math.ceil(data.length / numberData); i++) {
-        paginationFe.innerHTML += `
+for (let i = 0; i < Math.ceil(data.length / numberData); i++) {
+    paginationFe.innerHTML += `
         <button class="paginationFe-btn">${i + 1}</button>
     `
-    }
+}
 
 
 
-    // feat: pagination
+// feat: pagination
 
-    let temp = 0
+let temp = 0
 
-    const render = (temp) => {
-        let target = temp > 0 ? temp * numberData : numberData
+const render = (temp) => {
+    let target = temp > 0 ? temp * numberData : numberData
 
-        const newData = data.slice(target - numberData, target)
+    const newData = data.slice(target - numberData, target)
 
-        document.querySelector('tbody').innerHTML = newData.map((ele, index) => `
+    document.querySelector('tbody').innerHTML = newData.map((ele, index) => `
         <tr>
                                         <td>
                                             ${++index}
@@ -113,7 +114,7 @@
                                         <td>
 
                                          <img class="course_img"
-                                                src="${domainPage}/uploads/${ele.thumb}" alt="">
+                                                src="${ele.thumb}" alt="">
 
                                         </td>
                                         <td>
@@ -129,37 +130,37 @@
                                         </td>
                                     </tr>
     `).join('')
+}
+
+
+
+render(temp)
+
+// feat: click paginationFe-btn then pagination
+
+const btnsFe = document.querySelectorAll('.paginationFe-btn')
+btnsFe[0].classList.add("active")
+
+for (let i = 0; i < btnsFe.length; i++) {
+    btnsFe[i].onclick = () => {
+        document.querySelector(".paginationFe-btn.active").classList.remove("active")
+        btnsFe[i].classList.add("active")
+        render(btnsFe[i].innerText)
     }
+}
 
 
+// handle search 
+const search_ipt = document.querySelector('#search_ipt')
 
-    render(temp)
+const renderSearch = (dataSearch) => {
 
-    // feat: click paginationFe-btn then pagination
-
-    const btnsFe = document.querySelectorAll('.paginationFe-btn')
-    btnsFe[0].classList.add("active")
-
-    for (let i = 0; i < btnsFe.length; i++) {
-        btnsFe[i].onclick = () => {
-            document.querySelector(".paginationFe-btn.active").classList.remove("active")
-            btnsFe[i].classList.add("active")
-            render(btnsFe[i].innerText)
-        }
-    }
-
-
-    // handle search 
-    const search_ipt = document.querySelector('#search_ipt')
-
-    const renderSearch = (dataSearch) => {
-
-        const sameArray = JSON.stringify(dataSearch) === JSON.stringify(data);
-        console.log(sameArray)
-        if (sameArray) {
-            render(temp)
-        } else {
-            document.querySelector('tbody').innerHTML = dataSearch.map((ele, index) => `
+    const sameArray = JSON.stringify(dataSearch) === JSON.stringify(data);
+    console.log(sameArray)
+    if (sameArray) {
+        render(temp)
+    } else {
+        document.querySelector('tbody').innerHTML = dataSearch.map((ele, index) => `
         <tr>
                                         <td>
                                             ${++index}
@@ -186,41 +187,41 @@
                                         </td>
                                     </tr>
 `).join('')
-        }
-
-
     }
 
-    search_ipt.onkeyup = () => {
-        const valueIpt = search_ipt.value.toLowerCase().normalize('NFD')
+
+}
+
+search_ipt.onkeyup = () => {
+    const valueIpt = search_ipt.value.toLowerCase().normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/đ/g, 'd').replace(/Đ/g, 'D')
+    const arr = []
+    data.forEach(item => {
+        const text = item.name.toLowerCase().normalize('NFD')
             .replace(/[\u0300-\u036f]/g, '')
             .replace(/đ/g, 'd').replace(/Đ/g, 'D')
-        const arr = []
-        data.forEach(item => {
-            const text = item.name.toLowerCase().normalize('NFD')
-                .replace(/[\u0300-\u036f]/g, '')
-                .replace(/đ/g, 'd').replace(/Đ/g, 'D')
 
-            if (text.indexOf(valueIpt) > -1) {
-                arr.push(item)
-            }
-        })
-
-
-
-        renderSearch(arr)
-
-    }
-
-
-
-    // feat: delete lesson
-    const handleDelete = (id, id_chapter, id_course) => {
-
-        if (confirm("Bạn chắc chắn muốn xóa bài học này !")) {
-            window.location.href =
-                `${domainPage}/admin_lesson/deleteLesson?lessonId=${id}&chapterId=${id_chapter}&courseId=${id_course}`
+        if (text.indexOf(valueIpt) > -1) {
+            arr.push(item)
         }
+    })
+
+
+
+    renderSearch(arr)
+
+}
+
+
+
+// feat: delete lesson
+const handleDelete = (id, id_chapter, id_course) => {
+
+    if (confirm("Bạn chắc chắn muốn xóa bài học này !")) {
+        window.location.href =
+            `${domainPage}/admin_lesson/deleteLesson?lessonId=${id}&chapterId=${id_chapter}&courseId=${id_course}`
     }
+}
 </script>
 <?php ipView("admin.component.footer") ?>

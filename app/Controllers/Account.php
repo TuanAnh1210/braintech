@@ -53,7 +53,7 @@ class Account extends BaseController
             $name = $_POST['name_regis'];
             $email = $_POST['email_regis'];
             $password = $_POST['pass_regis'];
-            $avatar = "default.jpg";
+            $avatar = "https://res.cloudinary.com/dpjieqbsk/image/upload/v1681376184/braintech/n5ktpikmscz1ngfe59go.jpg";
             $address = "not available";
             $phone = "not available";
             $date_join = date("Y-m-d H:i:s");

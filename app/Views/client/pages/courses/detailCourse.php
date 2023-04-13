@@ -17,8 +17,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="course_img_wrapper">
-                    <img class="course_img" src="<?= $GLOBALS["domainPage"] ?>/uploads/<?= $course[0]["thumb"] ?>"
-                        alt="">
+                    <img class="course_img" src="<?= $course[0]["thumb"] ?>" alt="">
 
                     <?php if ($course[0]['price'] == 0) : ?>
                     <h4 class="course_free">Miễn phí</h4>
