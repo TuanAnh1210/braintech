@@ -115,10 +115,12 @@ detail_courses.forEach(element => {
 const courseWrapper = document.querySelectorAll(".courseWrapper")
 
 courseWrapper.forEach(item => {
+
     const data = courses.filter(course => course.cate_id == item.dataset.course)
+
     item.innerHTML = data.map(ele => `
     <div class="col-12 col-md-6 col-lg-3">
-<a href="<?= $GLOBALS['domainPage'] ?>/courses/detailCourse?courseId=${ele.id}">
+    <a href="<?= $GLOBALS['domainPage'] ?>/courses/detailCourse?courseId=${ele.id}">
                     <div class="courses-newest_item">
                         <img src="${ele.thumb}" alt="" />
                         <h4>${ele.name}</h4>
@@ -129,8 +131,6 @@ courseWrapper.forEach(item => {
                                 <p class="old__price">${ele.old_price.toLocaleString()}đ</p>
                                 <p>${ele.price.toLocaleString()}đ</p>
                             </div>` : `<p>Miễn phí</p>`}
-                            
-                           
                         </div>
                     </div>
                 </a>
