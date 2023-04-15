@@ -34,6 +34,8 @@ class Courses extends BaseController
         // $coursesFe = $this->coursesModel->getCourse(1, "cate_id");
         // $coursesBe = $this->coursesModel->getCourse(2, "cate_id");
         // $coursesPro = $this->coursesModel->getCourse(3, "cate_id");
+
+
         $courses = $this->coursesModel->getAll();
         $detail_courses = $this->detail_courseModel->getAll();
 

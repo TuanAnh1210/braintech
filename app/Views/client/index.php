@@ -65,12 +65,7 @@
 
         <div class="courses-newest">
             <h2>Khóa học mới nhất</h2>
-            <div class="courses-newest_list owl-carousel owl-theme">
-                <?php foreach ($courseNewest as $key => $value) : ?>
-
-                <?php endforeach ?>
-
-            </div>
+            <div class="courses-newest_list owl-carousel owl-theme"></div>
         </div>
     </div>
 </div>
@@ -189,31 +184,31 @@
     </div>
 </div>
 <script>
-// handle get data from db and convert arr php to arr js
-const courseNewest = <?= json_encode($courseNewest) ?>;
-const detail_courses = <?= json_encode($detail_courses) ?>;
+    // handle get data from db and convert arr php to arr js
+    const courseNewest = <?= json_encode($courseNewest) ?>;
+    const detail_courses = <?= json_encode($detail_courses) ?>;
 
 
 
-courseNewest.forEach(element => {
-    for (let i in element) {
-        if (!isNaN(Number(i))) {
-            delete element[i];
+    courseNewest.forEach(element => {
+        for (let i in element) {
+            if (!isNaN(Number(i))) {
+                delete element[i];
+            }
         }
-    }
-});
+    });
 
-detail_courses.forEach(element => {
-    for (let i in element) {
-        if (!isNaN(Number(i))) {
-            delete element[i];
+    detail_courses.forEach(element => {
+        for (let i in element) {
+            if (!isNaN(Number(i))) {
+                delete element[i];
+            }
         }
-    }
-});
+    });
 
-const courses_newest_list = document.querySelector(".courses-newest_list")
+    const courses_newest_list = document.querySelector(".courses-newest_list")
 
-courses_newest_list.innerHTML = courseNewest.map(course => `
+    courses_newest_list.innerHTML = courseNewest.map(course => `
 <a href="<?= $GLOBALS['domainPage'] ?>/courses/detailCourse?courseId=${course.id}">
                     <div class="courses-newest_item">
                         <img src="${course.thumb}" alt="" />
