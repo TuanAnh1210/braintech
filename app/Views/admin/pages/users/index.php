@@ -14,7 +14,8 @@
             <div class="col-md-12">
                 <form class="form_user" action="" method="post">
                     <div class="card">
-                        <div style="display: flex; justify-content: space-between; align-items: center;" class="card-header card-header-primary">
+                        <div style="display: flex; justify-content: space-between; align-items: center;"
+                            class="card-header card-header-primary">
                             <div class="courses-heading">
                                 <h4 class="card-title ">Quản lí tài khoản</h4>
                                 <p class="card-category">Danh sách tài khoản</p>
@@ -28,7 +29,8 @@
 
                                 <button class="btn-action">Thực hiện</button>
 
-                                <a class="addNewAcc" href="<?= $GLOBALS['domainPage'] ?>/admin_users/addUsers" class="course_view-btn">Tạo mới</a>
+                                <a class="addNewAcc" href="<?= $GLOBALS['domainPage'] ?>/admin_users/addUsers"
+                                    class="course_view-btn">Tạo mới</a>
                             </div>
 
                         </div>
@@ -83,48 +85,48 @@
 
 
 <script>
-    // handle get data from db and convert arr php to arr js
-    const data = <?= json_encode($data) ?>;
-    const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
+// handle get data from db and convert arr php to arr js
+const data = <?= json_encode($data) ?>;
+const domainPage = <?= json_encode($GLOBALS['domainPage']) ?>;
 
 
 
-    data.forEach(element => {
-        for (let i in element) {
-            if (!isNaN(Number(i))) {
-                delete element[i];
-            }
+data.forEach(element => {
+    for (let i in element) {
+        if (!isNaN(Number(i))) {
+            delete element[i];
         }
-    });
+    }
+});
 
 
 
 
 
-    // handle quantity btn pagination fe courses
-    let numberData = 3
+// handle quantity btn pagination fe courses
+let numberData = 3
 
 
-    const paginationFe = document.querySelector('.paginationFe')
+const paginationFe = document.querySelector('.paginationFe')
 
-    for (let i = 0; i < Math.ceil(data.length / numberData); i++) {
-        paginationFe.innerHTML += `
+for (let i = 0; i < Math.ceil(data.length / numberData); i++) {
+    paginationFe.innerHTML += `
         <button class="paginationFe-btn">${i + 1}</button>
     `
-    }
+}
 
 
 
-    // feat: pagination
+// feat: pagination
 
-    let temp = 0
+let temp = 0
 
-    const render = (temp) => {
-        let target = temp > 0 ? temp * numberData : numberData
+const render = (temp) => {
+    let target = temp > 0 ? temp * numberData : numberData
 
-        const newData = data.slice(target - numberData, target)
+    const newData = data.slice(target - numberData, target)
 
-        document.querySelector('tbody').innerHTML = newData.map((ele, index) => `
+    document.querySelector('tbody').innerHTML = newData.map((ele, index) => `
     <tr>
                                         <td>
                                             ${++index}
@@ -157,38 +159,38 @@
 
                                     </tr>
     `).join('')
+}
+
+
+
+render(temp)
+
+// feat: click paginationFe-btn then pagination
+
+const btnsFe = document.querySelectorAll('.paginationFe-btn')
+btnsFe[0].classList.add("active")
+
+for (let i = 0; i < btnsFe.length; i++) {
+    btnsFe[i].onclick = (e) => {
+        e.preventDefault();
+        document.querySelector(".paginationFe-btn.active").classList.remove("active")
+        btnsFe[i].classList.add("active")
+        render(btnsFe[i].innerText)
     }
+}
 
 
+// handle search 
+const search_ipt = document.querySelector('#search_ipt')
 
-    render(temp)
+const renderSearch = (dataSearch) => {
 
-    // feat: click paginationFe-btn then pagination
-
-    const btnsFe = document.querySelectorAll('.paginationFe-btn')
-    btnsFe[0].classList.add("active")
-
-    for (let i = 0; i < btnsFe.length; i++) {
-        btnsFe[i].onclick = (e) => {
-            e.preventDefault();
-            document.querySelector(".paginationFe-btn.active").classList.remove("active")
-            btnsFe[i].classList.add("active")
-            render(btnsFe[i].innerText)
-        }
-    }
-
-
-    // handle search 
-    const search_ipt = document.querySelector('#search_ipt')
-
-    const renderSearch = (dataSearch) => {
-
-        const sameArray = JSON.stringify(dataSearch) === JSON.stringify(data);
-        console.log(sameArray)
-        if (sameArray) {
-            render(temp)
-        } else {
-            document.querySelector('tbody').innerHTML = dataSearch.map((ele, index) => `
+    const sameArray = JSON.stringify(dataSearch) === JSON.stringify(data);
+    console.log(sameArray)
+    if (sameArray) {
+        render(temp)
+    } else {
+        document.querySelector('tbody').innerHTML = dataSearch.map((ele, index) => `
     <tr>
                                     <td>
                                         ${++index}
@@ -221,68 +223,72 @@
 
                                 </tr>
 `).join('')
-        }
-
-
     }
 
-    search_ipt.onkeyup = () => {
-        const valueIpt = search_ipt.value.toLowerCase().normalize('NFD')
+
+}
+
+search_ipt.onkeyup = () => {
+    const valueIpt = search_ipt.value.toLowerCase().normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/đ/g, 'd').replace(/Đ/g, 'D')
+    const arr = []
+    data.forEach(item => {
+        const text = item.name.toLowerCase().normalize('NFD')
             .replace(/[\u0300-\u036f]/g, '')
             .replace(/đ/g, 'd').replace(/Đ/g, 'D')
-        const arr = []
-        data.forEach(item => {
-            const text = item.name.toLowerCase().normalize('NFD')
-                .replace(/[\u0300-\u036f]/g, '')
-                .replace(/đ/g, 'd').replace(/Đ/g, 'D')
 
-            if (text.indexOf(valueIpt) > -1) {
-                arr.push(item)
-            }
-        })
-
-
-
-        renderSearch(arr)
-
-    }
-
-
-
-
-    const form_user = document.querySelector('.form_user')
-    const btn_action = document.querySelector('.btn-action')
-    const action_user = document.querySelector('.action_user')
-
-    btn_action.onclick = (e) => {
-        e.preventDefault()
-
-        const check_users = document.querySelectorAll(".check-user")
-        let isChecked = false
-        check_users.forEach(item => {
-            if (item.checked) {
-                isChecked = true
-            }
-        })
-
-        if (!!isChecked) {
-            switch (action_user.value) {
-                case 'edit':
-                    form_user.action = "<?= $GLOBALS["domainPage"] ?>/admin_users/updateUsers"
-                    form_user.submit()
-                    break;
-                case 'delete':
-                    form_user.action = "<?= $GLOBALS["domainPage"] ?>/admin_users/deleteUsers"
-                    if (confirm('Bạn chắc chắn muốn xóa ?'))
-                        form_user.submit()
-                    break;
-                default:
-                    break;
-            }
-
-        } else {
-            alert("Vui lòng chọn ít nhất một tài khoản")
+        if (text.indexOf(valueIpt) > -1) {
+            arr.push(item)
         }
+    })
+
+
+
+    renderSearch(arr)
+
+}
+
+
+
+
+const form_user = document.querySelector('.form_user')
+
+const btn_action = document.querySelector('.btn-action')
+
+const action_user = document.querySelector('.action_user')
+
+btn_action.onclick = (e) => {
+    e.preventDefault()
+
+    const check_users = document.querySelectorAll(".check-user")
+
+    let isChecked = false
+
+    check_users.forEach(item => {
+        if (item.checked) {
+            isChecked = true
+        }
+    })
+
+    if (!!isChecked) {
+        switch (action_user.value) {
+            case 'edit':
+                form_user.action = "<?= $GLOBALS["domainPage"] ?>/admin_users/updateUsers"
+                form_user.submit()
+                break;
+            case 'delete':
+                form_user.action = "<?= $GLOBALS["domainPage"] ?>/admin_users/deleteUsers"
+                if (confirm('Bạn chắc chắn muốn xóa ?'))
+                    form_user.submit()
+                break;
+            default:
+                break;
+        }
+
+    } else {
+        alert("Vui lòng chọn ít nhất một tài khoản")
     }
+}
 </script>
 <?php ipView("admin.component.footer") ?>
